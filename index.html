@@ -3,17 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Meitleit Printers — Professional Printers for Home & Office</title>
+  <title data-i18n="title">Meitleit Printers — Professional Printers for Home & Office</title>
   <meta name="description" content="Meitleit — reliable, high-quality printers. Browse models, compare specs and buy online." />
 
-  <!-- Simple, modern CSS inspired by Lenovo product pages (white + gray + red accent) -->
   <style>
     :root{
       --bg: #ffffff;
       --muted: #6b7280;
       --text: #0b1220;
       --card: #f8f9fb;
-      --accent: #e60012; /* Lenovo-like red */
+      --accent: #e60012;
       --accent-dark: #b10a10;
       --glass: rgba(11,18,32,0.03);
       --maxw:1200px;
@@ -83,6 +82,9 @@
       .grid{grid-template-columns:1fr}
       .product-preview img{width:260px}
     }
+    /* small language dropdown styling */
+    .lang-wrap{margin-left:12px}
+    #langSelect{padding:6px 10px;border-radius:8px;border:1px solid #e6eef6;background:#fff;font-weight:600}
   </style>
 </head>
 <body>
@@ -91,21 +93,29 @@
       <div class="brand">
         <div class="logo" aria-hidden="true">M</div>
         <div>
-          <div style="font-weight:700">Meitleit</div>
-          <div style="font-size:12px;color:var(--muted)">Professional Printers</div>
+          <div style="font-weight:700" data-i18n="brandName">Meitleit</div>
+          <div style="font-size:12px;color:var(--muted)" data-i18n="brandTag">Professional Printers</div>
         </div>
       </div>
 
       <nav class="nav-links" aria-label="primary">
-        <a href="#products">Products</a>
-        <a href="#business">For Business</a>
-        <a href="#support">Support</a>
-        <a href="#deals">Deals</a>
+        <a href="#products" data-i18n="navProducts">Products</a>
+        <a href="#business" data-i18n="navBusiness">For Business</a>
+        <a href="#support" data-i18n="navSupport">Support</a>
+        <a href="#deals" data-i18n="navDeals">Deals</a>
       </nav>
 
-      <div class="cta" aria-hidden="false">
-        <button class="btn" onclick="openContact()">Contact Sales</button>
-        <button class="btn btn-primary" onclick="scrollToId('products')">Shop now</button>
+      <div style="display:flex;align-items:center" class="cta" aria-hidden="false">
+        <button class="btn" onclick="openContact()" data-i18n="contactSales">Contact Sales</button>
+        <button class="btn btn-primary" onclick="scrollToId('products')" data-i18n="shopNow">Shop now</button>
+
+        <div class="lang-wrap" title="Language">
+          <select id="langSelect" onchange="changeLang(this.value)" aria-label="Language select">
+            <option value="en">🇲🇾 English</option>
+            <option value="zh">🇨🇳 中文</option>
+            <option value="ms">🇲🇾 Melayu</option>
+          </select>
+        </div>
       </div>
     </div>
   </header>
@@ -115,38 +125,37 @@
     <section class="hero container" aria-label="Hero">
       <div class="hero-grid">
         <div>
-          <div class="eyebrow">Reliable • Fast • Cost-efficient</div>
-          <h1>Meitleit Printers for business and home — built to perform</h1>
-          <p class="lead">High-quality prints, low running cost and easy cloud management. Choose the right model for your workspace — from compact home printers to robust office fleets.</p>
+          <div class="eyebrow" data-i18n="heroEyebrow">Reliable • Fast • Cost-efficient</div>
+          <h1 id="heroTitle" data-i18n="heroTitle">Meitleit Printers for business and home — built to perform</h1>
+          <p class="lead" id="heroLead" data-i18n="heroLead">High-quality prints, low running cost and easy cloud management. Choose the right model for your workspace — from compact home printers to robust office fleets.</p>
 
           <div class="hero-actions">
-            <button class="btn btn-primary" onclick="scrollToId('products')">Shop printers</button>
-            <button class="btn" onclick="openCatalog()">Download spec sheet</button>
+            <button class="btn btn-primary" onclick="scrollToId('products')" data-i18n="heroShop">Shop printers</button>
+            <button class="btn" onclick="openCatalog()" data-i18n="heroDownload">Download spec sheet</button>
             <div style="display:flex;align-items:center;gap:10px;margin-left:8px">
-              <div class="badge">Free shipping RM199+</div>
-              <div class="badge">2-year limited warranty</div>
+              <div class="badge" data-i18n="badge1">Free shipping RM199+</div>
+              <div class="badge" data-i18n="badge2">2-year limited warranty</div>
             </div>
           </div>
 
           <div class="features-row" aria-hidden="true">
-            <div class="badge">Fast prints up to 40 ppm</div>
-            <div class="badge">Wireless & Ethernet</div>
-            <div class="badge">Low cost per page</div>
+            <div class="badge" data-i18n="feat1">Fast prints up to 40 ppm</div>
+            <div class="badge" data-i18n="feat2">Wireless & Ethernet</div>
+            <div class="badge" data-i18n="feat3">Low cost per page</div>
           </div>
         </div>
 
         <aside class="hero-card product-preview" aria-label="Featured product">
-          <!-- Replace assets/featured-printer.jpg with your image -->
           <img src="assets/featured-printer.jpg" alt="Featured Meitleit Printer">
           <div style="text-align:center">
-            <div style="font-weight:700">Meitleit Pro M4200</div>
-            <div class="muted" style="font-size:14px">Reliable A4 mono laser for busy offices</div>
+            <div style="font-weight:700" data-i18n="featuredModel">Meitleit Pro M4200</div>
+            <div class="muted" style="font-size:14px" data-i18n="featuredDesc">Reliable A4 mono laser for busy offices</div>
             <div style="margin-top:10px">
-              <div class="price">RM1,899</div>
+              <div class="price" data-i18n="featuredPrice">RM1,899</div>
             </div>
             <div style="display:flex;gap:10px;justify-content:center;margin-top:12px">
-              <button class="btn btn-primary">Buy Now</button>
-              <button class="btn" onclick="scrollToId('products')">View models</button>
+              <button class="btn btn-primary" onclick="buy('Meitleit Pro M4200')" data-i18n="buyNow">Buy Now</button>
+              <button class="btn" onclick="scrollToId('products')" data-i18n="viewModels">View models</button>
             </div>
           </div>
         </aside>
@@ -155,24 +164,24 @@
 
     <!-- PRODUCTS -->
     <section id="products" class="section container" aria-label="Products">
-      <h2>Our Printers</h2>
-      <div class="muted">Hand-picked selection for home offices and enterprise fleets. Click a model to learn more or buy.</div>
+      <h2 data-i18n="productsTitle">Our Printers</h2>
+      <div class="muted" data-i18n="productsDesc">Hand-picked selection for home offices and enterprise fleets. Click a model to learn more or buy.</div>
 
       <div class="filters" style="margin-top:14px">
         <div class="search">
-          <input id="searchInput" type="search" placeholder="Search by model, feature, or price (e.g., M4200, color, RM)" aria-label="Search products">
-          <button class="btn" onclick="filterProducts()">Search</button>
+          <input id="searchInput" type="search" placeholder="" aria-label="Search products" data-i18n-placeholder="searchPlaceholder">
+          <button class="btn" onclick="filterProducts()" data-i18n="searchBtn">Search</button>
         </div>
         <select id="filterType" style="padding:10px;border-radius:8px;border:1px solid #eef2f6">
-          <option value="">All types</option>
-          <option value="home">Home</option>
-          <option value="office">Office</option>
-          <option value="enterprise">Enterprise</option>
+          <option value="" data-i18n="filterAll">All types</option>
+          <option value="home" data-i18n="filterHome">Home</option>
+          <option value="office" data-i18n="filterOffice">Office</option>
+          <option value="enterprise" data-i18n="filterEnterprise">Enterprise</option>
         </select>
         <select id="sortBy" style="padding:10px;border-radius:8px;border:1px solid #eef2f6">
-          <option value="popular">Sort: Popular</option>
-          <option value="price-low">Price: Low → High</option>
-          <option value="price-high">Price: High → Low</option>
+          <option value="popular" data-i18n="sortPopular">Sort: Popular</option>
+          <option value="price-low" data-i18n="sortLow">Price: Low → High</option>
+          <option value="price-high" data-i18n="sortHigh">Price: High → Low</option>
         </select>
       </div>
 
@@ -180,88 +189,76 @@
         <!-- Product card 1 -->
         <article class="card" data-type="office" data-price="1899" data-name="M4200">
           <div class="thumb"><img src="assets/m4200.jpg" alt="M4200"></div>
-          <div class="model">Meitleit Pro M4200</div>
-          <div class="muted">Mono Laser • 40 ppm • 1200×1200 DPI</div>
-          <div class="price">RM1,899</div>
-          <div class="specs">
-            <strong>Key specs:</strong> Duplex, 1,200 sheet capacity, Ethernet/Wi-Fi. Cost per page RM0.06
-          </div>
+          <div class="model" data-i18n="p1Model">Meitleit Pro M4200</div>
+          <div class="muted" data-i18n="p1Short">Mono Laser • 40 ppm • 1200×1200 DPI</div>
+          <div class="price" data-i18n="p1Price">RM1,899</div>
+          <div class="specs" data-i18n="p1Specs"><strong>Key specs:</strong> Duplex, 1,200 sheet capacity, Ethernet/Wi-Fi. Cost per page RM0.06</div>
           <div class="actions">
-            <button class="btn btn-primary" onclick="buy('Meitleit Pro M4200')">Buy</button>
-            <button class="btn" onclick="openDetails('M4200')">Learn more</button>
+            <button class="btn btn-primary" onclick="buy('Meitleit Pro M4200')" data-i18n="buy">Buy</button>
+            <button class="btn" onclick="openDetails('M4200')" data-i18n="learnMore">Learn more</button>
           </div>
         </article>
 
         <!-- Product card 2 -->
         <article class="card" data-type="home" data-price="599" data-name="H120">
           <div class="thumb"><img src="assets/h120.jpg" alt="H120"></div>
-          <div class="model">Meitleit Home H120</div>
-          <div class="muted">Inkjet • Color • 12 ppm • Compact</div>
-          <div class="price">RM599</div>
-          <div class="specs">
-            <strong>Key specs:</strong> Wireless, mobile print, low noise. Cost per color page RM0.25
-          </div>
+          <div class="model" data-i18n="p2Model">Meitleit Home H120</div>
+          <div class="muted" data-i18n="p2Short">Inkjet • Color • 12 ppm • Compact</div>
+          <div class="price" data-i18n="p2Price">RM599</div>
+          <div class="specs" data-i18n="p2Specs"><strong>Key specs:</strong> Wireless, mobile print, low noise. Cost per color page RM0.25</div>
           <div class="actions">
-            <button class="btn btn-primary" onclick="buy('Meitleit Home H120')">Buy</button>
-            <button class="btn" onclick="openDetails('H120')">Learn more</button>
+            <button class="btn btn-primary" onclick="buy('Meitleit Home H120')" data-i18n="buy">Buy</button>
+            <button class="btn" onclick="openDetails('H120')" data-i18n="learnMore">Learn more</button>
           </div>
         </article>
 
         <!-- Product card 3 -->
         <article class="card" data-type="enterprise" data-price="4999" data-name="E900">
           <div class="thumb"><img src="assets/e900.jpg" alt="E900"></div>
-          <div class="model">Meitleit Fleet E900</div>
-          <div class="muted">High-speed color • 80 ppm • Fleet management</div>
-          <div class="price">RM4,999</div>
-          <div class="specs">
-            <strong>Key specs:</strong> Enterprise-grade security, 5,000 page duty cycle, scanners & finishers.
-          </div>
+          <div class="model" data-i18n="p3Model">Meitleit Fleet E900</div>
+          <div class="muted" data-i18n="p3Short">High-speed color • 80 ppm • Fleet management</div>
+          <div class="price" data-i18n="p3Price">RM4,999</div>
+          <div class="specs" data-i18n="p3Specs"><strong>Key specs:</strong> Enterprise-grade security, 5,000 page duty cycle, scanners & finishers.</div>
           <div class="actions">
-            <button class="btn btn-primary" onclick="buy('Meitleit Fleet E900')">Buy</button>
-            <button class="btn" onclick="openDetails('E900')">Learn more</button>
+            <button class="btn btn-primary" onclick="buy('Meitleit Fleet E900')" data-i18n="buy">Buy</button>
+            <button class="btn" onclick="openDetails('E900')" data-i18n="learnMore">Learn more</button>
           </div>
         </article>
 
-        <!-- Additional sample cards (edit/duplicate as needed) -->
+        <!-- Additional sample cards -->
         <article class="card" data-type="office" data-price="1299" data-name="M320">
           <div class="thumb"><img src="assets/m320.jpg" alt="M320"></div>
-          <div class="model">Meitleit M320</div>
-          <div class="muted">Mono Laser • 30 ppm • Small office</div>
-          <div class="price">RM1,299</div>
-          <div class="specs">
-            <strong>Key specs:</strong> Duplex, 600-sheet tray, cloud-ready.
-          </div>
+          <div class="model" data-i18n="p4Model">Meitleit M320</div>
+          <div class="muted" data-i18n="p4Short">Mono Laser • 30 ppm • Small office</div>
+          <div class="price" data-i18n="p4Price">RM1,299</div>
+          <div class="specs" data-i18n="p4Specs"><strong>Key specs:</strong> Duplex, 600-sheet tray, cloud-ready.</div>
           <div class="actions">
-            <button class="btn btn-primary" onclick="buy('Meitleit M320')">Buy</button>
-            <button class="btn" onclick="openDetails('M320')">Learn more</button>
+            <button class="btn btn-primary" onclick="buy('Meitleit M320')" data-i18n="buy">Buy</button>
+            <button class="btn" onclick="openDetails('M320')" data-i18n="learnMore">Learn more</button>
           </div>
         </article>
 
         <article class="card" data-type="home" data-price="399" data-name="H80">
           <div class="thumb"><img src="assets/h80.jpg" alt="H80"></div>
-          <div class="model">Meitleit H80</div>
-          <div class="muted">Compact Inkjet • 8 ppm • Photo mode</div>
-          <div class="price">RM399</div>
-          <div class="specs">
-            <strong>Key specs:</strong> Photo printing, Bluetooth, low upfront cost.
-          </div>
+          <div class="model" data-i18n="p5Model">Meitleit H80</div>
+          <div class="muted" data-i18n="p5Short">Compact Inkjet • 8 ppm • Photo mode</div>
+          <div class="price" data-i18n="p5Price">RM399</div>
+          <div class="specs" data-i18n="p5Specs"><strong>Key specs:</strong> Photo printing, Bluetooth, low upfront cost.</div>
           <div class="actions">
-            <button class="btn btn-primary" onclick="buy('Meitleit H80')">Buy</button>
-            <button class="btn" onclick="openDetails('H80')">Learn more</button>
+            <button class="btn btn-primary" onclick="buy('Meitleit H80')" data-i18n="buy">Buy</button>
+            <button class="btn" onclick="openDetails('H80')" data-i18n="learnMore">Learn more</button>
           </div>
         </article>
 
         <article class="card" data-type="office" data-price="2199" data-name="C510">
           <div class="thumb"><img src="assets/c510.jpg" alt="C510"></div>
-          <div class="model">Meitleit Color C510</div>
-          <div class="muted">Color Laser • 25 ppm • A4/A3</div>
-          <div class="price">RM2,199</div>
-          <div class="specs">
-            <strong>Key specs:</strong> Color management, A3 support, finishing options.
-          </div>
+          <div class="model" data-i18n="p6Model">Meitleit Color C510</div>
+          <div class="muted" data-i18n="p6Short">Color Laser • 25 ppm • A4/A3</div>
+          <div class="price" data-i18n="p6Price">RM2,199</div>
+          <div class="specs" data-i18n="p6Specs"><strong>Key specs:</strong> Color management, A3 support, finishing options.</div>
           <div class="actions">
-            <button class="btn btn-primary" onclick="buy('Meitleit Color C510')">Buy</button>
-            <button class="btn" onclick="openDetails('C510')">Learn more</button>
+            <button class="btn btn-primary" onclick="buy('Meitleit Color C510')" data-i18n="buy">Buy</button>
+            <button class="btn" onclick="openDetails('C510')" data-i18n="learnMore">Learn more</button>
           </div>
         </article>
       </div>
@@ -271,12 +268,12 @@
     <section id="business" class="section container">
       <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
         <div style="flex:1;min-width:260px">
-          <h2>For Business</h2>
-          <div class="muted">Scale efficiently with fleet management, centralized billing, and SLA-backed support.</div>
+          <h2 data-i18n="businessTitle">For Business</h2>
+          <div class="muted" data-i18n="businessDesc">Scale efficiently with fleet management, centralized billing, and SLA-backed support.</div>
           <ul style="margin-top:12px;color:var(--muted);line-height:1.6">
-            <li><strong>Fleet management:</strong> Monitor consumables and usage.</li>
-            <li><strong>Pro leasing:</strong> Flexible leasing options with maintenance.</li>
-            <li><strong>Security:</strong> Enterprise-grade data protection for networked printers.</li>
+            <li data-i18n="biz1"><strong>Fleet management:</strong> Monitor consumables and usage.</li>
+            <li data-i18n="biz2"><strong>Pro leasing:</strong> Flexible leasing options with maintenance.</li>
+            <li data-i18n="biz3"><strong>Security:</strong> Enterprise-grade data protection for networked printers.</li>
           </ul>
         </div>
         <div style="min-width:320px">
@@ -284,13 +281,13 @@
             <div style="display:flex;gap:12px;align-items:center">
               <img src="assets/business-icon.svg" alt="" style="width:56px;height:56px">
               <div>
-                <div style="font-weight:700">Business Enquiries</div>
-                <div class="muted">Contact our sales team for quotes and demo units.</div>
+                <div style="font-weight:700" data-i18n="bizPanelTitle">Business Enquiries</div>
+                <div class="muted" data-i18n="bizPanelDesc">Contact our sales team for quotes and demo units.</div>
               </div>
             </div>
             <div style="margin-top:12px;display:flex;gap:10px">
-              <button class="btn btn-primary" onclick="openContact()">Contact Sales</button>
-              <button class="btn" onclick="openCatalog()">Request quote</button>
+              <button class="btn btn-primary" onclick="openContact()" data-i18n="contactSales">Contact Sales</button>
+              <button class="btn" onclick="openCatalog()" data-i18n="requestQuote">Request quote</button>
             </div>
           </div>
         </div>
@@ -299,20 +296,20 @@
 
     <!-- SUPPORT / DEALS -->
     <section id="support" class="section container">
-      <h2>Support & Deals</h2>
-      <div class="muted">Warranty, driver downloads and special promotions.</div>
+      <h2 data-i18n="supportTitle">Support & Deals</h2>
+      <div class="muted" data-i18n="supportDesc">Warranty, driver downloads and special promotions.</div>
       <div style="display:flex;gap:16px;margin-top:14px;flex-wrap:wrap">
         <div class="hero-card" style="flex:1;min-width:220px">
-          <strong>Driver & Downloads</strong>
-          <div class="muted" style="margin-top:8px">Find manuals and drivers for your printer model.</div>
+          <strong data-i18n="driverTitle">Driver & Downloads</strong>
+          <div class="muted" style="margin-top:8px" data-i18n="driverDesc">Find manuals and drivers for your printer model.</div>
         </div>
         <div class="hero-card" style="flex:1;min-width:220px">
-          <strong>Warranty</strong>
-          <div class="muted" style="margin-top:8px">2-year limited warranty with optional on-site service.</div>
+          <strong data-i18n="warrantyTitle">Warranty</strong>
+          <div class="muted" style="margin-top:8px" data-i18n="warrantyDesc">2-year limited warranty with optional on-site service.</div>
         </div>
         <div class="hero-card" style="flex:1;min-width:220px">
-          <strong>Promotions</strong>
-          <div class="muted" style="margin-top:8px">Seasonal discounts and bundled consumables offers.</div>
+          <strong data-i18n="promoTitle">Promotions</strong>
+          <div class="muted" style="margin-top:8px" data-i18n="promoDesc">Seasonal discounts and bundled consumables offers.</div>
         </div>
       </div>
     </section>
@@ -323,38 +320,109 @@
       <div style="display:flex;gap:12px;align-items:center">
         <div class="logo" style="width:40px;height:40px;font-size:16px">M</div>
         <div>
-          <div style="font-weight:700">Meitleit</div>
-          <div style="font-size:13px;color:var(--muted)">Printers & Solutions</div>
+          <div style="font-weight:700" data-i18n="brandName">Meitleit</div>
+          <div style="font-size:13px;color:var(--muted)" data-i18n="brandTag">Printers & Solutions</div>
         </div>
       </div>
 
-      <div style="color:var(--muted);font-size:13px">© <span id="year"></span> Meitleit — All rights reserved</div>
+      <div style="color:var(--muted);font-size:13px">© <span id="year"></span> <span data-i18n="brandName">Meitleit</span> — <span data-i18n="footerRights">All rights reserved</span></div>
     </div>
   </footer>
 
-  <!-- Simple JS: product filtering and actions -->
   <script>
+    // set year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    function scrollToId(id){
-      const el = document.getElementById(id);
-      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    // simple utility: set element text or placeholder
+    function setText(el, text){
+      if(!el) return;
+      if(el.hasAttribute('data-i18n-placeholder')){
+        el.setAttribute('placeholder', text);
+      } else {
+        el.textContent = text;
+      }
     }
 
-    function openContact(){
-      alert('Contact Sales — open your email client or show a contact form here.');
-    }
-    function openCatalog(){
-      alert('Download spec sheet — hook this to a PDF link or file.');
-    }
-    function buy(model){
-      alert('Buy ' + model + ' — replace this with checkout flow or payment link.');
-    }
-    function openDetails(model){
-      alert('Open details for ' + model + ' — replace with modal or details page.');
+    // load language file and apply translations
+    async function changeLang(lang){
+      try{
+        const res = await fetch(lang + '.json');
+        if(!res.ok) throw new Error('Language file missing: ' + lang + '.json');
+        const data = await res.json();
+
+        // set page title separately if present
+        if(data.title) document.title = data.title;
+
+        // apply every data-i18n attribute in the DOM
+        const nodes = document.querySelectorAll('[data-i18n]');
+        nodes.forEach(node => {
+          const key = node.getAttribute('data-i18n');
+          if(data[key] !== undefined){
+            // allow HTML in values for a few keys (safe since files are local)
+            node.innerHTML = data[key];
+          }
+        });
+
+        // apply placeholders (attributes) separately
+        const placeholderNodes = document.querySelectorAll('[data-i18n-placeholder]');
+        placeholderNodes.forEach(node => {
+          const key = node.getAttribute('data-i18n-placeholder');
+          if(data[key] !== undefined){
+            node.setAttribute('placeholder', data[key]);
+          }
+        });
+
+        // save selection
+        localStorage.setItem('siteLang', lang);
+        // reflect dropdown (in case called programmatically)
+        const sel = document.getElementById('langSelect');
+        if(sel) sel.value = lang;
+      }catch(err){
+        console.error('Language load error', err);
+      }
     }
 
-    // Basic filtering/search
+    // on load, init saved language
+    window.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('siteLang') || 'en';
+      const sel = document.getElementById('langSelect');
+      if(sel) sel.value = saved;
+      changeLang(saved);
+
+      // Attach Enter key to search
+      const searchInput = document.getElementById('searchInput');
+      if(searchInput){
+        searchInput.addEventListener('keydown', (e) => {
+          if(e.key === 'Enter') filterProducts();
+        });
+      }
+    });
+
+    // existing functions (with translations for alerts)
+    async function openContact(){
+      const lang = localStorage.getItem('siteLang') || 'en';
+      const texts = await getLangTexts(lang);
+      alert(texts.contactAlert || 'Contact Sales — open your email client or show a contact form here.');
+    }
+    async function openCatalog(){
+      const lang = localStorage.getItem('siteLang') || 'en';
+      const texts = await getLangTexts(lang);
+      alert(texts.catalogAlert || 'Download spec sheet — hook this to a PDF link or file.');
+    }
+    async function buy(model){
+      const lang = localStorage.getItem('siteLang') || 'en';
+      const texts = await getLangTexts(lang);
+      const msgTemplate = texts.buyAlert || 'Buy {model} — replace this with checkout flow or payment link.';
+      alert(msgTemplate.replace('{model}', model));
+    }
+    async function openDetails(model){
+      const lang = localStorage.getItem('siteLang') || 'en';
+      const texts = await getLangTexts(lang);
+      const msg = (texts.detailsAlert || 'Open details for {model} — replace with modal or details page.').replace('{model}', model);
+      alert(msg);
+    }
+
+    // basic product filtering (unchanged logic)
     function filterProducts(){
       const q = (document.getElementById('searchInput').value || '').toLowerCase();
       const type = (document.getElementById('filterType').value || '').toLowerCase();
@@ -362,7 +430,6 @@
       const grid = document.getElementById('productGrid');
       let cards = Array.from(grid.querySelectorAll('.card'));
 
-      // filter by search and type
       cards.forEach(card => {
         const name = (card.getAttribute('data-name')||'').toLowerCase();
         const txt = (card.textContent||'').toLowerCase();
@@ -374,7 +441,6 @@
         card.dataset._price = price;
       });
 
-      // sort visible cards
       if(sort === 'price-low' || sort === 'price-high'){
         const visible = cards.filter(c => c.style.display !== 'none');
         visible.sort((a,b) => parseFloat(a.dataset._price) - parseFloat(b.dataset._price));
@@ -383,11 +449,25 @@
       }
     }
 
-    // init: attach Enter key to search
-    document.getElementById('searchInput').addEventListener('keydown', (e) => {
-      if(e.key === 'Enter') filterProducts();
-    });
+    // helper to fetch JSON once (cached)
+    const _langCache = {};
+    async function getLangTexts(lang){
+      if(_langCache[lang]) return _langCache[lang];
+      try{
+        const r = await fetch(lang + '.json');
+        const j = await r.json();
+        _langCache[lang] = j;
+        return j;
+      }catch(e){
+        return {};
+      }
+    }
+
+    // simple scroll helper
+    function scrollToId(id){
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
   </script>
 </body>
 </html>
-
