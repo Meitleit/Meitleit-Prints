@@ -29,7 +29,7 @@
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
     .card{background:#fff;border-radius:10px;padding:16px;border:1px solid #eef2f6;display:flex;flex-direction:column;gap:10px;text-align:center}
     
-    /* 👇 updated thumbnail styling */
+    /* 👇 updated image frame */
     .thumb {
       height: 180px;
       display: flex;
@@ -43,10 +43,10 @@
     .thumb img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* fills rectangular frame */
+      object-fit: cover;
       border-radius: 6px;
     }
-    /* 👆 end updated */
+    /* 👆 end frame style */
 
     .model{font-weight:700;font-size:16px}
     .specs{color:var(--muted);font-size:14px}
@@ -90,36 +90,63 @@
     <section id="products" class="section container">
       <h2 data-i18n="productsTitle">Our Printers</h2>
       <div class="grid">
+        <!-- Existing RICOH Products -->
         <article class="card"><div class="thumb"><img src="assets/ricoh-imc3000.jpg" alt=""></div>
           <div class="model">RICOH IM C3000</div>
           <div class="specs">30 ppm • Full Colour MFP</div>
           <div class="actions">
-            <button class="btn btn-primary" onclick="openInterest('RICOH IM C3000')" data-i18n="im_interested">I'm Interested</button>
-            <a class="btn" href="ricoh-imc-series.pdf" target="_blank" data-i18n="learn_more">Learn more</a>
+            <button class="btn btn-primary" onclick="openInterest('RICOH IM C3000')">I'm Interested</button>
+            <a class="btn" href="ricoh-imc-series.pdf" target="_blank">Learn more</a>
           </div>
         </article>
         <article class="card"><div class="thumb"><img src="assets/ricoh-imc3500.jpg" alt=""></div>
           <div class="model">RICOH IM C3500</div>
           <div class="specs">35 ppm • Full Colour MFP</div>
           <div class="actions">
-            <button class="btn btn-primary" onclick="openInterest('RICOH IM C3500')" data-i18n="im_interested">I'm Interested</button>
-            <a class="btn" href="ricoh-imc-series.pdf" target="_blank" data-i18n="learn_more">Learn more</a>
+            <button class="btn btn-primary" onclick="openInterest('RICOH IM C3500')">I'm Interested</button>
+            <a class="btn" href="ricoh-imc-series.pdf" target="_blank">Learn more</a>
           </div>
         </article>
         <article class="card"><div class="thumb"><img src="assets/ricoh-imc4500.jpg" alt=""></div>
           <div class="model">RICOH IM C4500</div>
           <div class="specs">45 ppm • Full Colour MFP</div>
           <div class="actions">
-            <button class="btn btn-primary" onclick="openInterest('RICOH IM C4500')" data-i18n="im_interested">I'm Interested</button>
-            <a class="btn" href="ricoh-imc-series.pdf" target="_blank" data-i18n="learn_more">Learn more</a>
+            <button class="btn btn-primary" onclick="openInterest('RICOH IM C4500')">I'm Interested</button>
+            <a class="btn" href="ricoh-imc-series.pdf" target="_blank">Learn more</a>
           </div>
         </article>
         <article class="card"><div class="thumb"><img src="assets/ricoh-imc6000.jpg" alt=""></div>
           <div class="model">RICOH IM C6000</div>
           <div class="specs">60 ppm • Full Colour MFP</div>
           <div class="actions">
-            <button class="btn btn-primary" onclick="openInterest('RICOH IM C6000')" data-i18n="im_interested">I'm Interested</button>
-            <a class="btn" href="ricoh-imc-series.pdf" target="_blank" data-i18n="learn_more">Learn more</a>
+            <button class="btn btn-primary" onclick="openInterest('RICOH IM C6000')">I'm Interested</button>
+            <a class="btn" href="ricoh-imc-series.pdf" target="_blank">Learn more</a>
+          </div>
+        </article>
+
+        <!-- 🆕 New Products -->
+        <article class="card"><div class="thumb"><img src="assets/Fuji-Xerox-ApeosPort.jpg" alt=""></div>
+          <div class="model">Fuji Xerox ApeosPort C3373 / C4473 / C5573</div>
+          <div class="specs">High-quality color multifunction printer</div>
+          <div class="actions">
+            <button class="btn btn-primary" onclick="openInterest('Fuji Xerox ApeosPort Series')">I'm Interested</button>
+            <a class="btn" href="#" target="_blank" style="opacity:0.6;pointer-events:none;">Learn more</a>
+          </div>
+        </article>
+        <article class="card"><div class="thumb"><img src="assets/Fujifilm-Apeos-C3060-C2560.jpg" alt=""></div>
+          <div class="model">Fujifilm Apeos C3060 / C2560</div>
+          <div class="specs">Compact design with efficient color output</div>
+          <div class="actions">
+            <button class="btn btn-primary" onclick="openInterest('Fujifilm Apeos C3060 / C2560')">I'm Interested</button>
+            <a class="btn" href="#" target="_blank" style="opacity:0.6;pointer-events:none;">Learn more</a>
+          </div>
+        </article>
+        <article class="card"><div class="thumb"><img src="assets/FujiFilm-Apeos.jpg" alt=""></div>
+          <div class="model">Fujifilm Apeos C3070 / C3570 / C4570 / C5570</div>
+          <div class="specs">Advanced color printing with high productivity</div>
+          <div class="actions">
+            <button class="btn btn-primary" onclick="openInterest('Fujifilm Apeos C3070 Series')">I'm Interested</button>
+            <a class="btn" href="#" target="_blank" style="opacity:0.6;pointer-events:none;">Learn more</a>
           </div>
         </article>
       </div>
@@ -128,14 +155,14 @@
 
   <div id="modalBackdrop" class="modal-backdrop">
     <div class="modal">
-      <h3 data-i18n="modalTitle">I'm interested — contact me</h3>
-      <p data-i18n="modalDesc">Fill in your contact details and we'll reach out to you.</p>
+      <h3>I'm interested — contact me</h3>
+      <p>Fill in your contact details and we'll reach out to you.</p>
       <div class="form-row"><input id="c_name" placeholder="Your name"></div>
       <div class="form-row"><input id="c_email" placeholder="Email"></div>
       <div class="form-row"><textarea id="c_msg" rows="4" placeholder="Message"></textarea></div>
       <div style="display:flex;gap:8px;justify-content:flex-end">
-        <button class="btn" onclick="closeModal()" data-i18n="modalCancel">Cancel</button>
-        <button class="btn btn-primary" onclick="submitInterest()" data-i18n="modalSubmit">Send</button>
+        <button class="btn" onclick="closeModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="submitInterest()">Send</button>
       </div>
     </div>
   </div>
@@ -172,7 +199,6 @@
       closeModal();
     }
     function openContact(){openInterest('');}
-    function scrollToId(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'});}
   </script>
 </body>
 </html>
