@@ -28,7 +28,7 @@
     .section{padding:48px 0}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
     .card{background:#fff;border-radius:10px;padding:16px;border:1px solid #eef2f6;display:flex;flex-direction:column;gap:10px;text-align:center}
-    
+
     /* 👇 image frame styling */
     .thumb {
       height: 180px;
@@ -55,6 +55,10 @@
     .modal{background:#fff;border-radius:12px;padding:18px;max-width:400px;width:90%}
     .form-row{margin-bottom:8px}
     .form-row input,.form-row textarea{width:100%;padding:8px;border-radius:8px;border:1px solid #eef2f6}
+
+    /* ✨ Fade-in animation for About section */
+    .fade-in{opacity:0;transform:translateY(20px);animation:fadeUp 1s ease-out forwards}
+    @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
   </style>
 </head>
 
@@ -69,6 +73,7 @@
         </div>
       </div>
       <nav class="nav-links">
+        <a href="#about" data-i18n="navAbout">About</a>
         <a href="#products" data-i18n="navProducts">Products</a>
         <a href="#business" data-i18n="navBusiness">For Business</a>
         <a href="#support" data-i18n="navSupport">Support</a>
@@ -86,6 +91,30 @@
   </header>
 
   <main>
+    <!-- 🏢 ABOUT SECTION -->
+    <section id="about" class="section container fade-in">
+      <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center">
+        <div style="flex:1;min-width:260px">
+          <h2 data-i18n="aboutTitle">About Meitleit</h2>
+          <p style="color:var(--muted);line-height:1.6" data-i18n="aboutDesc">
+            Meitleit is dedicated to providing professional-grade printing solutions for homes, offices, and enterprises.
+            We partner with trusted brands such as RICOH and Fujifilm to ensure reliability, speed, and top-quality output for all your business needs.
+          </p>
+          <p style="color:var(--muted);line-height:1.6">
+            From small-scale home printing to large enterprise setups, Meitleit delivers the perfect balance of performance and value.
+            Our mission is to make printing simple, efficient, and sustainable for every customer.
+          </p>
+          <button class="btn btn-primary" onclick="scrollToId('products')" data-i18n="exploreProducts">
+            Explore Products
+          </button>
+        </div>
+        <div style="flex:1;min-width:320px;text-align:center">
+          <img src="assets/about-image.jpg" alt="About Meitleit" style="max-width:100%;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.08)">
+        </div>
+      </div>
+    </section>
+
+    <!-- 🖨️ PRODUCTS SECTION -->
     <section id="products" class="section container">
       <h2 data-i18n="productsTitle">Our Printers</h2>
       <div class="grid">
@@ -197,6 +226,11 @@
       document.getElementById('langSelect').value=saved;
       changeLang(saved);
     };
+
+    function scrollToId(id){
+      const el=document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
 
     function openInterest(model){
       document.getElementById('modalBackdrop').style.display='flex';
