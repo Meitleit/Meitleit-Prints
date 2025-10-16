@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Meitleit — Professional Printers</title>
+  <title>Meitleit — Professional Printer Solutions</title>
   <style>
     :root{
       --accent:#e60012;--muted:#6b7280;--text:#0b1220;--bg:#ffffff;--maxw:1200px;
@@ -16,27 +16,57 @@
     .logo{font-weight:700;color:var(--accent);font-size:20px}
     nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-weight:600}
     nav a:hover{color:var(--accent)}
-    section{padding:60px 0}
-    h2{font-size:28px;margin-bottom:10px}
-    p{line-height:1.6;color:var(--muted)}
-    .btn{padding:10px 16px;border-radius:8px;font-weight:600;border:none;cursor:pointer}
+    section{padding:60px 0;text-align:center}
+    h1{font-size:32px;margin-bottom:16px}
+    p{color:var(--muted);max-width:700px;margin:auto;margin-bottom:24px}
+    .btn{padding:12px 20px;border-radius:8px;font-weight:600;border:none;cursor:pointer;text-decoration:none;display:inline-block}
     .btn-primary{background:var(--accent);color:#fff}
     footer{padding:36px 0;text-align:center;border-top:1px solid #f1f5f9;color:var(--muted)}
-
-    /* Welcome Ad */
-    .welcome-backdrop{
-      position:fixed;inset:0;background:rgba(0,0,0,0.6);
-      backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:200;
+    
+    /* 🌟 Welcome Ad Popup */
+    .welcome-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
     }
-    .welcome-modal{
-      background:#fff;padding:28px;border-radius:16px;max-width:400px;width:90%;text-align:center;position:relative;
-      box-shadow:0 8px 30px rgba(0,0,0,0.2);animation:popIn 0.6s ease forwards;
+    .welcome-modal {
+      background: #fff;
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+      text-align: center;
+      max-width: 420px;
+      width: 90%;
+      position: relative;
+      animation: popIn 0.6s ease forwards;
     }
-    .close-btn{position:absolute;top:10px;right:14px;background:none;border:none;font-size:22px;color:#888;cursor:pointer}
-    .close-btn:hover{color:var(--accent)}
-    @keyframes popIn{from{transform:scale(0.9);opacity:0;}to{transform:scale(1);opacity:1;}}
+    .welcome-modal img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px; right: 14px;
+      background: none;
+      border: none;
+      font-size: 22px;
+      color: #888;
+      cursor: pointer;
+    }
+    .close-btn:hover {color: var(--accent);}
+    @keyframes popIn {
+      from {transform: scale(0.9);opacity:0;}
+      to {transform: scale(1);opacity:1;}
+    }
   </style>
 </head>
+
 <body>
   <header class="container">
     <div class="logo">Meitleit</div>
@@ -49,54 +79,49 @@
     </nav>
   </header>
 
-  <main class="container">
-    <section>
-      <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center">
-        <div style="flex:1;min-width:260px">
-          <h2>About Meitleit</h2>
-          <p>Meitleit is dedicated to providing professional-grade printing solutions for homes, offices, and enterprises. 
-          We partner with trusted brands such as RICOH and Fujifilm to ensure reliability, speed, and top-quality output for all your business needs.</p>
-          <p>From small-scale home printing to large enterprise setups, Meitleit delivers the perfect balance of performance and value.</p>
-          <button class="btn btn-primary" onclick="window.location.href='products.html'">Explore Products</button>
-        </div>
-
-        <div style="flex:1;min-width:320px;text-align:center">
-          <img src="assets/about-image.jpg" alt="About Meitleit" style="max-width:100%;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.08)">
-        </div>
-      </div>
+  <main>
+    <section class="container">
+      <h1>About Meitleit</h1>
+      <p>At Meitleit, we provide reliable and high-quality office printing solutions for businesses and individuals across Malaysia. Our mission is to make professional printing accessible and affordable with flexible rental and purchase plans.</p>
+      <p>We specialize in premium printer brands such as Ricoh, Fuji Xerox, and Fujifilm — ensuring top performance, efficiency, and service excellence.</p>
+      <a href="products.html" class="btn btn-primary">Explore Products</a>
     </section>
   </main>
 
-  <!-- 💥 Welcome Ad -->
+  <!-- 💥 Welcome Ad Popup -->
   <div id="welcomeAd" class="welcome-backdrop">
     <div class="welcome-modal">
       <button class="close-btn" onclick="closeWelcomeAd()">×</button>
+      <img src="assets/welcome-poster.jpg" alt="Rental Poster">
       <div class="welcome-content">
-        <h2 style="color:var(--accent);margin-bottom:8px;">Rental Starting from RM60</h2>
-        <p style="color:var(--muted);margin-bottom:10px;">Only in Malaysia</p>
-        <p style="margin-bottom:20px;">For more info or if interested, please contact us via WhatsApp!</p>
         <a href="https://wa.me/60123456789" target="_blank" class="btn btn-primary">💬 Contact via WhatsApp</a>
       </div>
     </div>
   </div>
 
-  <footer>© <span id="year"></span> Meitleit — All rights reserved</footer>
+  <footer>
+    © <span id="year"></span> Meitleit — All rights reserved
+  </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Welcome Ad
-    function showWelcomeAd(){
+    function showWelcomeAd() {
       const seenAd = localStorage.getItem('seenWelcomeAd');
-      if(!seenAd){
-        document.getElementById('welcomeAd').style.display='flex';
-        localStorage.setItem('seenWelcomeAd','true');
+      if (!seenAd) {
+        document.getElementById('welcomeAd').style.display = 'flex';
+        localStorage.setItem('seenWelcomeAd', 'true');
       }
     }
-    function closeWelcomeAd(){
-      document.getElementById('welcomeAd').style.display='none';
+
+    function closeWelcomeAd() {
+      document.getElementById('welcomeAd').style.display = 'none';
     }
-    window.addEventListener('load',()=>setTimeout(showWelcomeAd,2000));
+
+    window.addEventListener('load', () => {
+      setTimeout(showWelcomeAd, 1500);
+    });
   </script>
 </body>
 </html>
+
