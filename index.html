@@ -3,130 +3,61 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title data-i18n="title">Meitleit Printers — Professional Printers for Home & Office</title>
-  
+  <title>Meitleit — Professional Printers</title>
   <style>
     :root{
-      --bg:#ffffff;--muted:#6b7280;--text:#0b1220;--card:#f8f9fb;
-      --accent:#e60012;--maxw:1200px;
+      --accent:#e60012;--muted:#6b7280;--text:#0b1220;--bg:#ffffff;--maxw:1200px;
       font-family:Inter,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--text)}
-    a{color:var(--accent);text-decoration:none}
+    body{margin:0;background:var(--bg);color:var(--text)}
     .container{max-width:var(--maxw);margin:auto;padding:0 20px}
-    header{border-bottom:1px solid #eef2f6;background:#fff;position:sticky;top:0;z-index:40}
-    .nav{height:72px;display:flex;align-items:center;justify-content:space-between}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:44px;height:44px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
-    .nav-links{display:flex;gap:18px}
-    .nav-links a{color:var(--muted);font-weight:600}
-    .cta{display:flex;align-items:center;gap:12px}
-    .btn{padding:10px 14px;border-radius:8px;font-weight:600;border:1px solid rgba(11,18,32,0.06);cursor:pointer}
-    .btn-primary{background:var(--accent);color:#fff;border:none}
-    #langSelect{padding:6px 10px;border-radius:8px;border:1px solid #e6eef6}
-    .section{padding:48px 0}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
-    .card{background:#fff;border-radius:10px;padding:16px;border:1px solid #eef2f6;display:flex;flex-direction:column;gap:10px;text-align:center}
-    .thumb {
-      height:180px;display:flex;align-items:center;justify-content:center;background:#fbfcfd;
-      border-radius:8px;border:1px solid #f0f3f6;overflow:hidden;
-    }
-    .thumb img {
-      width:100%;height:100%;object-fit:cover;border-radius:6px;
-    }
-    .model{font-weight:700;font-size:16px}
-    .specs{color:var(--muted);font-size:14px}
-    .actions{margin-top:auto;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-    footer{padding:36px 0;border-top:1px solid #f1f5f9;text-align:center;color:var(--muted)}
-    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.45);display:none;align-items:center;justify-content:center;z-index:90}
-    .modal{background:#fff;border-radius:12px;padding:18px;max-width:400px;width:90%}
-    .form-row{margin-bottom:8px}
-    .form-row input,.form-row textarea{width:100%;padding:8px;border-radius:8px;border:1px solid #eef2f6}
+    header{height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eef2f6;background:#fff;position:sticky;top:0;z-index:20}
+    .logo{font-weight:700;color:var(--accent);font-size:20px}
+    nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-weight:600}
+    nav a:hover{color:var(--accent)}
+    section{padding:60px 0}
+    h2{font-size:28px;margin-bottom:10px}
+    p{line-height:1.6;color:var(--muted)}
+    .btn{padding:10px 16px;border-radius:8px;font-weight:600;border:none;cursor:pointer}
+    .btn-primary{background:var(--accent);color:#fff}
+    footer{padding:36px 0;text-align:center;border-top:1px solid #f1f5f9;color:var(--muted)}
 
-    /* 🌟 Welcome Popup Styles */
-    .welcome-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(6px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 200;
+    /* Welcome Ad */
+    .welcome-backdrop{
+      position:fixed;inset:0;background:rgba(0,0,0,0.6);
+      backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:200;
     }
-    .welcome-modal {
-      background: #fff;
-      padding: 28px;
-      border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-      text-align: center;
-      max-width: 400px;
-      width: 90%;
-      position: relative;
-      animation: popIn 0.6s ease forwards;
+    .welcome-modal{
+      background:#fff;padding:28px;border-radius:16px;max-width:400px;width:90%;text-align:center;position:relative;
+      box-shadow:0 8px 30px rgba(0,0,0,0.2);animation:popIn 0.6s ease forwards;
     }
-    .welcome-content p {font-size:15px;line-height:1.5;}
-    .close-btn {
-      position: absolute;
-      top: 10px; right: 14px;
-      background: none;
-      border: none;
-      font-size: 22px;
-      color: #888;
-      cursor: pointer;
-    }
-    .close-btn:hover {color: var(--accent);}
-    @keyframes popIn {
-      from {transform: scale(0.9);opacity:0;}
-      to {transform: scale(1);opacity:1;}
-    }
+    .close-btn{position:absolute;top:10px;right:14px;background:none;border:none;font-size:22px;color:#888;cursor:pointer}
+    .close-btn:hover{color:var(--accent)}
+    @keyframes popIn{from{transform:scale(0.9);opacity:0;}to{transform:scale(1);opacity:1;}}
   </style>
 </head>
-
 <body>
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="logo">M</div>
-        <div>
-          <div style="font-weight:700">Meitleit</div>
-          <div style="font-size:12px;color:var(--muted)">Professional Printers</div>
-        </div>
-      </div>
-      <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#products">Products</a>
-        <a href="#business">For Business</a>
-        <a href="#support">Support</a>
-        <a href="#deals">Deals</a>
-      </nav>
-      <div class="cta">
-        <button class="btn" onclick="openContact()">Contact Sales</button>
-        <select id="langSelect" onchange="changeLang(this.value)">
-          <option value="en">🇲🇾 English</option>
-          <option value="zh">🇨🇳 中文</option>
-          <option value="ms">🇲🇾 Melayu</option>
-        </select>
-      </div>
-    </div>
+  <header class="container">
+    <div class="logo">Meitleit</div>
+    <nav>
+      <a href="index.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="#">For Business</a>
+      <a href="#">Support</a>
+      <a href="#">Deals</a>
+    </nav>
   </header>
 
-  <main>
-    <!-- 🏢 About Section -->
-    <section id="about" class="section container fade-in">
+  <main class="container">
+    <section>
       <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center">
         <div style="flex:1;min-width:260px">
           <h2>About Meitleit</h2>
-          <p style="color:var(--muted);line-height:1.6">
-            Meitleit is dedicated to providing professional-grade printing solutions for homes, offices, and enterprises. 
-            We partner with trusted brands such as RICOH and Fujifilm to ensure reliability, speed, and top-quality output for all your business needs.
-          </p>
-          <p style="color:var(--muted);line-height:1.6">
-            From small-scale home printing to large enterprise setups, Meitleit delivers the perfect balance of performance and value. 
-            Our mission is to make printing simple, efficient, and sustainable for every customer.
-          </p>
-          <button class="btn btn-primary" onclick="scrollToId('products')">Explore Products</button>
+          <p>Meitleit is dedicated to providing professional-grade printing solutions for homes, offices, and enterprises. 
+          We partner with trusted brands such as RICOH and Fujifilm to ensure reliability, speed, and top-quality output for all your business needs.</p>
+          <p>From small-scale home printing to large enterprise setups, Meitleit delivers the perfect balance of performance and value.</p>
+          <button class="btn btn-primary" onclick="window.location.href='products.html'">Explore Products</button>
         </div>
 
         <div style="flex:1;min-width:320px;text-align:center">
@@ -134,80 +65,9 @@
         </div>
       </div>
     </section>
-
-    <!-- 🖨️ Product Section -->
-    <section id="products" class="section container">
-      <h2>Our Printers</h2>
-      <div class="grid">
-        <!-- (All your product cards remain unchanged) -->
-        <!-- 🖨️ RICOH Models -->
-        <article class="card"><div class="thumb"><img src="assets/ricoh-imc3000.jpg" alt=""></div>
-          <div class="model">RICOH IM C3000</div>
-          <div class="specs">30 ppm • Full Colour MFP</div>
-          <div class="actions">
-            <button class="btn btn-primary">I'm Interested</button>
-            <a class="btn" href="assets/ricoh-imc-series.pdf" target="_blank">Learn more</a>
-          </div>
-        </article>
-        <article class="card"><div class="thumb"><img src="assets/ricoh-imc3500.jpg" alt=""></div>
-          <div class="model">RICOH IM C3500</div>
-          <div class="specs">35 ppm • Full Colour MFP</div>
-          <div class="actions">
-            <button class="btn btn-primary">I'm Interested</button>
-            <a class="btn" href="assets/ricoh-imc-series.pdf" target="_blank">Learn more</a>
-          </div>
-        </article>
-        <article class="card"><div class="thumb"><img src="assets/ricoh-imc4500.jpg" alt=""></div>
-          <div class="model">RICOH IM C4500</div>
-          <div class="specs">45 ppm • Full Colour MFP</div>
-          <div class="actions">
-            <button class="btn btn-primary">I'm Interested</button>
-            <a class="btn" href="assets/ricoh-imc-series.pdf" target="_blank">Learn more</a>
-          </div>
-        </article>
-        <article class="card"><div class="thumb"><img src="assets/ricoh-imc6000.jpg" alt=""></div>
-          <div class="model">RICOH IM C6000</div>
-          <div class="specs">60 ppm • Full Colour MFP</div>
-          <div class="actions">
-            <button class="btn btn-primary">I'm Interested</button>
-            <a class="btn" href="assets/ricoh-imc-series.pdf" target="_blank">Learn more</a>
-          </div>
-        </article>
-
-        <!-- 🆕 Fuji Xerox -->
-        <article class="card"><div class="thumb"><img src="assets/Fuji-Xerox-ApeosPort.jpg" alt=""></div>
-          <div class="model">Fuji Xerox ApeosPort C3373 / C4473 / C5573</div>
-          <div class="specs">High-quality color multifunction printer</div>
-          <div class="actions">
-            <button class="btn btn-primary">I'm Interested</button>
-            <a class="btn" href="assets/Fuji-Xerox-Brochure.pdf" target="_blank">Learn more</a>
-          </div>
-        </article>
-
-        <!-- 🆕 Fujifilm Apeos C3060 / C2560 -->
-        <article class="card"><div class="thumb"><img src="assets/Fujifilm-Apeos-C3060-C2560.jpg" alt=""></div>
-          <div class="model">Fujifilm Apeos C3060 / C2560</div>
-          <div class="specs">Compact design with efficient color output</div>
-          <div class="actions">
-            <button class="btn btn-primary">I'm Interested</button>
-            <a class="btn" href="assets/FujiFilm-Apeos-Brochure.pdf" target="_blank">Learn more</a>
-          </div>
-        </article>
-
-        <!-- 🆕 Fujifilm Apeos C7070 Series -->
-        <article class="card"><div class="thumb"><img src="assets/FujiFilm-Apeos.jpg" alt=""></div>
-          <div class="model">Fujifilm Apeos C7070 / C6570 / C5570 / C4570 / C3570 / C3070</div>
-          <div class="specs">Advanced color printing with high productivity</div>
-          <div class="actions">
-            <button class="btn btn-primary">I'm Interested</button>
-            <a class="btn" href="assets/Fujifilm-apeos1.pdf" target="_blank">Learn more</a>
-          </div>
-        </article>
-      </div>
-    </section>
   </main>
 
-  <!-- 💥 Welcome Ad Popup -->
+  <!-- 💥 Welcome Ad -->
   <div id="welcomeAd" class="welcome-backdrop">
     <div class="welcome-modal">
       <button class="close-btn" onclick="closeWelcomeAd()">×</button>
@@ -220,52 +80,23 @@
     </div>
   </div>
 
-  <footer>
-    <div class="container">© <span id="year"></span> Meitleit — All rights reserved</div>
-  </footer>
+  <footer>© <span id="year"></span> Meitleit — All rights reserved</footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // 🪄 Language selection
-    async function changeLang(lang){
-      const res = await fetch(lang + '.json');
-      const data = await res.json();
-      document.querySelectorAll('[data-i18n]').forEach(el=>{
-        const k=el.getAttribute('data-i18n');
-        if(data[k]) el.textContent=data[k];
-      });
-      localStorage.setItem('siteLang', lang);
-    }
-
-    window.onload=()=>{
-      const saved=localStorage.getItem('siteLang')||'en';
-      document.getElementById('langSelect').value=saved;
-      changeLang(saved);
-    };
-
-    // ✉️ Interest modal (if needed later)
-    function openContact(){alert('Contact form coming soon!');}
-
-    // 💥 Welcome Ad logic
-    function showWelcomeAd() {
+    // Welcome Ad
+    function showWelcomeAd(){
       const seenAd = localStorage.getItem('seenWelcomeAd');
-      if (!seenAd) {
-        document.getElementById('welcomeAd').style.display = 'flex';
-        localStorage.setItem('seenWelcomeAd', 'true');
+      if(!seenAd){
+        document.getElementById('welcomeAd').style.display='flex';
+        localStorage.setItem('seenWelcomeAd','true');
       }
     }
-    function closeWelcomeAd() {
-      document.getElementById('welcomeAd').style.display = 'none';
+    function closeWelcomeAd(){
+      document.getElementById('welcomeAd').style.display='none';
     }
-    window.addEventListener('load', () => {
-      setTimeout(showWelcomeAd, 2000);
-    });
-
-    function scrollToId(id){
-      const el=document.getElementById(id);
-      if(el)el.scrollIntoView({behavior:'smooth'});
-    }
+    window.addEventListener('load',()=>setTimeout(showWelcomeAd,2000));
   </script>
 </body>
 </html>
