@@ -170,7 +170,7 @@
       display: flex;
       justify-content: center;
       gap: 16px;
-      margin-top: 40px; /* 👈 Added spacing before buttons */
+      margin-top: 80px; /* Increased spacing before buttons 👈 */
       flex-wrap: wrap;
     }
 
@@ -264,12 +264,10 @@
   <main class="container">
     <section class="about-section">
 
-      <!-- Banner Image -->
       <div class="about-image">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIWBxl24fK_devjnmvetrxvIVjG9cfiojLUQ&s" alt="Office Printer">
       </div>
 
-      <!-- About Text -->
       <div class="about-text">
         <h1>Your Trusted Printing Partner in Malaysia</h1>
 
@@ -310,7 +308,6 @@
     </section>
   </main>
 
-  <!-- Welcome Ad Popup -->
   <div id="welcomeAdBackdrop">
     <div id="welcomeAd">
       <button id="welcomeAdClose" onclick="closeAd()">×</button>
@@ -325,8 +322,6 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Show popup once per visitor
     window.onload = function() {
       if (!localStorage.getItem("adShown")) {
         document.getElementById("welcomeAdBackdrop").style.display = "flex";
@@ -339,3 +334,4 @@
   </script>
 </body>
 </html>
+
