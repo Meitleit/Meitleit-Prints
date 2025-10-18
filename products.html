@@ -11,6 +11,7 @@
       --text: #0b1220;
       --card: #f8f9fb;
       --accent: #e60012;
+      --success: #22c55e; /* green */
       font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -57,9 +58,24 @@
       white-space: nowrap;
     }
 
-    .actions { margin-top: auto; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-    .btn { padding: 10px 14px; border-radius: 8px; font-weight: 600; border: none; cursor: pointer; }
-    .btn-primary { background: var(--accent); color: #fff; }
+    .actions { 
+      margin-top: auto; 
+      display: flex; 
+      gap: 10px; 
+      justify-content: center; 
+      flex-wrap: wrap; 
+    }
+    .btn { 
+      padding: 10px 14px; 
+      border-radius: 8px; 
+      font-weight: 600; 
+      border: none; 
+      cursor: pointer; 
+      min-width: 120px;
+    }
+    .btn-primary { background: var(--success); color: #fff; } /* Green button */
+    .btn-accent { background: var(--accent); color: #fff; }  /* Red button */
+
     footer { text-align: center; padding: 36px 0; color: var(--muted); border-top: 1px solid #f0f0f0; }
   </style>
 </head>
@@ -99,7 +115,7 @@
           </div>
           <div class="actions">
             <button class="btn btn-primary">I'm Interested</button>
-            <a class="btn" href="assets/ricoh-imc-series.pdf" target="_blank">Learn more</a>
+            <a class="btn btn-accent" href="assets/ricoh-imc-series.pdf" target="_blank">Learn more</a>
           </div>
         </article>
 
@@ -113,7 +129,7 @@
           </div>
           <div class="actions">
             <button class="btn btn-primary">I'm Interested</button>
-            <a class="btn" href="assets/ricoh-imc-series.pdf" target="_blank">Learn more</a>
+            <a class="btn btn-accent" href="assets/ricoh-imc-series.pdf" target="_blank">Learn more</a>
           </div>
         </article>
 
@@ -127,7 +143,7 @@
           </div>
           <div class="actions">
             <button class="btn btn-primary">I'm Interested</button>
-            <a class="btn" href="assets/ricoh-imc-series.pdf" target="_blank">Learn more</a>
+            <a class="btn btn-accent" href="assets/ricoh-imc-series.pdf" target="_blank">Learn more</a>
           </div>
         </article>
 
@@ -141,7 +157,7 @@
           </div>
           <div class="actions">
             <button class="btn btn-primary">I'm Interested</button>
-            <a class="btn" href="assets/ricoh-imc-series.pdf" target="_blank">Learn more</a>
+            <a class="btn btn-accent" href="assets/ricoh-imc-series.pdf" target="_blank">Learn more</a>
           </div>
         </article>
 
@@ -156,7 +172,7 @@
           </div>
           <div class="actions">
             <button class="btn btn-primary">I'm Interested</button>
-            <a class="btn" href="assets/Fuji-Xerox-Brochure.pdf" target="_blank">Learn more</a>
+            <a class="btn btn-accent" href="assets/Fuji-Xerox-Brochure.pdf" target="_blank">Learn more</a>
           </div>
         </article>
 
@@ -171,7 +187,7 @@
           </div>
           <div class="actions">
             <button class="btn btn-primary">I'm Interested</button>
-            <a class="btn" href="assets/FujiFilm-Apeos-Brochure.pdf" target="_blank">Learn more</a>
+            <a class="btn btn-accent" href="assets/FujiFilm-Apeos-Brochure.pdf" target="_blank">Learn more</a>
           </div>
         </article>
 
@@ -186,7 +202,7 @@
           </div>
           <div class="actions">
             <button class="btn btn-primary">I'm Interested</button>
-            <a class="btn" href="assets/Fujifilm-apeos1.pdf" target="_blank">Learn more</a>
+            <a class="btn btn-accent" href="assets/Fujifilm-apeos1.pdf" target="_blank">Learn more</a>
           </div>
         </article>
 
