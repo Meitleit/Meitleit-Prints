@@ -3,125 +3,150 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Meitleit — Professional Printer Solutions</title>
+  <title>Meitleit Printers — Professional Printers for Home & Office</title>
   <style>
     :root{
-      --accent:#e60012;--muted:#6b7280;--text:#0b1220;--bg:#ffffff;--maxw:1200px;
+      --bg:#ffffff;--muted:#6b7280;--text:#0b1220;--card:#f8f9fb;
+      --accent:#e60012;--maxw:1200px;
       font-family:Inter,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     }
     *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--text)}
+    html,body{margin:0;background:var(--bg);color:var(--text)}
+    a{color:var(--accent);text-decoration:none}
     .container{max-width:var(--maxw);margin:auto;padding:0 20px}
-    header{height:72px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eef2f6;background:#fff;position:sticky;top:0;z-index:20}
-    .logo{font-weight:700;color:var(--accent);font-size:20px}
-    nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-weight:600}
-    nav a:hover{color:var(--accent)}
-    section{padding:60px 0;text-align:center}
-    h1{font-size:32px;margin-bottom:16px}
-    p{color:var(--muted);max-width:700px;margin:auto;margin-bottom:24px}
-    .btn{padding:12px 20px;border-radius:8px;font-weight:600;border:none;cursor:pointer;text-decoration:none;display:inline-block}
-    .btn-primary{background:var(--accent);color:#fff}
-    footer{padding:36px 0;text-align:center;border-top:1px solid #f1f5f9;color:var(--muted)}
-    
-    /* 🌟 Welcome Ad Popup */
-    .welcome-backdrop {
+    header{border-bottom:1px solid #eef2f6;background:#fff;position:sticky;top:0;z-index:40}
+    .nav{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+    .nav-links{display:flex;gap:18px}
+    .nav-links a{color:var(--muted);font-weight:600}
+    .cta{display:flex;align-items:center;gap:12px}
+    .btn{padding:10px 14px;border-radius:8px;font-weight:600;border:1px solid rgba(11,18,32,0.06);cursor:pointer}
+    .btn-primary{background:var(--accent);color:#fff;border:none}
+    #langSelect{padding:6px 10px;border-radius:8px;border:1px solid #e6eef6}
+    .section{padding:48px 0;text-align:center}
+    footer{padding:36px 0;border-top:1px solid #f1f5f9;text-align:center;color:var(--muted)}
+
+    /* popup ad */
+    #welcomeAdBackdrop {
       position: fixed;
       inset: 0;
       background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(6px);
       display: none;
       align-items: center;
       justify-content: center;
-      z-index: 200;
+      z-index: 999;
     }
-    .welcome-modal {
+    #welcomeAd {
       background: #fff;
-      padding: 28px;
       border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-      text-align: center;
+      padding: 12px;
       max-width: 420px;
       width: 90%;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      text-align: center;
       position: relative;
-      animation: popIn 0.6s ease forwards;
     }
-    .welcome-modal img {
+    #welcomeAd img {
       width: 100%;
       border-radius: 12px;
-      margin-bottom: 15px;
     }
-    .close-btn {
-      position: absolute;
-      top: 10px; right: 14px;
-      background: none;
+    #welcomeAd button {
+      margin-top: 12px;
+      background: var(--accent);
+      color: #fff;
       border: none;
-      font-size: 22px;
-      color: #888;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
       cursor: pointer;
     }
-    .close-btn:hover {color: var(--accent);}
-    @keyframes popIn {
-      from {transform: scale(0.9);opacity:0;}
-      to {transform: scale(1);opacity:1;}
+    #welcomeAdClose {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      background: transparent;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: #333;
     }
   </style>
 </head>
-
 <body>
-  <header class="container">
-    <div class="logo">Meitleit</div>
-    <nav>
-      <a href="index.html">About</a>
-      <a href="products.html">Products</a>
-      <a href="#">For Business</a>
-      <a href="#">Support</a>
-      <a href="#">Deals</a>
-    </nav>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">M</div>
+        <div>
+          <div style="font-weight:700">Meitleit</div>
+          <div style="font-size:12px;color:var(--muted)">Professional Printers</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">About</a>
+        <a href="products.html">Products</a>
+        <a href="#business">For Business</a>
+        <a href="#support">Support</a>
+        <a href="#deals">Deals</a>
+      </nav>
+      <div class="cta">
+        <button class="btn btn-primary" onclick="openContact()">Contact Sales</button>
+      </div>
+    </div>
   </header>
 
   <main>
-    <section class="container">
-      <h1>About Meitleit</h1>
-      <p>At Meitleit, we provide reliable and high-quality office printing solutions for businesses and individuals across Malaysia. Our mission is to make professional printing accessible and affordable with flexible rental and purchase plans.</p>
-      <p>We specialize in premium printer brands such as Ricoh, Fuji Xerox, and Fujifilm — ensuring top performance, efficiency, and service excellence.</p>
-      <a href="products.html" class="btn btn-primary">Explore Products</a>
+    <section class="section container" id="about">
+      <h2>About Meitleit</h2>
+      <p style="max-width:800px;margin:auto;line-height:1.6;text-align:justify;">
+        At <strong>Meitleit</strong>, we believe that printing should be effortless, efficient, and affordable for every business. 
+        As a trusted partner of world-renowned brands such as <strong>Ricoh</strong>, <strong>Fuji Xerox</strong>, and <strong>Fujifilm</strong>, 
+        we deliver advanced office printing and document management solutions tailored for companies of all sizes across <strong>Peninsular Malaysia</strong>.
+        <br><br>
+        Our services include <strong>printer rentals, sales, and maintenance</strong>, supported by responsive local teams who ensure your devices operate at peak performance. 
+        Whether you’re managing a small office or a large corporate network, Meitleit provides customized printing solutions that enhance productivity while keeping costs low.
+        <br><br>
+        We take pride in offering <strong>flexible rental packages starting from only RM60 per month</strong>, giving Malaysian businesses access to high-quality multifunction printers without heavy upfront investment. 
+        With a focus on reliability, transparency, and long-term customer satisfaction, Meitleit continues to grow as a <strong>trusted print solutions provider and corporate partner</strong> in the industry.
+        <br><br>
+        Discover the right printing solution for your business today.
+      </p>
+      <br>
+      <button class="btn btn-primary" onclick="window.location.href='products.html'">Explore Products</button>
     </section>
   </main>
 
-  <!-- 💥 Welcome Ad Popup -->
-  <div id="welcomeAd" class="welcome-backdrop">
-    <div class="welcome-modal">
-      <button class="close-btn" onclick="closeWelcomeAd()">×</button>
-      <img src="assets/welcome-poster.jpg" alt="Rental Poster">
-      <div class="welcome-content">
-        <a href="https://wa.me/60123456789" target="_blank" class="btn btn-primary">💬 Contact via WhatsApp</a>
-      </div>
+  <!-- popup welcome ad -->
+  <div id="welcomeAdBackdrop">
+    <div id="welcomeAd">
+      <button id="welcomeAdClose" onclick="closeAd()">×</button>
+      <img src="assets/welcome-poster.jpg" alt="Welcome Poster">
+      <button onclick="closeAd()">Enter Site</button>
     </div>
   </div>
 
   <footer>
-    © <span id="year"></span> Meitleit — All rights reserved
+    <div class="container">© <span id="year"></span> Meitleit — All rights reserved</div>
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    function showWelcomeAd() {
-      const seenAd = localStorage.getItem('seenWelcomeAd');
-      if (!seenAd) {
-        document.getElementById('welcomeAd').style.display = 'flex';
-        localStorage.setItem('seenWelcomeAd', 'true');
+    // show popup only once per visitor
+    window.onload = function(){
+      if(!localStorage.getItem("adShown")){
+        document.getElementById("welcomeAdBackdrop").style.display="flex";
+        localStorage.setItem("adShown","true");
       }
+    };
+    function closeAd(){
+      document.getElementById("welcomeAdBackdrop").style.display="none";
     }
 
-    function closeWelcomeAd() {
-      document.getElementById('welcomeAd').style.display = 'none';
+    function openContact(){
+      alert("Contact Sales: WhatsApp +60124406637");
     }
-
-    window.addEventListener('load', () => {
-      setTimeout(showWelcomeAd, 1500);
-    });
   </script>
 </body>
 </html>
-
