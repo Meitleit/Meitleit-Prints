@@ -48,47 +48,59 @@
     /* ABOUT SECTION */
     .about-section {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       align-items: center;
       gap: 40px;
       animation: fadeInUp 1s ease both;
     }
 
-    .about-text {
-      flex: 1 1 480px;
-      animation: slideFade 1.3s ease both;
-    }
-    .about-text h1 {
-      font-size: 38px;
-      color: var(--accent);
-      margin-bottom: 16px;
-      line-height: 1.2;
-    }
-    .about-highlight {
-      background: var(--card);
-      border-left: 5px solid var(--accent);
-      padding: 14px 18px;
-      margin: 16px 0;
-      border-radius: 8px;
-      font-weight: 500;
-      color: #444;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
-    }
-    .about-text p {
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 18px;
-      font-size: 16px;
-    }
     .about-image {
-      flex: 1 1 460px;
-      text-align: center;
+      width: 100%;
+      max-width: var(--maxw);
+      border-radius: 10px;
+      overflow: hidden;
       animation: fadeIn 1.2s ease both;
     }
     .about-image img {
-      max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 6px 22px rgba(0,0,0,0.08);
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.1);
+    }
+
+    .about-text {
+      width: 100%;
+      max-width: var(--maxw);
+      animation: slideFade 1.3s ease both;
+      line-height: 1.7;
+    }
+
+    .about-text h1 {
+      font-size: 40px;
+      color: var(--accent);
+      margin-bottom: 16px;
+      line-height: 1.2;
+      text-align: left;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 20px;
+      font-size: 16px;
+      text-align: justify;
+    }
+
+    .about-highlight {
+      background: #fff;
+      border-left: 5px solid var(--accent);
+      padding: 14px 18px;
+      margin: 32px 0;
+      border-radius: 8px;
+      font-weight: 500;
+      color: #444;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
     }
 
     .btn {
@@ -169,8 +181,8 @@
     @keyframes popIn { 0%{transform:scale(0.9);opacity:0;} 100%{transform:scale(1);opacity:1;} }
 
     @media(max-width:820px){
-      .about-section{flex-direction:column-reverse;text-align:center;}
-      .about-text{text-align:center;}
+      .about-text h1{text-align:center;}
+      .about-text p{text-align:center;}
     }
   </style>
 </head>
@@ -190,37 +202,40 @@
 
   <main class="container">
     <section class="about-section">
+
+      <!-- Banner Image -->
+      <div class="about-image">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIWBxl24fK_devjnmvetrxvIVjG9cfiojLUQ&s" alt="Office Printer">
+      </div>
+
+      <!-- About Text -->
       <div class="about-text">
         <h1>Your Trusted Printing Partner in Malaysia</h1>
 
-        <div class="about-highlight">
-          Partnered with <strong>Ricoh</strong>, <strong>Fuji Xerox</strong>, and <strong>Fujifilm</strong> to deliver world-class printing solutions.
-        </div>
-
         <p>
-          At <strong>Meitleit</strong>, printing isn’t just about machines — it’s about empowering businesses with seamless, high-efficiency workflow. 
-          From compact home offices to enterprise-grade networks, our smart printing ecosystem keeps productivity at its best.
+          At <strong>Meitleit</strong>, we believe printing is more than just technology — it’s the heart of modern business communication. 
+          Through our partnerships with <strong>Ricoh</strong>, <strong>Fuji Xerox</strong>, and <strong>Fujifilm</strong>, 
+          we deliver high-performance printing solutions that help your business run smarter, faster, and more efficiently.
         </p>
 
         <p>
-          We specialize in <strong>printer rentals, sales, and maintenance</strong> across <strong>Peninsular Malaysia</strong>. 
-          Our local service teams ensure every client enjoys consistent uptime, cost savings, and dedicated support — because reliability matters.
+          From home offices to enterprise operations, we provide fully managed printer rental services, ensuring top-quality performance 
+          and reliable after-sales support throughout <strong>Peninsular Malaysia</strong>. 
+          Our focus is on delivering exceptional value with transparent pricing and world-class service.
         </p>
 
         <div class="about-highlight">
-          Rental packages start from <strong>RM60/month (RM2/day)</strong>. No large deposits. No hassle. Just print.
+          Rental packages start from <strong>RM60/month (RM2/day)</strong>.  
+          <br>No large deposits. No hidden fees. Just print with confidence.
         </div>
 
         <p>
-          With a growing network of partnerships, Meitleit continues to redefine print management by focusing on <strong>affordability, transparency, and performance</strong>. 
-          We don’t just sell printers — we build printing partnerships.
+          With years of expertise in print technology and maintenance, <strong>Meitleit</strong> has become a preferred partner for 
+          offices, schools, and SMEs across Malaysia. Whether you’re scaling your operations or upgrading to a smarter workflow — 
+          we’re here to make every page matter.
         </p>
 
         <button class="btn btn-primary" onclick="window.location.href='products.html'">Explore Products</button>
-      </div>
-
-      <div class="about-image">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIWBxl24fK_devjnmvetrxvIVjG9cfiojLUQ&s" alt="Office Printer">
       </div>
     </section>
   </main>
