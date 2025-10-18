@@ -25,15 +25,30 @@
     .thumb{height:180px;display:flex;align-items:center;justify-content:center;background:#fbfcfd;border-radius:8px;border:1px solid #f0f3f6;overflow:hidden}
     .thumb img{width:100%;height:100%;object-fit:cover;border-radius:6px}
     .model{font-weight:700;font-size:16px}
-    .specs{color:var(--muted);font-size:14px}
+    
+    /* Enhanced specs styling */
+    .specs {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px 12px;
+      justify-items: center;
+      margin: 10px 0;
+    }
+    .specs span {
+      background: #f8f9fb;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid #eef2f6;
+      width: 90%;
+    }
+
     .actions{margin-top:auto;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
     .btn{padding:10px 14px;border-radius:8px;font-weight:600;border:none;cursor:pointer}
     .btn-primary{background:var(--accent);color:#fff}
     footer{text-align:center;padding:36px 0;color:var(--muted);border-top:1px solid #f0f0f0}
-    .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,0.45);display:none;align-items:center;justify-content:center;z-index:90}
-    .modal{background:#fff;border-radius:12px;padding:18px;max-width:400px;width:90%}
-    .form-row{margin-bottom:8px}
-    .form-row input,.form-row textarea{width:100%;padding:8px;border-radius:8px;border:1px solid #eef2f6}
   </style>
 </head>
 <body>
@@ -62,36 +77,52 @@
       <div class="grid">
 
         <!-- 🖨️ RICOH -->
-        <article class="card"><div class="thumb"><img src="assets/ricoh-imc3000.jpg" alt=""></div>
+        <article class="card">
+          <div class="thumb"><img src="assets/ricoh-imc3000.jpg" alt=""></div>
           <div class="model">RICOH IM C3000</div>
-          <div class="specs">30 ppm • Full Colour MFP</div>
+          <div class="specs">
+            <span>30 ppm</span> <span>Full Colour MFP</span>
+            <span>Copy / Print / Scan</span> <span>Wireless Ready</span>
+          </div>
           <div class="actions">
             <button class="btn btn-primary">I'm Interested</button>
             <a class="btn" href="assets/ricoh-imc-series.pdf" target="_blank">Learn more</a>
           </div>
         </article>
 
-        <article class="card"><div class="thumb"><img src="assets/ricoh-imc3500.jpg" alt=""></div>
+        <article class="card">
+          <div class="thumb"><img src="assets/ricoh-imc3500.jpg" alt=""></div>
           <div class="model">RICOH IM C3500</div>
-          <div class="specs">35 ppm • Full Colour MFP</div>
+          <div class="specs">
+            <span>35 ppm</span> <span>Full Colour MFP</span>
+            <span>Auto Duplex</span> <span>Network Printing</span>
+          </div>
           <div class="actions">
             <button class="btn btn-primary">I'm Interested</button>
             <a class="btn" href="assets/ricoh-imc-series.pdf" target="_blank">Learn more</a>
           </div>
         </article>
 
-        <article class="card"><div class="thumb"><img src="assets/ricoh-imc4500.jpg" alt=""></div>
+        <article class="card">
+          <div class="thumb"><img src="assets/ricoh-imc4500.jpg" alt=""></div>
           <div class="model">RICOH IM C4500</div>
-          <div class="specs">45 ppm • Full Colour MFP</div>
+          <div class="specs">
+            <span>45 ppm</span> <span>Full Colour MFP</span>
+            <span>Cloud Printing</span> <span>Touchscreen Panel</span>
+          </div>
           <div class="actions">
             <button class="btn btn-primary">I'm Interested</button>
             <a class="btn" href="assets/ricoh-imc-series.pdf" target="_blank">Learn more</a>
           </div>
         </article>
 
-        <article class="card"><div class="thumb"><img src="assets/ricoh-imc6000.jpg" alt=""></div>
+        <article class="card">
+          <div class="thumb"><img src="assets/ricoh-imc6000.jpg" alt=""></div>
           <div class="model">RICOH IM C6000</div>
-          <div class="specs">60 ppm • Full Colour MFP</div>
+          <div class="specs">
+            <span>60 ppm</span> <span>Full Colour MFP</span>
+            <span>Heavy Duty</span> <span>High Volume Printing</span>
+          </div>
           <div class="actions">
             <button class="btn btn-primary">I'm Interested</button>
             <a class="btn" href="assets/ricoh-imc-series.pdf" target="_blank">Learn more</a>
@@ -99,9 +130,13 @@
         </article>
 
         <!-- 🆕 Fuji Xerox -->
-        <article class="card"><div class="thumb"><img src="assets/Fuji-Xerox-ApeosPort.jpg" alt=""></div>
+        <article class="card">
+          <div class="thumb"><img src="assets/Fuji-Xerox-ApeosPort.jpg" alt=""></div>
           <div class="model">Fuji Xerox ApeosPort C3373 / C4473 / C5573</div>
-          <div class="specs">High-quality color multifunction printer</div>
+          <div class="specs">
+            <span>High-Quality Colour</span> <span>Multifunction Printer</span>
+            <span>Secure Print</span> <span>Energy Efficient</span>
+          </div>
           <div class="actions">
             <button class="btn btn-primary">I'm Interested</button>
             <a class="btn" href="assets/Fuji-Xerox-Brochure.pdf" target="_blank">Learn more</a>
@@ -109,9 +144,13 @@
         </article>
 
         <!-- 🆕 Fujifilm Apeos C3060 / C2560 -->
-        <article class="card"><div class="thumb"><img src="assets/Fujifilm-Apeos-C3060-C2560.jpg" alt=""></div>
+        <article class="card">
+          <div class="thumb"><img src="assets/Fujifilm-Apeos-C3060-C2560.jpg" alt=""></div>
           <div class="model">Fujifilm Apeos C3060 / C2560</div>
-          <div class="specs">Compact design with efficient color output</div>
+          <div class="specs">
+            <span>Compact Design</span> <span>Efficient Color Output</span>
+            <span>Wireless Printing</span> <span>Auto Duplex</span>
+          </div>
           <div class="actions">
             <button class="btn btn-primary">I'm Interested</button>
             <a class="btn" href="assets/FujiFilm-Apeos-Brochure.pdf" target="_blank">Learn more</a>
@@ -119,9 +158,13 @@
         </article>
 
         <!-- 🆕 Fujifilm Apeos C7070 Series -->
-        <article class="card"><div class="thumb"><img src="assets/FujiFilm-Apeos.jpg" alt=""></div>
+        <article class="card">
+          <div class="thumb"><img src="assets/FujiFilm-Apeos.jpg" alt=""></div>
           <div class="model">Fujifilm Apeos C7070 / C6570 / C5570 / C4570 / C3570 / C3070</div>
-          <div class="specs">Advanced color printing with high productivity</div>
+          <div class="specs">
+            <span>High Productivity</span> <span>Advanced Color Printing</span>
+            <span>Large Touchscreen</span> <span>Heavy Duty Usage</span>
+          </div>
           <div class="actions">
             <button class="btn btn-primary">I'm Interested</button>
             <a class="btn" href="assets/Fujifilm-apeos1.pdf" target="_blank">Learn more</a>
@@ -141,3 +184,4 @@
   </script>
 </body>
 </html>
+
