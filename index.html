@@ -43,8 +43,8 @@
     }
     .nav-links a:hover { color: var(--accent); }
 
-    /* 🔹 Add more space at the bottom */
-    main { padding: 60px 0 280px 0; } /* was 180px before */
+    /* 🔹 Increased bottom padding for space above footer */
+    main { padding: 60px 0 280px 0; }
 
     /* ABOUT SECTION */
     .about-section {
@@ -101,9 +101,18 @@
       font-size: 26px;
       font-weight: 700;
       letter-spacing: 0.4px;
-      margin: 60px auto 40px auto;
+      margin: 60px auto 20px auto;
       width: 90%;
       max-width: 1000px;
+    }
+
+    /* 🔹 Centered buttons + spacing below subtitle */
+    .button-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;           /* space between buttons */
+      margin-top: 20px;    /* space from subtitle */
     }
 
     .btn-primary {
@@ -136,6 +145,7 @@
       .about-text h1{text-align:center;}
       .about-text p{text-align:center;font-size:17px;}
       .about-partnership,.about-rental{font-size:18px;}
+      .button-row { flex-direction: column; gap: 12px; } /* stack buttons on mobile */
     }
   </style>
 </head>
@@ -177,10 +187,14 @@
           Every solution we deliver is backed by transparency, value, and professional local support.
         </p>
 
-        <div class="about-space"></div>
-
         <div class="about-rental">
           📦 <span>Rental Packages</span> — Starting From RM60/month (RM2/day)
+        </div>
+
+        <!-- Centered buttons section -->
+        <div class="button-row">
+          <button class="btn-primary" onclick="window.location.href='contact.html'">Contact Us for Plans</button>
+          <button class="btn-primary" onclick="window.location.href='products.html'">View Products</button>
         </div>
 
         <p>
@@ -189,16 +203,11 @@
           for offices, institutions, and growing businesses. Whether you’re scaling operations or optimizing your printing infrastructure, 
           our mission is simple — to make every print smart, cost-effective, and sustainable.
         </p>
-
-        <div class="button-row">
-          <button class="btn btn-primary" onclick="window.location.href='contact.html'">Contact Us for Plans</button>
-          <button class="btn btn-primary" onclick="window.location.href='products.html'">View Products</button>
-        </div>
       </div>
     </section>
   </main>
 
-  <!-- 🔹 Footer loads here -->
+  <!-- Footer loads here -->
   <div id="footer-container"></div>
 
   <script>
