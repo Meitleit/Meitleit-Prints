@@ -21,30 +21,58 @@
     a { color: var(--accent); text-decoration: none; }
     .container { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
 
+    /* HEADER SECTION */
     header {
-      border-bottom: 1px solid #eef2f6;
-      background: #fff;
-      position: sticky;
-      top: 0;
-      z-index: 40;
+      position: relative;
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
     }
+
+    header img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.2) 50%, rgba(255,255,255,1) 100%);
+      pointer-events: none;
+    }
+
     .nav {
-      height: 72px;
+      position: absolute;
+      top: 0;
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 20px 60px;
+      z-index: 10;
     }
-    .logo { font-weight: 700; color: var(--accent); font-size: 22px; }
+
+    .logo {
+      font-weight: 700;
+      color: white;
+      font-size: 24px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    }
+
     .nav-links a {
       margin-left: 24px;
-      color: var(--muted);
+      color: #fff;
       font-weight: 600;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
       transition: 0.3s;
     }
+
     .nav-links a:hover { color: var(--accent); }
 
-    /* 🔹 Increased bottom padding for space above footer */
-    main { padding: 60px 0 280px 0; }
+    main { padding: 60px 0 180px 0; }
 
     /* ABOUT SECTION */
     .about-section {
@@ -74,6 +102,7 @@
       margin-right: auto;
     }
 
+    /* Partnership box */
     .about-partnership {
       background: linear-gradient(135deg, #fff0f0, #ffe5e5);
       border-left: 6px solid var(--accent);
@@ -90,6 +119,13 @@
       max-width: 1000px;
     }
 
+    .about-partnership span {
+      color: var(--accent);
+      font-weight: 800;
+      text-shadow: 0 1px 3px rgba(230,0,18,0.2);
+    }
+
+    /* Rental box */
     .about-rental {
       background: linear-gradient(135deg, #ffeaea, #ffd9d9);
       border-left: 6px solid var(--accent);
@@ -101,29 +137,39 @@
       font-size: 26px;
       font-weight: 700;
       letter-spacing: 0.4px;
-      margin: 60px auto 20px auto;
+      margin: 60px auto 30px auto;
       width: 90%;
       max-width: 1000px;
     }
 
-    /* 🔹 Centered buttons + spacing below subtitle */
+    .about-rental span {
+      color: var(--accent);
+      font-weight: 800;
+      text-shadow: 0 1px 3px rgba(230,0,18,0.2);
+    }
+
+    /* Centered buttons with spacing */
     .button-row {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 16px;           /* space between buttons */
-      margin-top: 20px;    /* space from subtitle */
+      gap: 16px;
+      margin-top: 40px; /* added more space above buttons */
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
     .btn-primary {
       background: var(--accent);
       color: #fff;
-      border: none;
-      padding: 12px 22px;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
     }
 
     .btn-primary:hover {
@@ -131,27 +177,28 @@
       box-shadow: 0 6px 18px rgba(230,0,18,0.3);
     }
 
-    /* Footer container placeholder (so footer sits lower naturally) */
-    #footer-container {
-      margin-top: 60px;
-    }
+    /* Footer placeholder */
+    #footer-container { margin-top: 60px; }
 
+    /* Animations */
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     @media(max-width:820px){
+      .nav { padding: 20px; }
       .about-text h1{text-align:center;}
       .about-text p{text-align:center;font-size:17px;}
       .about-partnership,.about-rental{font-size:18px;}
-      .button-row { flex-direction: column; gap: 12px; } /* stack buttons on mobile */
+      .button-row { flex-direction: column; gap: 12px; }
     }
   </style>
 </head>
 
 <body>
-  <header class="container">
+  <header>
+    <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=1920&q=80" alt="Header Banner">
     <div class="nav">
       <div class="logo">Meitleit</div>
       <nav class="nav-links">
@@ -164,10 +211,6 @@
 
   <main class="container">
     <section class="about-section">
-      <div class="about-image">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIWBxl24fK_devjnmvetrxvIVjG9cfiojLUQ&s" alt="Office Printer">
-      </div>
-
       <div class="about-text">
         <h1>Your Trusted Printing Partner in Malaysia</h1>
 
@@ -191,10 +234,9 @@
           📦 <span>Rental Packages</span> — Starting From RM60/month (RM2/day)
         </div>
 
-        <!-- Centered buttons section -->
         <div class="button-row">
-          <button class="btn-primary" onclick="window.location.href='contact.html'">Contact Us for Plans</button>
-          <button class="btn-primary" onclick="window.location.href='products.html'">View Products</button>
+          <button class="btn btn-primary" onclick="window.location.href='contact.html'">Contact Us for Plans</button>
+          <button class="btn btn-primary" onclick="window.location.href='products.html'">View Products</button>
         </div>
 
         <p>
@@ -207,7 +249,7 @@
     </section>
   </main>
 
-  <!-- Footer loads here -->
+  <!-- Footer -->
   <div id="footer-container"></div>
 
   <script>
@@ -217,3 +259,4 @@
   </script>
 </body>
 </html>
+
