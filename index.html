@@ -43,7 +43,7 @@
     }
     .nav-links a:hover { color: var(--accent); }
 
-    main { padding: 60px 0; }
+    main { padding: 60px 0 200px 0; } /* ⬅ added bottom padding to make page longer */
 
     /* ABOUT SECTION */
     .about-section {
@@ -169,7 +169,6 @@
       box-shadow: 0 6px 18px rgba(230,0,18,0.3);
     }
 
-    /* Button container */
     .button-row {
       display: flex;
       justify-content: center;
@@ -230,7 +229,6 @@
       cursor: pointer;
     }
 
-    /* Animations */
     @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
     @keyframes fadeInUp { from {opacity:0; transform: translateY(30px);} to {opacity:1; transform: translateY(0);} }
     @keyframes slideFade { from {opacity:0; transform: translateX(-30px);} to {opacity:1; transform: translateX(0);} }
@@ -258,7 +256,6 @@
 
   <main class="container">
     <section class="about-section">
-
       <div class="about-image">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIWBxl24fK_devjnmvetrxvIVjG9cfiojLUQ&s" alt="Office Printer">
       </div>
@@ -323,7 +320,7 @@
       })
       .catch(error => console.error("Error loading footer:", error));
 
-    // Set current year for footer and handle popup ad
+    // Welcome ad + year setup
     window.onload = function() {
       if (!localStorage.getItem("adShown")) {
         document.getElementById("welcomeAdBackdrop").style.display = "flex";
@@ -337,3 +334,4 @@
   </script>
 </body>
 </html>
+
