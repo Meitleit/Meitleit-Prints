@@ -28,22 +28,29 @@
       top: 0;
       z-index: 40;
     }
+
     .nav {
       height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
+
     .logo { font-weight: 700; color: var(--accent); font-size: 22px; }
+
     .nav-links a {
       margin-left: 24px;
       color: var(--muted);
       font-weight: 600;
       transition: 0.3s;
     }
+
     .nav-links a:hover { color: var(--accent); }
 
-    main { padding: 60px 0 200px 0; } /* ⬅ added bottom padding to make page longer */
+    /* main page area with extra length */
+    main {
+      padding: 80px 0 500px 0; /* ⬅ longer bottom padding to push footer lower */
+    }
 
     /* ABOUT SECTION */
     .about-section {
@@ -100,7 +107,7 @@
       text-align: justify;
     }
 
-    /* Partnership box */
+    /* partnership box */
     .about-partnership {
       background: linear-gradient(135deg, #fff0f0, #ffe5e5);
       border-left: 6px solid var(--accent);
@@ -112,7 +119,7 @@
       font-size: 26px;
       font-weight: 700;
       letter-spacing: 0.4px;
-      margin: 40px auto 40px auto;
+      margin: 40px auto;
       width: 90%;
       max-width: 1000px;
     }
@@ -123,7 +130,7 @@
       text-shadow: 0 1px 3px rgba(230,0,18,0.2);
     }
 
-    /* Rental package box */
+    /* rental box */
     .about-rental {
       background: linear-gradient(135deg, #ffeaea, #ffd9d9);
       border-left: 6px solid var(--accent);
@@ -146,9 +153,7 @@
       text-shadow: 0 1px 3px rgba(230,0,18,0.2);
     }
 
-    .about-space {
-      margin: 100px 0;
-    }
+    .about-space { margin: 100px 0; }
 
     .btn {
       padding: 12px 22px;
@@ -177,7 +182,7 @@
       flex-wrap: wrap;
     }
 
-    /* Welcome Popup */
+    /* popup */
     #welcomeAdBackdrop {
       position: fixed;
       inset: 0;
@@ -229,7 +234,6 @@
       cursor: pointer;
     }
 
-    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
     @keyframes fadeInUp { from {opacity:0; transform: translateY(30px);} to {opacity:1; transform: translateY(0);} }
     @keyframes slideFade { from {opacity:0; transform: translateX(-30px);} to {opacity:1; transform: translateX(0);} }
     @keyframes popIn { 0%{transform:scale(0.9);opacity:0;} 100%{transform:scale(1);opacity:1;} }
@@ -308,30 +312,23 @@
     </div>
   </div>
 
-  <!-- FOOTER (auto-loaded) -->
+  <!-- Footer -->
   <div id="footer"></div>
 
   <script>
-    // Load footer dynamically
     fetch("footer.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("footer").innerHTML = data;
-      })
-      .catch(error => console.error("Error loading footer:", error));
+      .then(res => res.text())
+      .then(html => document.getElementById("footer").innerHTML = html);
 
-    // Welcome ad + year setup
     window.onload = function() {
       if (!localStorage.getItem("adShown")) {
         document.getElementById("welcomeAdBackdrop").style.display = "flex";
         localStorage.setItem("adShown", "true");
       }
     };
-
     function closeAd() {
       document.getElementById("welcomeAdBackdrop").style.display = "none";
     }
   </script>
 </body>
 </html>
-
