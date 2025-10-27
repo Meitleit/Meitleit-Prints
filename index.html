@@ -112,7 +112,7 @@
       font-size: 26px;
       font-weight: 700;
       letter-spacing: 0.4px;
-      margin: 40px auto 40px auto; /* extra spacing above & below */
+      margin: 40px auto 40px auto;
       width: 90%;
       max-width: 1000px;
     }
@@ -176,13 +176,6 @@
       gap: 16px;
       margin-top: 80px;
       flex-wrap: wrap;
-    }
-
-    footer {
-      padding: 40px 0;
-      border-top: 1px solid #f1f5f9;
-      text-align: center;
-      color: var(--muted);
     }
 
     /* Welcome Popup */
@@ -317,14 +310,27 @@
       <button onclick="closeAd()">Enter Site</button>
     </div>
   </div>
+
+  <!-- FOOTER (auto-loaded) -->
+  <div id="footer"></div>
+
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Load footer dynamically
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      })
+      .catch(error => console.error("Error loading footer:", error));
+
+    // Set current year for footer and handle popup ad
     window.onload = function() {
       if (!localStorage.getItem("adShown")) {
         document.getElementById("welcomeAdBackdrop").style.display = "flex";
         localStorage.setItem("adShown", "true");
       }
     };
+
     function closeAd() {
       document.getElementById("welcomeAdBackdrop").style.display = "none";
     }
