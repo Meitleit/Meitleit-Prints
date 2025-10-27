@@ -47,9 +47,14 @@
 
     .nav-links a:hover { color: var(--accent); }
 
-    /* main page area with extra length */
+    /* main page area */
     main {
-      padding: 80px 0 500px 0; /* ⬅ longer bottom padding to push footer lower */
+      padding: 80px 0 120px 0; /* bottom space for footer breathing room */
+    }
+
+    /* extra bottom spacer */
+    .page-bottom-space {
+      height: 80px; /* enough for about 2 lines of empty space */
     }
 
     /* ABOUT SECTION */
@@ -302,6 +307,9 @@
         </div>
       </div>
     </section>
+
+    <!-- Empty space at bottom for footer breathing room -->
+    <div class="page-bottom-space"></div>
   </main>
 
   <div id="welcomeAdBackdrop">
