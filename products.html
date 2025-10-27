@@ -17,15 +17,16 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* Background matches header image but lighter */
+    /* Blended background matching header image */
     body {
       color: var(--text);
-      background: 
-        linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+      background:
+        linear-gradient(to bottom, rgba(247,247,247,0.95) 0%, rgba(255,255,255,1) 100%),
         url("https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=1920&q=80");
       background-size: cover;
       background-attachment: fixed;
-      background-position: center;
+      background-position: center top;
+      background-repeat: no-repeat;
     }
 
     /* --- HEADER --- */
@@ -47,7 +48,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.35) 50%, rgba(255,255,255,1) 100%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.35) 50%, rgba(255,255,255,0.9) 100%);
       pointer-events: none;
     }
 
@@ -73,7 +74,7 @@
       margin-left: 24px;
       color: #fff;
       font-weight: 600;
-      text-decoration: none; /* no underline */
+      text-decoration: none; /* remove underline */
       text-shadow: 0 2px 4px rgba(0,0,0,0.4);
       transition: 0.3s;
     }
@@ -211,7 +212,6 @@
           </div>
         </article>
 
-        <!-- 🖨️ More cards -->
         <article class="card">
           <div class="thumb"><img src="assets/ricoh-imc3500.jpg" alt=""></div>
           <div class="model">RICOH IM C3500</div>
@@ -254,6 +254,7 @@
           </div>
         </article>
 
+        <!-- 🖨️ FUJI XEROX -->
         <article class="card">
           <div class="thumb"><img src="assets/Fuji-Xerox-ApeosPort.jpg" alt=""></div>
           <div class="model">Fuji Xerox ApeosPort C3373 / C4473 / C5573</div>
@@ -268,6 +269,7 @@
           </div>
         </article>
 
+        <!-- 🖨️ FUJIFILM -->
         <article class="card">
           <div class="thumb"><img src="assets/Fujifilm-Apeos-C3060-C2560.jpg" alt=""></div>
           <div class="model">Fujifilm Apeos C3060 / C2560</div>
