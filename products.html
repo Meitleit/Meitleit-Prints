@@ -42,6 +42,14 @@
       height: 100%;
       object-fit: cover;
       display: block;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    header img.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     header::after {
@@ -102,7 +110,16 @@
       gap: 10px;
       transition: box-shadow 0.2s ease;
       backdrop-filter: blur(5px);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
     }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .card:hover { box-shadow: 0 8px 18px rgba(0,0,0,0.05); }
 
     .thumb {
@@ -116,6 +133,7 @@
       overflow: hidden;
     }
     .thumb img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; }
+
     .model { font-weight: 700; font-size: 16px; }
 
     .specs-box {
@@ -158,7 +176,15 @@
       min-width: 120px;
       text-decoration: none;
       display: inline-block;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
+
+    /* 🟢 Button click effect */
+    .btn:active {
+      transform: scale(0.95);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) inset;
+    }
+
     .btn-primary { background: var(--success); color: #fff; }
     .btn-accent { background: var(--accent); color: #fff; }
 
@@ -180,7 +206,7 @@
 
 <body>
   <header>
-    <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=1920&q=80" alt="Header Banner">
+    <img id="header-img" src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=1920&q=80" alt="Header Banner">
     <div class="nav">
       <div class="logo">Meitleit</div>
       <nav class="nav-links">
@@ -197,7 +223,7 @@
       <h2>Our Printers</h2>
       <div class="grid">
 
-        <!-- 🖨️ RICOH -->
+        <!-- 🖨️ Product Cards (unchanged) -->
         <article class="card">
           <div class="thumb"><img src="assets/ricoh-imc3000.jpg" alt=""></div>
           <div class="model">RICOH IM C3000</div>
@@ -212,7 +238,6 @@
           </div>
         </article>
 
-        <!-- 🖨️ RICOH IM C3500 -->
         <article class="card">
           <div class="thumb"><img src="assets/ricoh-imc3500.jpg" alt=""></div>
           <div class="model">RICOH IM C3500</div>
@@ -308,18 +333,31 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ✅ WhatsApp Integration (added without changing design)
+    // ✅ WhatsApp Integration
     const phoneNumber = "60124406637";
     document.querySelectorAll('.btn-primary').forEach(button => {
       button.addEventListener('click', () => {
         const card = button.closest('.card');
         const productName = card.querySelector('.model').textContent.trim();
-        const message = `Hello, I'm interested in your ${productName} and (Add Ons if looking for any)`;
+        const message = `Hello, I'm interested in ${productName}`;
         const encoded = encodeURIComponent(message);
         const url = `https://wa.me/${phoneNumber}?text=${encoded}`;
         window.open(url, '_blank');
       });
     });
+
+    // ✨ Fade-in animation
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.card').forEach(el => observer.observe(el));
+    const headerImg = document.getElementById('header-img');
+    observer.observe(headerImg);
   </script>
 </body>
 </html>
