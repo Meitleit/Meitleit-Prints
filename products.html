@@ -314,7 +314,7 @@
       button.addEventListener('click', () => {
         const card = button.closest('.card');
         const productName = card.querySelector('.model').textContent.trim();
-        const message = `Hello, I'm interested in ${productName}`;
+        const message = `Hello, I'm interested in your ${productName}`;
         const encoded = encodeURIComponent(message);
         const url = `https://wa.me/${phoneNumber}?text=${encoded}`;
         window.open(url, '_blank');
