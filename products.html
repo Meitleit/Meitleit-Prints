@@ -17,10 +17,15 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* --- Background --- */
+    /* --- Background (matches header image color tones) --- */
     body {
       color: var(--text);
-      background: linear-gradient(to bottom, #e8ebef 0%, #f3f5f7 50%, #ffffff 100%);
+      background: linear-gradient(
+        to bottom,
+        #e8ebef 0%,
+        #f3f5f7 50%,
+        #ffffff 100%
+      );
       margin: 0;
       padding: 0;
       overflow-x: hidden;
@@ -79,7 +84,7 @@
       margin-left: 24px;
       color: #fff;
       font-weight: 600;
-      text-decoration: none;
+      text-decoration: none; /* no underline */
       text-shadow: 0 2px 4px rgba(0,0,0,0.4);
       transition: 0.3s;
     }
@@ -113,8 +118,8 @@
       transition: opacity 1s ease, transform 1s ease;
     }
 
-    /* 🟢 DARKER hover shadow ONLY */
-    .card:hover { 
+    /* 🟤 DARKER hover effect (requested) */
+    .card:hover {
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
       transform: translateY(-5px);
     }
@@ -134,7 +139,18 @@
       border: 1px solid #f0f3f6;
       overflow: hidden;
     }
-    .thumb img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; }
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 6px;
+      transition: transform 0.6s ease;
+    }
+
+    /* subtle image scale on card hover (keeps visual but not altering content) */
+    .card:hover .thumb img {
+      transform: scale(1.05);
+    }
 
     .model { font-weight: 700; font-size: 16px; }
 
@@ -181,13 +197,35 @@
       transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
+    /* 🟢 Button press effect (requested previously) */
     .btn:active {
       transform: scale(0.95);
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) inset;
     }
 
-    .btn-primary { background: var(--success); color: #fff; }
-    .btn-accent { background: var(--accent); color: #fff; }
+    /* 🟢 "I'm Interested" button (green) hover & glow — suited to color */
+    .btn-primary {
+      background: var(--success);
+      color: #fff;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: #1ebe57;
+      box-shadow: 0 0 14px rgba(34, 197, 94, 0.55);
+    }
+
+    /* 🔴 "Learn More" button (red) hover & glow — suited to color */
+    .btn-accent {
+      background: var(--accent);
+      color: #fff;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-accent:hover {
+      background: #c40010;
+      box-shadow: 0 0 14px rgba(230, 0, 18, 0.55);
+    }
 
     footer {
       text-align: center;
@@ -207,13 +245,13 @@
 
 <body>
   <header>
-    <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=1920&q=80" alt="Header Banner">
+    <img id="header-img" src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=1920&q=80" alt="Header Banner">
     <div class="nav">
       <div class="logo">Meitleit</div>
       <nav class="nav-links">
         <a href="index.html">About</a>
         <a href="products.html">Products</a>
-        <a href="services.html">Services</a>
+        <a href="services.html">Services</a> <!-- ✅ New Button Added -->
         <a href="contact.html">Contact Us</a>
       </nav>
     </div>
@@ -224,7 +262,7 @@
       <h2>Our Printers</h2>
       <div class="grid">
 
-        <!-- 🖨️ Product Cards — unchanged -->
+        <!-- 🖨️ RICOH -->
         <article class="card">
           <div class="thumb"><img src="assets/ricoh-imc3000.jpg" alt=""></div>
           <div class="model">RICOH IM C3000</div>
@@ -239,6 +277,7 @@
           </div>
         </article>
 
+        <!-- 🖨️ RICOH IM C3500 -->
         <article class="card">
           <div class="thumb"><img src="assets/ricoh-imc3500.jpg" alt=""></div>
           <div class="model">RICOH IM C3500</div>
@@ -332,18 +371,34 @@
   </footer>
 
   <script>
+    // auto year (unchanged)
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Fade effect for cards and header
-    const observer = new IntersectionObserver((entries) => {
+    // ✅ WhatsApp Integration (unchanged functionality)
+    const phoneNumber = "60124406637";
+    document.querySelectorAll('.btn-primary').forEach(button => {
+      button.addEventListener('click', () => {
+        const card = button.closest('.card');
+        const productName = card.querySelector('.model').textContent.trim();
+        const message = `Hello, I'm interested in ${productName}`;
+        const encoded = encodeURIComponent(message);
+        const url = `https://wa.me/${phoneNumber}?text=${encoded}`;
+        window.open(url, '_blank');
+      });
+    });
+
+    // ✨ Fade-in effect for header image and cards (triggers once)
+    const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.2 });
 
-    document.querySelectorAll('.card, header img').forEach(el => observer.observe(el));
+    document.querySelectorAll('.card').forEach(el => observer.observe(el));
+    const headerImg = document.getElementById('header-img');
+    if (headerImg) observer.observe(headerImg);
   </script>
 </body>
 </html>
