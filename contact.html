@@ -25,12 +25,34 @@
       min-height: 100vh;
     }
 
+    /* ✨ Fade-in keyframes */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
     /* HEADER SECTION */
     header {
       position: relative;
       width: 100%;
       height: 300px;
       overflow: hidden;
+      animation: fadeIn 1.5s ease-out;
     }
 
     header img {
@@ -97,6 +119,9 @@
       min-width: 350px;
       max-width: 700px;
       text-align: center;
+      animation: fadeInUp 1.5s ease-out;
+      animation-delay: 0.3s;
+      animation-fill-mode: both;
     }
 
     .form-section h1 {
@@ -116,17 +141,16 @@
       margin-right: auto;
     }
 
-    /* ✅ Adjusted iframe height and spacing */
     iframe {
       width: 100%;
-      height: 900px; /* Reduced height to remove empty bottom space */
+      height: 900px;
       border: none;
       border-radius: 12px;
       box-shadow: 0 8px 30px rgba(0,0,0,0.1);
       background: #fff;
       transition: transform 0.3s ease;
       display: block;
-      margin-bottom: 0; /* Tightened spacing below */
+      margin-bottom: 0;
     }
 
     iframe:hover {
@@ -134,7 +158,7 @@
     }
 
     .note {
-      margin-top: 10px; /* Reduced spacing to close gap with form */
+      margin-top: 10px;
       font-size: 16px;
       color: var(--accent);
       background: rgba(230,0,18,0.05);
@@ -157,6 +181,9 @@
       box-shadow: 0 8px 30px rgba(0,0,0,0.08);
       color: var(--text);
       height: fit-content;
+      animation: fadeInUp 1.5s ease-out;
+      animation-delay: 0.5s;
+      animation-fill-mode: both;
     }
 
     .info-panel h2 {
@@ -194,7 +221,7 @@
       .form-section h1 { font-size: 32px; }
       .form-section p { font-size: 16px; }
       main { flex-direction: column; align-items: center; }
-      iframe { height: 950px; } /* Adjusted proportionally for mobile */
+      iframe { height: 950px; }
     }
   </style>
 </head>
