@@ -7,159 +7,161 @@
 
   <style>
     :root {
-      --gold: #d4af37;
-      --gold-light: #f5d76e;
-      --black-deep: #0b0b0b;
-      --black-soft: #1a1a1a;
-      --text-light: #f4f4f4;
-      --text-bright: #fafafa;
-      --text-muted: #bfbfbf;
-      --shadow: rgba(0, 0, 0, 0.4);
-      --font-main: "Poppins", "Segoe UI", Roboto, sans-serif;
-      --hover-glow: 0 0 12px rgba(212, 175, 55, 0.8);
+      --primary: #e6b800; /* Gold */
+      --bg: #121212; /* Dark but not pure black */
+      --text: #f8f8f8;
+      --muted: #c7c7c7;
+      --button-bg: #e60012;
+      --button-hover: #b5000e;
     }
 
     body {
-      font-family: var(--font-main);
       margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, var(--black-soft), #202020);
-      color: var(--text-light);
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
 
-    /* ---------- HEADER ---------- */
     header {
-      background: linear-gradient(90deg, var(--black-deep), #222);
-      color: var(--gold);
-      padding: 18px 40px;
+      background-color: rgba(18, 18, 18, 0.9);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      padding: 15px 40px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    header h1 {
-      font-size: 22px;
-      letter-spacing: 1px;
-      margin: 0;
-      font-weight: 700;
-      text-transform: uppercase;
-      text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+    header img {
+      height: 50px;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
     }
 
     nav a {
-      color: var(--text-bright);
       text-decoration: none;
-      margin: 0 14px;
+      color: var(--text);
       font-weight: 500;
-      transition: all 0.3s ease;
-      padding: 6px 12px;
-      border-radius: 8px;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      left: 0;
+      bottom: -5px;
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     nav a:hover {
-      color: var(--gold-light);
-      text-shadow: var(--hover-glow);
-      transform: scale(1.05);
+      color: var(--primary);
     }
 
-    nav a.active {
-      color: var(--gold);
-      text-shadow: var(--hover-glow);
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
     }
 
-    /* ---------- FORM CONTAINER ---------- */
-    .form-container {
-      max-width: 950px;
-      width: 90%;
-      margin: 80px auto;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(212, 175, 55, 0.25);
-      border-radius: 18px;
-      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.35);
-      padding: 45px;
-      backdrop-filter: blur(12px);
-      transition: all 0.3s ease;
-    }
-
-    .form-container:hover {
-      box-shadow: 0 6px 35px rgba(212, 175, 55, 0.25);
-      transform: translateY(-4px);
+    h1 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      text-align: center;
     }
 
     iframe {
       width: 100%;
-      height: 1200px; /* Extended to prevent inner scroll */
+      max-width: 700px;
+      height: 700px;
       border: none;
       border-radius: 12px;
-      background: #111;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s;
     }
 
-    /* ---------- FOOTER ---------- */
+    iframe:hover {
+      transform: scale(1.01);
+    }
+
     footer {
       text-align: center;
-      padding: 25px;
+      padding: 15px;
+      background-color: rgba(18, 18, 18, 0.95);
+      color: var(--muted);
       font-size: 14px;
-      color: var(--gold-light);
-      border-top: 1px solid rgba(212, 175, 55, 0.3);
-      background: linear-gradient(90deg, #191919, #222);
-      letter-spacing: 0.5px;
-      margin-top: auto;
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
 
-    footer a {
-      color: var(--gold);
-      text-decoration: none;
-      transition: color 0.2s ease;
+    /* Button hover effect same as index page */
+    button, .btn {
+      background-color: var(--button-bg);
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
 
-    footer a:hover {
-      color: var(--gold-light);
-      text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+    button:hover, .btn:hover {
+      background-color: var(--button-hover);
+      box-shadow: 0 0 15px rgba(230, 0, 18, 0.4);
+      transform: scale(1.05);
     }
 
-    /* ---------- RESPONSIVE ---------- */
-    @media (max-width: 768px) {
-      header { flex-direction: column; text-align: center; padding: 20px; }
-      nav a { display: inline-block; margin: 8px; }
-      iframe { height: 1300px; }
-      .form-container { padding: 30px; }
-    }
   </style>
 </head>
-
 <body>
+
   <header>
-    <h1>Meitleit Printers</h1>
+    <img src="assets/logo.png" alt="Meitleit Printers Logo">
     <nav>
       <a href="index.html">Home</a>
       <a href="products.html">Products</a>
       <a href="services.html">Services</a>
-      <a href="contact.html" class="active">Contact Us</a>
+      <a href="contact.html" style="color: var(--primary);">Contact Us</a>
     </nav>
   </header>
 
-  <div class="form-container">
-    <iframe data-tally-src="https://tally.so/embed/wLAVpy?hideTitle=1&transparentBackground=1" loading="lazy"></iframe>
-    <script>
-      var d=document,w="https://tally.so/widgets/embed.js",v=function(){
-        if(typeof Tally!=="undefined")Tally.loadEmbeds();
-        else d.querySelectorAll("iframe[data-tally-src]").forEach(function(e){e.src=e.dataset.tallySrc})
-      };
-      if(typeof Tally==="undefined"){
-        var s=d.createElement("script");
-        s.src=w;s.onload=v;s.onerror=v;d.body.appendChild(s);
-      } else v();
-    </script>
-  </div>
+  <main>
+    <h1>Contact Us</h1>
+    <p style="text-align:center; max-width:600px; color: var(--muted); margin-bottom: 30px;">
+      Have questions or inquiries? Fill out the form below, and our team will get back to you shortly.
+    </p>
+
+    <!-- Embedded Tally form -->
+    <iframe 
+      data-tally-src="https://tally.so/embed/wLAVpy?hideTitle=1&transparentBackground=0&theme=light" 
+      loading="lazy"
+      style="background:#fff; border-radius:12px;">
+    </iframe>
+
+    <script async src="https://tally.so/widgets/embed.js"></script>
+  </main>
 
   <footer>
-    © 2025 <strong>Meitleit Printers</strong> — Professional Printing Solutions. 
-    <br><a href="index.html">Return to Home</a>
+    © 2025 Meitleit Printers. All rights reserved.
   </footer>
+
 </body>
 </html>
