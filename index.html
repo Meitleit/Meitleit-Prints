@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -194,6 +193,69 @@
       .about-partnership,.about-rental{font-size:18px;}
       .button-row { flex-direction: column; gap: 12px; }
     }
+
+    /* --- Welcome Ad Styles --- */
+    #welcome-ad-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 2s ease, visibility 0s linear 2s;
+    }
+
+    #welcome-ad-overlay.show {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 2s ease;
+    }
+
+    .ad-container {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      animation: fadeInAd 2s ease forwards;
+    }
+
+    .ad-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .close-ad {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      border: none;
+      font-size: 26px;
+      font-weight: bold;
+      line-height: 1;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .close-ad:hover {
+      background: rgba(230, 0, 18, 0.9);
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeInAd {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
   </style>
 </head>
 
@@ -209,11 +271,6 @@
       </nav>
     </div>
   </header>
-
-  <!-- ✅ Added your Welcome Ad Image -->
-  <div class="container" style="text-align:center; margin-top:40px;">
-    <img src="assets/Welcome_Ad_Meitleit.png" alt="Welcome Ad" style="max-width:100%; height:auto; border-radius:12px; box-shadow:0 6px 20px rgba(0,0,0,0.1);">
-  </div>
 
   <main class="container">
     <section class="about-section">
@@ -258,10 +315,41 @@
 
   <div id="footer-container"></div>
 
+  <!-- ✅ Welcome Ad Overlay -->
+  <div id="welcome-ad-overlay">
+    <div class="ad-container">
+      <button class="close-ad">&times;</button>
+      <img src="assets/Welcome_Ad_Meitleit.png" alt="Welcome Ad">
+    </div>
+  </div>
+
   <script>
     fetch('footer.html')
       .then(response => response.text())
       .then(data => document.getElementById('footer-container').innerHTML = data);
+
+    // ✅ Ad logic: show once per session
+    window.addEventListener("load", () => {
+      const overlay = document.getElementById("welcome-ad-overlay");
+      const closeBtn = document.querySelector(".close-ad");
+
+      // Check if ad already shown this session
+      if (!sessionStorage.getItem("welcomeAdShown")) {
+        setTimeout(() => {
+          overlay.classList.add("show");
+        }, 500);
+      }
+
+      // When user closes ad
+      closeBtn.addEventListener("click", () => {
+        overlay.style.opacity = "0";
+        overlay.style.transition = "opacity 0.5s ease";
+        setTimeout(() => {
+          overlay.style.display = "none";
+        }, 500);
+        sessionStorage.setItem("welcomeAdShown", "true");
+      });
+    });
   </script>
 </body>
 </html>
