@@ -7,7 +7,7 @@
 
   <style>
     :root {
-      --bg: #ffffff;
+      --bg: #ffffff; /* ← your note preserved */
       --text: #0b1220;
       --muted: #6b7280;
       --accent: #e60012;
@@ -83,32 +83,41 @@
     /* MAIN CONTACT SECTION */
     main {
       flex: 1;
-      padding: 60px 20px 100px;
+      padding: 80px 20px 100px;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: flex-start;
+      gap: 60px;
+      flex-wrap: wrap;
       background-color: var(--bg);
     }
 
-    main h1 {
+    .form-section {
+      flex: 1;
+      min-width: 350px;
+      max-width: 700px;
+      text-align: center;
+    }
+
+    .form-section h1 {
       font-size: 42px;
       color: var(--accent);
       margin-bottom: 20px;
       text-align: center;
     }
 
-    main p {
+    .form-section p {
       color: var(--muted);
       text-align: center;
       font-size: 18px;
       margin-bottom: 40px;
       max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     iframe {
       width: 100%;
-      max-width: 700px;
       height: 1050px;
       border: none;
       border-radius: 12px;
@@ -121,10 +130,67 @@
       transform: scale(1.01);
     }
 
+    .note {
+      margin-top: 20px;
+      font-size: 16px;
+      color: var(--accent);
+      background: rgba(230,0,18,0.05);
+      padding: 15px;
+      border-radius: 8px;
+      line-height: 1.5;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    /* INFO PANEL */
+    .info-panel {
+      flex: 0.6;
+      min-width: 300px;
+      max-width: 400px;
+      background: linear-gradient(180deg, #fff5f5, #ffffff);
+      border: 1px solid rgba(230,0,18,0.1);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      color: var(--text);
+      height: fit-content;
+    }
+
+    .info-panel h2 {
+      color: var(--accent);
+      font-size: 22px;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .info-panel p {
+      margin-bottom: 10px;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .info-panel strong {
+      color: var(--accent);
+    }
+
+    .info-map {
+      margin-top: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .info-map img {
+      width: 100%;
+      display: block;
+      opacity: 0.95;
+      border-radius: 10px;
+    }
+
     @media(max-width:820px){
       .nav { padding: 20px; }
-      main h1 { font-size: 32px; }
-      main p { font-size: 16px; }
+      .form-section h1 { font-size: 32px; }
+      .form-section p { font-size: 16px; }
+      main { flex-direction: column; align-items: center; }
       iframe { height: 1200px; }
     }
   </style>
@@ -145,19 +211,31 @@
   </header>
 
   <main>
-    <h1>Contact Us</h1>
-    <p>We’re here to help. Fill out the form below and our team will reach out to you soon.</p>
+    <section class="form-section">
+      <h1>Contact Us</h1>
+      <p>We’re here to help. Fill out the form below and our team will reach out to you soon.</p>
 
-    <!-- Embedded Tally Form -->
-    <iframe 
-      data-tally-src="https://tally.so/embed/wLAVpy?hideTitle=1&transparentBackground=0&theme=light"
-      loading="lazy">
-    </iframe>
-    <script async src="https://tally.so/widgets/embed.js"></script>
-  </main>
+      <!-- Embedded Tally Form -->
+      <iframe 
+        data-tally-src="https://tally.so/embed/wLAVpy?hideTitle=1&transparentBackground=0&theme=light"
+        loading="lazy">
+      </iframe>
+      <script async src="https://tally.so/widgets/embed.js"></script>
 
-  <!-- ✅ Footer replaced with external footer.html -->
-  <!--#include file="footer.html"-->
+      <!-- Added message note -->
+      <div class="note">
+        📩 Your reply will shortly be reviewed. Our team will mainly contact you via WhatsApp.  
+        If you prefer another method, please specify it in the form.  
+        Thank you for your absolute patience — it is truly appreciated! 😀
+      </div>
+    </section>
 
-</body>
-</html>
+    <aside class="info-panel">
+      <h2>📍 Our Office</h2>
+      <p><strong>Address:</strong><br> No. 12, Jalan Teknologi 3/2,<br> Kota Damansara, 47810 PJ, Selangor</p>
+      <p><strong>Phone:</strong><br> +60 12-345 6789</p>
+      <p><strong>Email:</strong><br> contact@meitleitprinters.com</p>
+      <p><strong>Working Hours:</strong><br> Mon–Fri: 9:00 AM – 6:00 PM<br> Sat: 10:00 AM – 2:00 PM</p>
+
+      <div class="info-map">
+        <img src="https://maps.googleapis.com/maps/api/staticmap?center=Petaling+Jaya+Malaysia&zoom=13&size=400x250&key=YOUR_API_KEY" alt="Map Location">
