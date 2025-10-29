@@ -72,9 +72,13 @@
       font-weight: 600;
       text-shadow: 0 2px 4px rgba(0,0,0,0.4);
       transition: 0.3s;
+      text-decoration: none; /* ✅ Removed underline */
     }
 
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover {
+      color: var(--accent);
+      text-decoration: none; /* ✅ Ensure no underline on hover */
+    }
 
     /* MAIN CONTACT SECTION */
     main {
@@ -193,4 +197,5 @@
   </footer>
 </body>
 </html>
+
 
