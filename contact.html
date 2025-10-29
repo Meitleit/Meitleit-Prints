@@ -7,7 +7,7 @@
 
   <style>
     :root {
-      --bg: #ffffff; /* ← your note preserved */
+      --bg: #ffffff;
       --text: #0b1220;
       --muted: #6b7280;
       --accent: #e60012;
@@ -72,12 +72,12 @@
       font-weight: 600;
       text-shadow: 0 2px 4px rgba(0,0,0,0.4);
       transition: 0.3s;
-      text-decoration: none;
+      text-decoration: none; /* ✅ Removed underline */
     }
 
     .nav-links a:hover {
       color: var(--accent);
-      text-decoration: none;
+      text-decoration: none; /* ✅ No underline on hover */
     }
 
     /* MAIN CONTACT SECTION */
@@ -118,7 +118,7 @@
 
     iframe {
       width: 100%;
-      height: 1050px;
+      height: 1050px; /* Fully visible form */
       border: none;
       border-radius: 12px;
       box-shadow: 0 8px 30px rgba(0,0,0,0.1);
@@ -243,8 +243,13 @@
     </aside>
   </main>
 
-  <!-- ✅ Footer loaded from external file -->
-  <!--#include file="footer.html"-->
+  <!-- ✅ External Footer Include -->
+  <div id="footer"></div>
+  <script>
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+  </script>
 
 </body>
 </html>
