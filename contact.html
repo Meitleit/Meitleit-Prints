@@ -7,43 +7,44 @@
 
   <style>
     :root {
-      --primary: #e6b800; /* Gold */
-      --bg: #121212; /* Dark but not pure black */
-      --text: #f8f8f8;
-      --muted: #c7c7c7;
-      --button-bg: #e60012;
-      --button-hover: #b5000e;
+      --bg: #ffffff;
+      --text: #0b1220;
+      --muted: #6b7280;
+      --accent: #e60012;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--bg);
+      background: var(--bg);
       color: var(--text);
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
 
+    /* Header */
     header {
-      background-color: rgba(18, 18, 18, 0.9);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 15px 40px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      background: #f9f9f9;
+      padding: 15px 60px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     header img {
-      height: 50px;
+      height: 55px;
     }
 
     nav {
       display: flex;
-      gap: 25px;
+      gap: 30px;
     }
 
     nav a {
@@ -55,13 +56,13 @@
     }
 
     nav a::after {
-      content: '';
+      content: "";
       position: absolute;
       width: 0;
       height: 2px;
-      background-color: var(--primary);
       left: 0;
       bottom: -5px;
+      background-color: var(--accent);
       transition: width 0.3s;
     }
 
@@ -70,9 +71,10 @@
     }
 
     nav a:hover {
-      color: var(--primary);
+      color: var(--accent);
     }
 
+    /* Main Section */
     main {
       flex: 1;
       display: flex;
@@ -80,12 +82,20 @@
       align-items: center;
       justify-content: center;
       padding: 60px 20px;
+      background-color: #fff;
     }
 
     h1 {
-      color: var(--primary);
-      margin-bottom: 20px;
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: var(--muted);
       text-align: center;
+      margin-bottom: 30px;
+      max-width: 600px;
     }
 
     iframe {
@@ -94,26 +104,18 @@
       height: 700px;
       border: none;
       border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-      transition: transform 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      background: #fff;
+      transition: transform 0.3s ease;
     }
 
     iframe:hover {
       transform: scale(1.01);
     }
 
-    footer {
-      text-align: center;
-      padding: 15px;
-      background-color: rgba(18, 18, 18, 0.95);
-      color: var(--muted);
-      font-size: 14px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    }
-
-    /* Button hover effect same as index page */
-    button, .btn {
-      background-color: var(--button-bg);
+    /* Button consistency */
+    .btn, button {
+      background-color: var(--accent);
       color: #fff;
       border: none;
       padding: 12px 25px;
@@ -123,45 +125,50 @@
       transition: all 0.3s ease;
     }
 
-    button:hover, .btn:hover {
-      background-color: var(--button-hover);
+    .btn:hover, button:hover {
+      background-color: #b5000e;
       box-shadow: 0 0 15px rgba(230, 0, 18, 0.4);
       transform: scale(1.05);
     }
 
+    /* Footer */
+    footer {
+      background: #f9f9f9;
+      text-align: center;
+      padding: 20px;
+      color: var(--muted);
+      font-size: 14px;
+      border-top: 1px solid rgba(0,0,0,0.05);
+    }
   </style>
 </head>
-<body>
 
+<body>
   <header>
     <img src="assets/logo.png" alt="Meitleit Printers Logo">
     <nav>
       <a href="index.html">Home</a>
       <a href="products.html">Products</a>
       <a href="services.html">Services</a>
-      <a href="contact.html" style="color: var(--primary);">Contact Us</a>
+      <a href="contact.html" style="color: var(--accent);">Contact Us</a>
     </nav>
   </header>
 
   <main>
     <h1>Contact Us</h1>
-    <p style="text-align:center; max-width:600px; color: var(--muted); margin-bottom: 30px;">
-      Have questions or inquiries? Fill out the form below, and our team will get back to you shortly.
-    </p>
+    <p>We’re here to help. Fill out the form below and our team will reach out to you soon.</p>
 
-    <!-- Embedded Tally form -->
+    <!-- Embedded Tally Form -->
     <iframe 
       data-tally-src="https://tally.so/embed/wLAVpy?hideTitle=1&transparentBackground=0&theme=light" 
       loading="lazy"
       style="background:#fff; border-radius:12px;">
     </iframe>
-
     <script async src="https://tally.so/widgets/embed.js"></script>
   </main>
 
   <footer>
     © 2025 Meitleit Printers. All rights reserved.
   </footer>
-
 </body>
 </html>
