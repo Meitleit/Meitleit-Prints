@@ -193,6 +193,52 @@
       .about-partnership,.about-rental{font-size:18px;}
       .button-row { flex-direction: column; gap: 12px; }
     }
+
+    /* ✅ Welcome Ad Styles */
+    .welcome-ad {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      overflow: hidden;
+      z-index: 9999;
+      width: 360px;
+      max-width: 90%;
+      animation: fadeIn 0.6s ease;
+    }
+
+    .welcome-ad img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .close-ad {
+      position: absolute;
+      top: 6px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .close-ad:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -45%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
   </style>
 </head>
 
@@ -241,7 +287,6 @@
           our mission is simple — to make every print smart, cost-effective, and sustainable.
         </p>
 
-        <!-- ✅ BUTTONS MOVED HERE (below subtitle + paragraph) -->
         <div class="button-row">
           <button class="btn btn-primary" onclick="window.location.href='contact.html'">Contact Us for Plans</button>
           <button class="btn btn-primary" onclick="window.location.href='products.html'">View Products</button>
@@ -254,6 +299,12 @@
   <!-- Footer -->
   <div id="footer-container"></div>
 
+  <!-- ✅ Welcome Ad Popup -->
+  <div id="welcomeAd" class="welcome-ad">
+    <button class="close-ad" onclick="document.getElementById('welcomeAd').style.display='none'">×</button>
+    <img src="Welcome_Ad_Meitleit.png" alt="Welcome Ad">
+  </div>
+
   <script>
     fetch('footer.html')
       .then(response => response.text())
@@ -261,3 +312,4 @@
   </script>
 </body>
 </html>
+
