@@ -68,9 +68,20 @@
       font-weight: 600;
       text-shadow: 0 2px 4px rgba(0,0,0,0.4);
       transition: 0.3s;
+      padding-bottom: 4px;
+      border-bottom: 2px solid transparent;
     }
 
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+    }
+
+    /* ✅ Active link highlight */
+    .nav-links a.active {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+    }
 
     main { padding: 60px 0 180px 0; }
 
@@ -102,7 +113,6 @@
       margin-right: auto;
     }
 
-    /* Partnership box */
     .about-partnership {
       background: linear-gradient(135deg, #fff0f0, #ffe5e5);
       border-left: 6px solid var(--accent);
@@ -125,7 +135,6 @@
       text-shadow: 0 1px 3px rgba(230,0,18,0.2);
     }
 
-    /* Rental box */
     .about-rental {
       background: linear-gradient(135deg, #ffeaea, #ffd9d9);
       border-left: 6px solid var(--accent);
@@ -148,7 +157,6 @@
       text-shadow: 0 1px 3px rgba(230,0,18,0.2);
     }
 
-    /* Centered buttons with spacing */
     .button-row {
       display: flex;
       justify-content: center;
@@ -177,10 +185,8 @@
       box-shadow: 0 6px 18px rgba(230,0,18,0.3);
     }
 
-    /* Footer placeholder */
     #footer-container { margin-top: 60px; }
 
-    /* Animations */
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
@@ -194,7 +200,6 @@
       .button-row { flex-direction: column; gap: 12px; }
     }
 
-    /* --- Welcome Ad Styles --- */
     #welcome-ad-overlay {
       position: fixed;
       inset: 0;
@@ -265,8 +270,9 @@
     <div class="nav">
       <div class="logo">Meitleit</div>
       <nav class="nav-links">
-        <a href="index.html">About</a>
+        <a href="index.html" class="active">About</a>
         <a href="products.html">Products</a>
+        <a href="service.html">Services</a>
         <a href="contact.html">Contact Us</a>
       </nav>
     </div>
@@ -315,7 +321,6 @@
 
   <div id="footer-container"></div>
 
-  <!-- ✅ Welcome Ad Overlay -->
   <div id="welcome-ad-overlay">
     <div class="ad-container">
       <button class="close-ad">&times;</button>
@@ -328,19 +333,16 @@
       .then(response => response.text())
       .then(data => document.getElementById('footer-container').innerHTML = data);
 
-    // ✅ Ad logic: show once per session
     window.addEventListener("load", () => {
       const overlay = document.getElementById("welcome-ad-overlay");
       const closeBtn = document.querySelector(".close-ad");
 
-      // Check if ad already shown this session
       if (!sessionStorage.getItem("welcomeAdShown")) {
         setTimeout(() => {
           overlay.classList.add("show");
         }, 500);
       }
 
-      // When user closes ad
       closeBtn.addEventListener("click", () => {
         overlay.style.opacity = "0";
         overlay.style.transition = "opacity 0.5s ease";
@@ -348,6 +350,14 @@
           overlay.style.display = "none";
         }, 500);
         sessionStorage.setItem("welcomeAdShown", "true");
+      });
+
+      // ✅ Highlight active nav link
+      const currentPage = window.location.pathname.split("/").pop();
+      document.querySelectorAll(".nav-links a").forEach(link => {
+        if (link.getAttribute("href") === currentPage) {
+          link.classList.add("active");
+        }
       });
     });
   </script>
