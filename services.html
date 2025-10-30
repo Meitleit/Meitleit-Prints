@@ -16,6 +16,7 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       background: var(--bg);
       color: var(--text);
@@ -29,7 +30,7 @@
     header {
       position: relative;
       width: 100%;
-      height: 350px;
+      height: 300px;
       overflow: hidden;
     }
 
@@ -38,14 +39,13 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      animation: fadeIn 1s ease forwards;
     }
 
     header::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.25) 50%, rgba(255,255,255,1) 100%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.2) 50%, rgba(255,255,255,1) 100%);
       pointer-events: none;
     }
 
@@ -65,7 +65,6 @@
       color: white;
       font-size: 24px;
       text-shadow: 0 2px 6px rgba(0,0,0,0.4);
-      animation: fadeDown 1s ease forwards;
     }
 
     .nav-links a {
@@ -75,7 +74,6 @@
       text-shadow: 0 2px 4px rgba(0,0,0,0.4);
       transition: 0.3s;
       text-decoration: none;
-      animation: fadeDown 1s ease forwards;
     }
 
     .nav-links a:hover {
@@ -86,85 +84,96 @@
     /* MAIN SECTION */
     main {
       flex: 1;
+      padding: 80px 20px 100px;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      padding: 100px 20px;
       background-color: var(--bg);
+    }
+
+    h1 {
+      color: var(--accent);
+      font-size: 42px;
+      text-align: center;
+      margin-bottom: 60px;
     }
 
     .service-container {
       display: flex;
       justify-content: center;
-      align-items: stretch;
-      gap: 40px;
       flex-wrap: wrap;
+      gap: 40px;
       max-width: var(--maxw);
-      width: 100%;
-      animation: fadeUp 1s ease forwards;
     }
 
     .service-card {
-      flex: 1;
-      min-width: 320px;
-      max-width: 400px;
-      height: 550px; /* ⬅️ Increased height (was 400px) */
       background: #fff;
-      border-radius: 20px;
+      border: 1px solid rgba(230,0,18,0.1);
+      border-radius: 16px;
       box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-      padding: 40px 30px;
+      padding: 30px;
       text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: fadeIn 1s ease forwards;
+      flex: 1;
+      min-width: 300px;
+      max-width: 350px;
+      transition: transform 0.3s ease;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
+      height: 520px; /* Taller cards */
     }
 
     .service-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+      transform: translateY(-5px);
     }
 
     .service-card h2 {
       color: var(--accent);
-      font-size: 26px;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
       margin-bottom: 15px;
     }
 
     .service-card p {
       color: var(--muted);
-      font-size: 17px;
+      font-size: 16px;
       line-height: 1.6;
     }
 
-    /* ANIMATIONS */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
+    header, main, .service-card {
+      animation: fadeInUp 1.2s ease-out;
     }
 
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media(max-width: 900px){
+    @media(max-width:820px){
       .nav { padding: 20px; }
+      h1 { font-size: 32px; }
       .service-container { flex-direction: column; align-items: center; }
-      .service-card { max-width: 600px; height: auto; }
+      .service-card { max-width: 400px; }
     }
   </style>
 </head>
 
 <body>
   <header>
-    <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&w=1920&q=80" alt="Service Banner">
+    <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=1920&q=80" alt="Header Banner">
     <div class="nav">
       <div class="logo">Meitleit</div>
       <nav class="nav-links">
@@ -177,29 +186,33 @@
   </header>
 
   <main>
+    <h1>Our Services</h1>
     <div class="service-container">
       <div class="service-card">
-        <h2>🛠️ Repairing</h2>
-        <p>Our skilled technicians handle everything from minor printer issues to major repairs. We ensure your devices stay running smoothly with reliable maintenance and quick turnaround times.</p>
+        <h2>Repairing</h2>
+        <img src="https://www.shutterstock.com/image-photo/business-man-opening-photocopy-machine-600nw-383160520.jpg" alt="Repairing Service">
+        <p>Our expert technicians specialize in repairing all major brands of printers and copiers. We ensure your equipment is restored to top performance quickly and efficiently, minimizing downtime for your business.</p>
       </div>
 
       <div class="service-card">
-        <h2>📦 Rental</h2>
-        <p>Flexible printer rental solutions tailored to your business needs — whether for short-term events or long-term projects. Enjoy top-quality printers without heavy upfront costs.</p>
+        <h2>Rental</h2>
+        <img src="https://www.experian.com/blogs/ask-experian/wp-content/uploads/family-of-three-trying-to-determine-difference-between-leasing-and-renting.jpg.webp" alt="Rental Service">
+        <p>Need a temporary printer solution? Our rental service provides flexible short-term and long-term options to meet your business needs with the latest printing technology and full maintenance support.</p>
       </div>
 
       <div class="service-card">
-        <h2>🚚 Delivering</h2>
-        <p>Fast and secure delivery of printers, toners, and accessories right to your doorstep. Our team ensures safe handling and efficient logistics from start to finish.</p>
+        <h2>Delivering</h2>
+        <img src="https://media.istockphoto.com/id/905865682/photo/portrait-of-courier-with-digital-tablet-delivering-package.jpg?s=612x612&w=0&k=20&c=WbZu7QdzQHVqqgKI78SA4bGLzKo7jZqp5jYaGPvQaRs=" alt="Delivery Service">
+        <p>We offer reliable delivery services for all equipment purchases and rentals. Our logistics team ensures your products are delivered safely, on time, and ready to use without hassle.</p>
       </div>
     </div>
   </main>
 
-  <!-- ✅ Footer Include -->
+  <!-- ✅ External Footer Include -->
   <div id="footer"></div>
   <script>
     fetch("footer.html")
-      .then(res => res.text())
+      .then(response => response.text())
       .then(data => document.getElementById("footer").innerHTML = data);
   </script>
 </body>
