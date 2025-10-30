@@ -14,22 +14,17 @@
       --success: #22c55e;
       font-family: Inter, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       color: var(--text);
-      background: linear-gradient(
-        to bottom,
-        #e8ebef 0%,
-        #f3f5f7 50%,
-        #ffffff 100%
-      );
+      background: linear-gradient(to bottom, #e8ebef 0%, #f3f5f7 50%, #ffffff 100%);
       margin: 0;
       padding: 0;
       overflow-x: hidden;
     }
 
+    /* --- HEADER --- */
     header {
       position: relative;
       width: 100%;
@@ -85,23 +80,33 @@
       text-decoration: none;
       text-shadow: 0 2px 4px rgba(0,0,0,0.4);
       transition: 0.3s;
-      padding: 6px 10px;
-      border-radius: 6px;
     }
 
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
 
-    /* ✅ Highlight for the current page */
+    /* ✅ Active page effect (red stays) */
     .nav-links a.active {
-      background: var(--accent);
-      color: #fff !important;
-      box-shadow: 0 0 10px rgba(230, 0, 18, 0.6);
+      color: var(--accent);
     }
 
-    main { padding: 60px 0; min-height: 100vh; }
-    .container { max-width: 1200px; margin: auto; padding: 0 20px; }
+    /* --- MAIN CONTENT --- */
+    main {
+      padding: 60px 0;
+      min-height: 100vh;
+    }
 
-    .section { padding: 48px 0; }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      padding: 48px 0;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -254,7 +259,7 @@
       <div class="logo">Meitleit</div>
       <nav class="nav-links">
         <a href="index.html">About</a>
-        <a href="products.html" class="active">Products</a> <!-- ✅ Active red highlight -->
+        <a href="products.html" class="active">Products</a>
         <a href="services.html">Services</a>
         <a href="contact.html">Contact Us</a>
       </nav>
@@ -266,7 +271,7 @@
       <h2>Our Printers</h2>
       <div class="grid">
 
-        <!-- 🖨️ Product Cards (unchanged) -->
+        <!-- 🖨️ RICOH -->
         <article class="card">
           <div class="thumb"><img src="assets/ricoh-imc3000.jpg" alt=""></div>
           <div class="model">RICOH IM C3000</div>
@@ -281,6 +286,7 @@
           </div>
         </article>
 
+        <!-- 🖨️ RICOH IM C3500 -->
         <article class="card">
           <div class="thumb"><img src="assets/ricoh-imc3500.jpg" alt=""></div>
           <div class="model">RICOH IM C3500</div>
@@ -295,6 +301,7 @@
           </div>
         </article>
 
+        <!-- 🖨️ RICOH IM C4500 -->
         <article class="card">
           <div class="thumb"><img src="assets/ricoh-imc4500.jpg" alt=""></div>
           <div class="model">RICOH IM C4500</div>
@@ -309,6 +316,7 @@
           </div>
         </article>
 
+        <!-- 🖨️ RICOH IM C6000 -->
         <article class="card">
           <div class="thumb"><img src="assets/ricoh-imc6000.jpg" alt=""></div>
           <div class="model">RICOH IM C6000</div>
@@ -323,6 +331,7 @@
           </div>
         </article>
 
+        <!-- 🖨️ FUJI XEROX -->
         <article class="card">
           <div class="thumb"><img src="assets/Fuji-Xerox-ApeosPort.jpg" alt=""></div>
           <div class="model">Fuji Xerox ApeosPort C3373 / C4473 / C5573</div>
@@ -337,6 +346,7 @@
           </div>
         </article>
 
+        <!-- 🖨️ FUJIFILM -->
         <article class="card">
           <div class="thumb"><img src="assets/Fujifilm-Apeos-C3060-C2560.jpg" alt=""></div>
           <div class="model">Fujifilm Apeos C3060 / C2560</div>
@@ -381,7 +391,7 @@
       button.addEventListener('click', () => {
         const card = button.closest('.card');
         const productName = card.querySelector('.model').textContent.trim();
-        const message = `Hello, I'm interested in your ${productName}. Can i learn more about how will you handle....()`;
+        const message = `Hello, I'm interested in your ${productName}. Can I learn more about how will you handle...`;
         const encoded = encodeURIComponent(message);
         const url = `https://wa.me/${phoneNumber}?text=${encoded}`;
         window.open(url, '_blank');
@@ -400,4 +410,3 @@
   </script>
 </body>
 </html>
-
