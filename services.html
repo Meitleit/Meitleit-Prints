@@ -106,8 +106,9 @@
 
     .service-card {
       flex: 1;
-      min-width: 300px;
-      max-width: 350px;
+      min-width: 320px;
+      max-width: 400px;
+      height: 550px; /* ⬅️ Increased height (was 400px) */
       background: #fff;
       border-radius: 20px;
       box-shadow: 0 8px 30px rgba(0,0,0,0.08);
@@ -156,7 +157,7 @@
     @media(max-width: 900px){
       .nav { padding: 20px; }
       .service-container { flex-direction: column; align-items: center; }
-      .service-card { max-width: 600px; }
+      .service-card { max-width: 600px; height: auto; }
     }
   </style>
 </head>
