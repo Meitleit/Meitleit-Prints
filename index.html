@@ -40,7 +40,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.2) 50%, rgba(255,255,255,1) 100%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3) 40%, rgba(255,255,255,1) 100%);
       pointer-events: none;
     }
 
@@ -70,8 +70,13 @@
       transition: 0.3s;
     }
 
-    .nav-links a:hover { color: var(--accent); }
-    .nav-links a.active { color: var(--accent); }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a.active {
+      color: var(--accent);
+    }
 
     main { padding: 60px 0 180px 0; }
 
@@ -88,8 +93,8 @@
       font-size: 44px;
       color: var(--accent);
       margin-bottom: 20px;
-      line-height: 1.25;
       text-align: center;
+      line-height: 1.25;
     }
 
     .about-text p {
@@ -103,55 +108,50 @@
       margin-right: auto;
     }
 
-    .about-image {
-      width: 90%;
-      max-width: 900px;
+    /* INFO CARDS */
+    .info-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 60px;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .info-card {
+      position: relative;
       border-radius: 14px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: #fff;
     }
 
-    .about-partnership {
-      background: linear-gradient(135deg, #fff0f0, #ffe5e5);
-      border-left: 6px solid var(--accent);
-      padding: 36px 40px;
-      border-radius: 12px;
-      box-shadow: 0 8px 30px rgba(230,0,18,0.12);
-      color: #1a1a1a;
-      text-align: center;
-      font-size: 26px;
-      font-weight: 700;
-      letter-spacing: 0.4px;
-      margin: 40px auto 40px auto;
-      width: 90%;
-      max-width: 1000px;
+    .info-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.15);
     }
 
-    .about-partnership span {
+    .info-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .info-content {
+      padding: 24px;
+    }
+
+    .info-content h2 {
+      font-size: 22px;
       color: var(--accent);
-      font-weight: 800;
-      text-shadow: 0 1px 3px rgba(230,0,18,0.2);
+      margin-bottom: 10px;
     }
 
-    .about-rental {
-      background: linear-gradient(135deg, #ffeaea, #ffd9d9);
-      border-left: 6px solid var(--accent);
-      padding: 36px 40px;
-      border-radius: 12px;
-      box-shadow: 0 8px 30px rgba(230,0,18,0.12);
-      color: #1a1a1a;
-      text-align: center;
-      font-size: 26px;
-      font-weight: 700;
-      letter-spacing: 0.4px;
-      margin: 60px auto 30px auto;
-      width: 90%;
-      max-width: 1000px;
-    }
-
-    .about-rental span {
-      color: var(--accent);
-      font-weight: 800;
-      text-shadow: 0 1px 3px rgba(230,0,18,0.2);
+    .info-content p {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.6;
     }
 
     .button-row {
@@ -193,9 +193,8 @@
       .nav { padding: 20px; }
       .about-text h1{text-align:center;}
       .about-text p{text-align:center;font-size:17px;}
-      .about-partnership,.about-rental{font-size:18px;}
+      .info-section { grid-template-columns: 1fr; }
       .button-row { flex-direction: column; gap: 12px; }
-      .about-image { width: 100%; }
     }
 
     /* Welcome Ad */
@@ -265,7 +264,7 @@
 
 <body>
   <header>
-    <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=1920&q=80" alt="Header Banner">
+    <img src="https://images.unsplash.com/photo-1581091215367-59ab6b68d20e?auto=format&fit=crop&w=1920&q=80" alt="Header Banner">
     <div class="nav">
       <div class="logo">Meitleit</div>
       <nav class="nav-links">
@@ -282,38 +281,44 @@
       <div class="about-text">
         <h1>Most Affordable Rental and Copier Machines in Klang Valley</h1>
 
-        <div class="about-partnership">
-          🤝 <span>In Partnership With</span> — Ricoh · Fuji Xerox · Fujifilm
-        </div>
-
         <p>
           At <strong>Meitleit</strong>, we believe printing is more than just technology — it’s the foundation of modern business communication. 
           Through our partnerships with <strong>Ricoh</strong>, <strong>Fuji Xerox</strong>, and <strong>Fujifilm</strong>, 
           we provide cutting-edge printing solutions that power productivity and efficiency across all industries.
         </p>
 
-        <!-- New Visual Section 1 -->
-        <img src="https://images.unsplash.com/photo-1596496053291-3b60c9adf6e4?auto=format&fit=crop&w=1200&q=80" alt="Printer Rental Service" class="about-image">
-
         <p>
-          Our rental solutions are designed to make professional printing effortless and affordable. 
-          We handle setup, maintenance, and toner refills — you focus on your business. 
-          Whether for startups, schools, or corporate offices, Meitleit ensures you always have the right machine for the job with reliable on-site service.
+          From home offices to enterprise-scale operations, we offer fully managed printer rental and maintenance services that ensure seamless performance 
+          and reliability across <strong>Peninsular Malaysia</strong>. 
+          Every solution we deliver is backed by transparency, value, and professional local support.
         </p>
 
-        <div class="about-rental">
-          📦 <span>Rental Packages</span> — Starting From RM60/month (RM2/day)
+        <div class="info-section">
+          <!-- Partnership Card -->
+          <div class="info-card">
+            <img src="https://images.unsplash.com/photo-1607083205159-22a063b92626?auto=format&fit=crop&w=900&q=80" alt="Partnership Image">
+            <div class="info-content">
+              <h2>🤝 In Partnership With</h2>
+              <p>
+                Proudly collaborating with <strong>Ricoh</strong>, <strong>Fuji Xerox</strong>, and <strong>Fujifilm</strong> 
+                to deliver world-class printing solutions. Together, we combine innovation, reliability, and sustainability to meet 
+                the demands of every modern business.
+              </p>
+            </div>
+          </div>
+
+          <!-- Rental Packages Card -->
+          <div class="info-card">
+            <img src="https://images.unsplash.com/photo-1612815154858-60aa4c5a83f0?auto=format&fit=crop&w=900&q=80" alt="Rental Package Image">
+            <div class="info-content">
+              <h2>📦 Rental Packages — From RM60/month</h2>
+              <p>
+                Enjoy flexible, cost-effective rental plans with <strong>no hidden fees</strong> and <strong>no large deposits</strong>. 
+                From compact printers to high-performance copiers, we offer scalable solutions that grow with your business.
+              </p>
+            </div>
+          </div>
         </div>
-
-        <!-- New Visual Section 2 -->
-        <img src="https://images.unsplash.com/photo-1612815154858-60aa4c8d5c3e?auto=format&fit=crop&w=1200&q=80" alt="Team using copier" class="about-image">
-
-        <p>
-          No large deposits. No hidden fees. Just print with confidence.  
-          With years of expertise in printer technology and workflow optimization, <strong>Meitleit</strong> is the go-to partner 
-          for businesses seeking consistent quality, cost efficiency, and fast support.  
-          Our mission is simple — to make every print smart, cost-effective, and sustainable.
-        </p>
 
         <div class="button-row">
           <button class="btn btn-primary" onclick="window.location.href='contact.html'">Contact Us for Plans</button>
@@ -356,4 +361,3 @@
   </script>
 </body>
 </html>
-
