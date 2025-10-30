@@ -276,6 +276,7 @@
           </div>
         </article>
 
+        <!-- 🖨️ RICOH IM C3500 -->
         <article class="card">
           <div class="thumb"><img src="assets/ricoh-imc3500.jpg" alt=""></div>
           <div class="model">RICOH IM C3500</div>
@@ -364,21 +365,83 @@
     </section>
   </main>
 
-  <!-- ✅ footer.html -->
+  <!-- ✅ footer.html (Fun Fact) - inserted exactly as provided -->
   <footer style="
     background-color: #151515;
     color: #fff;
     text-align: center;
-    padding: 50px 0;
+    padding: 60px 0 40px;
     font-family: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-size: 15px;
-    letter-spacing: 0.3px;">
-    © <span id="year"></span> Meitleit — All rights reserved
+    letter-spacing: 0.3px;
+    position: relative;
+    overflow: hidden;
+  ">
+    <div style="
+      max-width: 900px;
+      margin: 0 auto 25px;
+      padding: 0 20px;
+    ">
+      <p style="
+        font-size: 17px;
+        margin-bottom: 18px;
+        color: #e60012;
+        font-weight: 600;
+        animation: fadeInUp 1s ease-out;
+      ">
+        📢 Fun Fact
+      </p>
+      <p style="
+        font-size: 16px;
+        color: #d1d1d1;
+        line-height: 1.6;
+        max-width: 700px;
+        margin: 0 auto 25px;
+        animation: fadeInUp 1.2s ease-out;
+      ">
+        If you contact us for any copier machine needs, <strong style='color:#fff;'>90% chance</strong> of the time you’ll be greeted with a good deal at the end of the bargaining 😄
+      </p>
+    </div>
+
+    <div style="
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 25px;
+      font-size: 14px;
+      color: #bbb;
+      animation: fadeIn 1.5s ease-out;
+    ">
+      © <span id="year"></span> Meitleit — All rights reserved
+    </div>
+
+    <style>
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 30% 120%, rgba(230,0,18,0.15), transparent 70%);
+        pointer-events: none;
+      }
+    </style>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
+    // auto year (already in footer above; this is safe to keep)
+    // keep existing JS for interactions (no change requested)
     const phoneNumber = "60124406637";
     document.querySelectorAll('.btn-primary').forEach(button => {
       button.addEventListener('click', () => {
@@ -403,3 +466,4 @@
   </script>
 </body>
 </html>
+
