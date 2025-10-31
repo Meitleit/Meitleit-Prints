@@ -296,13 +296,13 @@
 
     /* -----------------------
        Language dropdown styles
-       (added only — matches nav hover and smoother transitions)
+       (updated for 1s fade + persistent hover + scrollable)
        ----------------------- */
     .language-dropdown {
       position: relative;
       display: inline-block;
       margin-left: 24px;
-      z-index: 50;
+      z-index: 60;
     }
     .lang-btn {
       background: none;
@@ -321,22 +321,27 @@
       transform: translateY(-2px);
     }
 
+    /* Use visibility + opacity to allow smooth transition (1s) */
     .lang-menu {
-      display: none;
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(10px);
       position: absolute;
       top: 34px;
       left: 0;
-      background: rgba(20,20,20,0.95);
+      background: #000; /* black background as requested */
       min-width: 160px;
       border-radius: 10px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.35);
       padding: 6px 6px;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.28s ease, transform 0.28s ease;
+      max-height: 240px; /* scrollable if content overflows */
+      overflow-y: auto;
+      transition: opacity 1s ease, transform 1s ease, visibility 1s ease;
+      -webkit-overflow-scrolling: touch;
     }
-    .language-dropdown:hover .lang-menu {
-      display: block;
+    /* visible state controlled by JS (adds .open to .language-dropdown) */
+    .language-dropdown.open .lang-menu {
+      visibility: visible;
       opacity: 1;
       transform: translateY(0);
     }
@@ -351,6 +356,9 @@
       transition: background 0.18s ease, color 0.18s ease;
     }
     .lang-menu a:hover { background: var(--accent); color: #fff; }
+    /* custom scrollbar a little nicer but optional */
+    .lang-menu::-webkit-scrollbar { width: 8px; }
+    .lang-menu::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 8px; }
     /* end language styles */
   </style>
 </head>
@@ -451,6 +459,54 @@
         sessionStorage.setItem("welcomeAdShown", "true");
       });
     });
+  </script>
+
+  <!-- LANGUAGE DROPDOWN JS (keeps menu open while hovering + click toggle; non-invasive) -->
+  <script>
+    (function(){
+      const dropdown = document.querySelector('.language-dropdown');
+      if (!dropdown) return;
+      let closeTimer = null;
+
+      // helper to open/close via class
+      function openMenu() {
+        dropdown.classList.add('open');
+      }
+      function closeMenu() {
+        dropdown.classList.remove('open');
+      }
+
+      // mouse behavior: stay open while hovering button or menu
+      dropdown.addEventListener('mouseenter', () => {
+        if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+        openMenu();
+      });
+      dropdown.addEventListener('mouseleave', () => {
+        // add slight delay to make it feel smooth and prevent accidental close
+        closeTimer = setTimeout(() => { closeMenu(); closeTimer = null; }, 200);
+      });
+
+      // click toggle (touch friendly)
+      const btn = dropdown.querySelector('.lang-btn');
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (dropdown.classList.contains('open')) closeMenu();
+        else openMenu();
+      });
+
+      // also keep open while focusing via keyboard
+      dropdown.querySelectorAll('[data-lang]').forEach(el => {
+        el.addEventListener('focus', () => { openMenu(); });
+        el.addEventListener('blur', () => { closeTimer = setTimeout(() => closeMenu(), 200); });
+      });
+
+      // prevent clicks in menu from closing the menu immediately (handled by mouseleave above)
+      dropdown.querySelector('.lang-menu').addEventListener('click', (e) => {
+        // allow anchor to proceed (click handler for translation will be bound in translate.js)
+        // but prevent the click from bubbling in a way that triggers other handlers
+        e.stopPropagation();
+      });
+    })();
   </script>
 
   <!-- TRANSLATION SCRIPT -->
