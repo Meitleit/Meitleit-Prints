@@ -293,30 +293,93 @@
       from { opacity: 0; transform: scale(0.98); }
       to { opacity: 1; transform: scale(1); }
     }
+    /* 🌐 Language Dropdown */
+.language-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 24px;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.lang-btn:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.lang-menu {
+  display: none;
+  position: absolute;
+  background: rgba(20, 20, 20, 0.95);
+  min-width: 160px;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  top: 30px;
+  left: 0;
+  padding: 6px 0;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.lang-menu a {
+  display: block;
+  color: #fff;
+  padding: 10px 18px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.lang-menu a:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.language-dropdown:hover .lang-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
   </style>
 </head>
 
 <body>
   <header>
-    <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=1920&q=80" alt="Header Banner">
-    <div class="nav">
-      <div class="logo">Meitleit</div>
-      <nav class="nav-links">
-        <a href="index.html" class="active">About</a>
-        <select id="languageSwitcher">
-  <option value="en">EN</option>
-  <option value="ms">MS</option>
-  <option value="zh">中文</option>
-  <option value="ta">தமிழ்</option>
-</select>
+<header>
+  <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=1920&q=80" alt="Header Banner">
+  <div class="nav">
+    <div class="logo">Meitleit</div>
+    <nav class="nav-links">
+      <a href="index.html" class="active">About</a>
 
-        <a href="products.html">Products</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact Us</a>
-      </nav>
-    </div>
-  </header>
+      <!-- 🌐 Smooth Language Dropdown -->
+      <div class="language-dropdown">
+        <button class="lang-btn">🌐 Language ▾</button>
+        <div class="lang-menu">
+          <a href="#" data-lang="en">English</a>
+          <a href="#" data-lang="ms">Bahasa Melayu</a>
+          <a href="#" data-lang="zh">简体中文</a>
+          <a href="#" data-lang="ta">தமிழ்</a>
+        </div>
+      </div>
 
+      <a href="products.html">Products</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+  </div>
+</header>
   <main class="container">
     <section class="about-section">
       <div class="about-text">
@@ -389,6 +452,6 @@
       });
     });
   </script>
-  <script src="translate.js" defer></script>
+<script src="translate.js" defer></script>
 </body>
 </html>
