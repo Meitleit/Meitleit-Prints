@@ -173,6 +173,66 @@
       .service-card { max-width: 400px; }
       header { height: 350px; }
     }
+
+    /* -- language dropdown styles (ADDED) -- */
+    .language-dropdown {
+      position: relative;
+      display: inline-block;
+      margin-left: 24px;
+      z-index: 60;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+      transition: color 0.28s ease, transform 0.18s ease;
+      padding: 0;
+      line-height: 1;
+    }
+    .lang-btn:hover, .lang-btn.active {
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .lang-menu {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(10px);
+      position: absolute;
+      top: 34px;
+      left: 0;
+      background: #000; /* black background */
+      min-width: 160px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      padding: 6px 6px;
+      max-height: 240px;
+      overflow-y: auto;
+      transition: opacity 1s ease, transform 1s ease, visibility 1s ease;
+      -webkit-overflow-scrolling: touch;
+    }
+    .language-dropdown.open .lang-menu {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .lang-menu a {
+      display: block;
+      color: #fff;
+      padding: 10px 14px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: 6px;
+      transition: background 0.18s ease, color 0.18s ease;
+    }
+    .lang-menu a:hover { background: var(--accent); color: #fff; }
+    /* end language styles */
+
   </style>
 </head>
 
@@ -182,6 +242,17 @@
     <div class="nav">
       <div class="logo">Meitleit</div>
       <nav class="nav-links">
+        <!-- language dropdown (ONLY ADDITION) -->
+        <div class="language-dropdown" aria-hidden="false">
+          <button class="lang-btn" id="langBtn">🌐 Language ▾</button>
+          <div class="lang-menu" role="menu" aria-labelledby="langBtn">
+            <a href="#" data-lang="en">English</a>
+            <a href="#" data-lang="ms">Bahasa Melayu</a>
+            <a href="#" data-lang="zh">简体中文</a>
+            <a href="#" data-lang="ta">தமிழ்</a>
+          </div>
+        </div>
+
         <a href="index.html">About</a>
         <a href="products.html">Products</a>
         <a href="service.html" style="color: var(--accent);">Services</a>
@@ -227,5 +298,25 @@
       .then(response => response.text())
       .then(data => document.getElementById("footer").innerHTML = data);
   </script>
+
+  <!-- LANGUAGE DROPDOWN JS -->
+  <script>
+    (function(){
+      const dropdown = document.querySelector('.language-dropdown');
+      if (!dropdown) return;
+      let closeTimer = null;
+      function openMenu() { dropdown.classList.add('open'); }
+      function closeMenu() { dropdown.classList.remove('open'); }
+      dropdown.addEventListener('mouseenter', () => { if (closeTimer){ clearTimeout(closeTimer); closeTimer = null; } openMenu(); });
+      dropdown.addEventListener('mouseleave', () => { closeTimer = setTimeout(() => { closeMenu(); closeTimer = null; }, 200); });
+      const btn = dropdown.querySelector('.lang-btn');
+      btn.addEventListener('click', (e) => { e.preventDefault(); if (dropdown.classList.contains('open')) closeMenu(); else openMenu(); });
+      dropdown.querySelectorAll('[data-lang]').forEach(el => { el.addEventListener('focus', () => { openMenu(); }); el.addEventListener('blur', () => { closeTimer = setTimeout(() => closeMenu(), 200); }); });
+      dropdown.querySelector('.lang-menu').addEventListener('click', (e) => { e.stopPropagation(); });
+    })();
+  </script>
+
+  <!-- TRANSLATION SCRIPT -->
+  <script src="translate.js" defer></script>
 </body>
 </html>
