@@ -16,6 +16,24 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: v<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title data-i18n="title">Meitleit Printers — Professional Printing Solutions</title>
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --muted: #6b7280;
+      --text: #0b1220;
+      --accent: #e60012;
+      --maxw: 1200px;
+      font-family: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: var(--bg); color: var(--text); overflow-x: hidden; }
 
     a { color: var(--accent); text-decoration: none; }
@@ -217,9 +235,15 @@
     }
 
     @media(max-width:820px){
-      .info-card { flex-direction: column; }
-      .info-card img { width: 100%; }
-      .info-content { text-align: center; }
+      .info-card {
+        flex-direction: column;
+      }
+      .info-card img {
+        width: 100%;
+      }
+      .info-content {
+        text-align: center;
+      }
       .nav { padding: 20px; }
       .about-text h1{text-align:center;}
       .about-text p{text-align:center;font-size:17px;}
@@ -288,63 +312,17 @@
       to { opacity: 1; transform: scale(1); }
     }
 
-    /* ----------------------- Language dropdown styles ----------------------- */
-    .language-dropdown {
-      position: relative;
-      display: inline-block;
-      margin-left: 24px;
-      z-index: 60;
-    }
-    .lang-btn {
-      background: none;
-      border: none;
-      color: #fff;
-      font-weight: 600;
-      font-size: 16px;
-      cursor: pointer;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-      transition: color 0.28s ease, transform 0.18s ease;
-      padding: 0;
-      line-height: 1;
-    }
-    .lang-btn:hover, .lang-btn.active {
-      color: var(--accent);
-      transform: translateY(-2px);
-    }
-    .lang-menu {
-      visibility: hidden;
-      opacity: 0;
-      transform: translateY(10px);
-      position: absolute;
-      top: 34px;
-      left: 0;
-      background: #000;
-      min-width: 160px;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-      padding: 6px 6px;
-      max-height: 240px;
-      overflow-y: auto;
-      transition: opacity 1s ease, transform 1s ease, visibility 1s ease;
-    }
-    .language-dropdown.open .lang-menu {
-      visibility: visible;
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .lang-menu a {
-      display: block;
-      color: #fff;
-      padding: 10px 14px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-      border-radius: 6px;
-      transition: background 0.18s ease, color 0.18s ease;
-    }
-    .lang-menu a:hover { background: var(--accent); color: #fff; }
-    .lang-menu::-webkit-scrollbar { width: 8px; }
-    .lang-menu::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 8px; }
+    /* Language dropdown styles */
+    .language-dropdown { position: relative; display: inline-block; margin-left:24px; z-index:60; }
+    .lang-btn { background:none;border:none;color:#fff;font-weight:600;font-size:16px;cursor:pointer;text-shadow:0 2px 4px rgba(0,0,0,0.4);transition:color 0.28s ease, transform 0.18s ease;padding:0;line-height:1;}
+    .lang-btn:hover, .lang-btn.active { color:var(--accent); transform:translateY(-2px);}
+    .lang-menu { visibility:hidden; opacity:0; transform:translateY(10px); position:absolute; top:34px; left:0; background:#000; min-width:160px; border-radius:10px; box-shadow:0 10px 30px rgba(0,0,0,0.35); padding:6px 6px; max-height:240px; overflow-y:auto; transition:opacity 1s ease, transform 1s ease, visibility 1s ease; -webkit-overflow-scrolling:touch;}
+    .language-dropdown.open .lang-menu { visibility:visible; opacity:1; transform:translateY(0);}
+    .lang-menu a { display:block; color:#fff; padding:10px 14px; text-decoration:none; font-weight:600; font-size:15px; border-radius:6px; transition:background 0.18s ease, color 0.18s ease;}
+    .lang-menu a:hover { background:var(--accent); color:#fff; }
+    .lang-menu::-webkit-scrollbar { width:8px; }
+    .lang-menu::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.08); border-radius:8px; }
+
   </style>
 </head>
 
@@ -352,11 +330,13 @@
   <header>
     <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=1920&q=80" alt="Header Banner">
     <div class="nav">
-      <div class="logo">Meitleit</div>
+      <div class="logo" data-i18n="logo">Meitleit</div>
       <nav class="nav-links">
-        <div class="language-dropdown" aria-hidden="false">
-          <button class="lang-btn" id="langBtn">🌐 <span data-i18n="language_label">Language ▾</span></button>
-          <div class="lang-menu" role="menu" aria-labelledby="langBtn">
+
+        <!-- Language dropdown -->
+        <div class="language-dropdown">
+          <button class="lang-btn" id="langBtn">🌐 Language ▾</button>
+          <div class="lang-menu">
             <a href="#" data-lang="en">English</a>
             <a href="#" data-lang="ms">Bahasa Melayu</a>
             <a href="#" data-lang="zh">简体中文</a>
@@ -376,7 +356,7 @@
     <section class="about-section">
       <div class="about-text">
         <h1 data-i18n="about_heading">Most Affordable Copier Machine Rental in Klang Valley</h1>
-        <p data-i18n="about_text">
+        <p data-i18n="about_paragraph">
           At <strong>Meitleit</strong>, we believe printing is more than just technology — it’s the foundation of modern business communication. 
           Through our partnerships with <strong>Ricoh</strong>, <strong>Fuji Xerox</strong>, and <strong>Fujifilm</strong>, 
           we provide cutting-edge printing solutions that power productivity and efficiency across all industries.
@@ -388,10 +368,8 @@
           <img src="https://blog.udemy.com/wp-content/uploads/2014/03/shutterstock_125338145.jpg" alt="Partnership">
           <div class="info-content">
             <h2 data-i18n="card1_heading">🤝 In Partnership With Ricoh · Fuji Xerox · Fujifilm</h2>
-            <p data-i18n="card1_text">
-              Through strategic partnerships, Meitleit offers access to the latest copier and printing innovations from globally trusted brands. Our collaboration ensures consistent quality and support you can rely on.
-            </p>
-            <a href="services.html" data-i18n="card1_btn">Learn More</a>
+            <p data-i18n="card1_paragraph">Through strategic partnerships, Meitleit offers access to the latest copier and printing innovations from globally trusted brands. Our collaboration ensures consistent quality and support you can rely on.</p>
+            <a href="services.html" data-i18n="card1_button">Learn More</a>
           </div>
         </div>
 
@@ -399,10 +377,8 @@
           <img src="https://www.rentacomputer.com/images/sections/office-rentals-resized.png" alt="Printer Rental">
           <div class="info-content">
             <h2 data-i18n="card2_heading">📦 All In One Rental Solution Starting From RM60/month</h2>
-            <p data-i18n="card2_text">
-              No large deposits, no hidden fees — just print with confidence. We provide flexible rental options with full technical support and maintenance to keep your operations running smoothly.
-            </p>
-            <a href="contact.html" data-i18n="card2_btn">Explore Rentals</a>
+            <p data-i18n="card2_paragraph">No large deposits, no hidden fees — just print with confidence. We provide flexible rental options with full technical support and maintenance to keep your operations running smoothly.</p>
+            <a href="contact.html" data-i18n="card2_button">Explore Rentals</a>
           </div>
         </div>
       </div>
@@ -425,59 +401,43 @@
     </div>
   </div>
 
-  <!-- Footer load -->
+  <!-- Scripts -->
   <script>
     fetch('footer.html')
-      .then(response => response.text())
+      .then(r => r.text())
       .then(data => document.getElementById('footer-container').innerHTML = data);
-  </script>
 
-  <!-- Welcome Ad Logic -->
-  <script>
     window.addEventListener("load", () => {
       const overlay = document.getElementById("welcome-ad-overlay");
       const closeBtn = document.querySelector(".close-ad");
-
-      if (!sessionStorage.getItem("welcomeAdShown")) {
-        setTimeout(() => overlay.classList.add("show"), 500);
+      if(!sessionStorage.getItem("welcomeAdShown")){
+        setTimeout(()=>overlay.classList.add("show"),500);
       }
-
-      closeBtn.addEventListener("click", () => {
-        overlay.style.opacity = "0";
-        overlay.style.transition = "opacity 0.5s ease";
-        setTimeout(() => overlay.style.display = "none", 500);
-        sessionStorage.setItem("welcomeAdShown", "true");
+      closeBtn.addEventListener("click", ()=>{
+        overlay.style.opacity="0";
+        overlay.style.transition="opacity 0.5s ease";
+        setTimeout(()=>overlay.style.display="none",500);
+        sessionStorage.setItem("welcomeAdShown","true");
       });
     });
-  </script>
 
-  <!-- Language dropdown -->
-  <script>
+    // Language dropdown menu behavior
     (function(){
       const dropdown = document.querySelector('.language-dropdown');
       if (!dropdown) return;
       let closeTimer = null;
-
-      function openMenu() { dropdown.classList.add('open'); }
-      function closeMenu() { dropdown.classList.remove('open'); }
-
-      dropdown.addEventListener('mouseenter', () => { if(closeTimer){clearTimeout(closeTimer); closeTimer=null;} openMenu(); });
-      dropdown.addEventListener('mouseleave', () => { closeTimer = setTimeout(() => { closeMenu(); closeTimer=null; },200); });
-
       const btn = dropdown.querySelector('.lang-btn');
-      btn.addEventListener('click', (e) => { e.preventDefault(); dropdown.classList.toggle('open'); });
-
-      dropdown.querySelectorAll('[data-lang]').forEach(el => {
-        el.addEventListener('focus', () => { openMenu(); });
-        el.addEventListener('blur', () => { closeTimer=setTimeout(()=>closeMenu(),200); });
-      });
-
-      dropdown.querySelector('.lang-menu').addEventListener('click', (e)=>{ e.stopPropagation(); });
+      function openMenu(){dropdown.classList.add('open');}
+      function closeMenu(){dropdown.classList.remove('open');}
+      dropdown.addEventListener('mouseenter',()=>{if(closeTimer){clearTimeout(closeTimer); closeTimer=null;} openMenu();});
+      dropdown.addEventListener('mouseleave',()=>{closeTimer=setTimeout(()=>{closeMenu(); closeTimer=null;},200);});
+      btn.addEventListener('click',(e)=>{e.preventDefault(); dropdown.classList.contains('open')?closeMenu():openMenu();});
+      dropdown.querySelectorAll('[data-lang]').forEach(el=>{el.addEventListener('focus',()=>openMenu()); el.addEventListener('blur',()=>{closeTimer=setTimeout(()=>closeMenu(),200);});});
+      dropdown.querySelector('.lang-menu').addEventListener('click', e=>{e.stopPropagation();});
     })();
   </script>
 
-  <!-- TRANSLATION SCRIPT -->
+  <!-- Translation -->
   <script src="translate.js" defer></script>
 </body>
 </html>
-
