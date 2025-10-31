@@ -1,16 +1,27 @@
-const languageSwitcher = document.getElementById('languageSwitcher');
 const langFolder = 'lang/'; // folder where your JSON files are stored
+const dropdownLinks = document.querySelectorAll('.lang-menu [data-lang]');
 
-// Set initial language from localStorage
+// Load saved language from localStorage or default to English
 let currentLang = localStorage.getItem('lang') || 'en';
-languageSwitcher.value = currentLang;
 translatePage(currentLang);
 
-// When user selects a language
-languageSwitcher.addEventListener('change', (e) => {
-  const selectedLang = e.target.value;
-  localStorage.setItem('lang', selectedLang);
-  translatePage(selectedLang);
+// Highlight current language in menu (optional)
+function highlightCurrentLang(lang) {
+  dropdownLinks.forEach(link => {
+    link.style.fontWeight = link.getAttribute('data-lang') === lang ? '700' : '400';
+  });
+}
+highlightCurrentLang(currentLang);
+
+// Add click events to each dropdown link
+dropdownLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const selectedLang = link.getAttribute('data-lang');
+    localStorage.setItem('lang', selectedLang);
+    translatePage(selectedLang);
+    highlightCurrentLang(selectedLang);
+  });
 });
 
 function translatePage(lang) {
@@ -24,4 +35,3 @@ function translatePage(lang) {
     })
     .catch(err => console.error('Translation file not found:', err));
 }
-
