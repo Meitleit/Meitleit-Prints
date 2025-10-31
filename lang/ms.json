@@ -1,37 +1,51 @@
 {
-  "nav_about": "Tentang",
-  "nav_products": "Produk",
-  "nav_services": "Perkhidmatan",
-  "nav_contact": "Hubungi Kami",
-  "home_title": "Sewa Mesin Fotokopi Paling Mampu Milik di Lembah Klang",
-  "home_intro": "Di <strong>Meitleit</strong>, kami percaya pencetakan lebih daripada teknologi — ia adalah asas komunikasi perniagaan moden. Melalui perkongsian dengan <strong>Ricoh</strong>, <strong>Fuji Xerox</strong>, dan <strong>Fujifilm</strong>, kami menyediakan solusi cetak terkini yang meningkatkan produktiviti dan kecekapan di semua industri.",
-  "index_card1_h2": "🤝 Bekerjasama Dengan Ricoh · Fuji Xerox · Fujifilm",
-  "index_card1_p": "Melalui perkongsian strategik, Meitleit menawarkan akses kepada inovasi pencetak dan pemidah terkini daripada jenama yang dipercayai. Kerjasama ini memastikan kualiti konsisten dan sokongan yang anda boleh harapkan.",
-  "index_card1_link": "Ketahui Lebih Lanjut",
-  "index_card2_h2": "📦 Penyelesaian Sewa Semua Dalam Satu    Bermula Dari RM60/bulan",
-  "index_card2_p": "Tiada deposit besar, tiada caj tersembunyi — cetak dengan keyakinan. Kami menyediakan pilihan sewa fleksibel dengan sokongan teknikal penuh dan penyelenggaraan.",
-  "index_card2_link": "Teroka Sewa",
-  "index_btn_contact": "Hubungi Untuk Pelan",
-  "index_btn_products": "Lihat Produk",
-  "index_btn_services": "Lihat Perkhidmatan",
-  "products_h2": "Pencetak Kami",
-  "btn_interested": "Saya Berminat",
-  "btn_learn": "Ketahui lebih lanjut",
-  "spec_30ppm": "30 muka surat/min",
-  "spec_35ppm": "35 muka surat/min",
-  "spec_fullcolor": "MFP Berwarna Penuh",
-  "services_title": "Perkhidmatan Kami",
-  "service_rep_title": "Servis dan Pembaikan",
-  "service_rep_p": "Teknikian pakar kami mengkhususkan diri dalam membaiki semua jenama utama pencetak dan mesin fotokopi. Kami memastikan peralatan dipulihkan kepada prestasi terbaik dengan cepat untuk mengurangkan masa henti.",
-  "service_rental_title": "Sewa / Sewa Jangka Pendek",
-  "service_rental_p": "Perlukan penyelesaian pencetak sementara? Perkhidmatan sewa kami menawarkan pilihan jangka pendek dan panjang yang fleksibel, bermula serendah RM60/bulan.",
-  "service_delivery_title": "Penghantaran",
-  "service_delivery_p": "Kami menawarkan perkhidmatan penghantaran yang boleh dipercayai untuk semua pembelian dan sewa peralatan. Pasukan logistik kami memastikan produk dihantar selamat dan tepat pada masanya.",
-  "service_it_title": "Sokongan IT",
-  "service_it_p": "Pasukan Sokongan IT kami menyediakan bantuan teknikal menyeluruh untuk mesin fotokopi, termasuk penyahpepijatan, penetapan rangkaian, konfigurasi perisian dan penyelenggaraan berterusan.",
-  "contact_h1": "Hubungi Kami",
-  "contact_p": "Kami sedia membantu. Isikan borang di bawah dan pasukan kami akan menghubungi anda tidak lama lagi.",
-  "contact_note": "📩 Balasan anda akan disemak dalam masa terdekat (Biasanya 5 Minit hingga 2 Jam semasa Waktu Perniagaan). Pasukan kami kebiasaannya akan menghubungi anda melalui WhatsApp. Jika anda lebih gemar kaedah lain, sila nyatakan dalam borang. Terima kasih atas kesabaran anda! 😀",
-  "contact_office": "📍 Pejabat Kami",
-  "contact_address": "Alamat:"
+  "language": "Bahasa",
+  "about": "Tentang",
+  "products": "Produk",
+  "services": "Perkhidmatan",
+  "contact_us": "Hubungi Kami",
+
+  "main_heading": "Sewa Mesin Fotokopi Paling Berpatutan di Lembah Klang",
+  "main_paragraph": "Di <strong>Meitleit</strong>, kami percaya cetakan lebih daripada sekadar teknologi — ia adalah asas komunikasi perniagaan moden. Melalui kerjasama dengan <strong>Ricoh</strong>, <strong>Fuji Xerox</strong>, dan <strong>Fujifilm</strong>, kami menyediakan penyelesaian cetakan terkini yang meningkatkan produktiviti dan keberkesanan.",
+
+  "card1_title": "🤝 Kerjasama Dengan Ricoh · Fuji Xerox · Fujifilm",
+  "card1_text": "Melalui perkongsian strategik, Meitleit menawarkan akses kepada inovasi mesin fotokopi dan cetakan terkini dari jenama global yang dipercayai.",
+  "learn_more": "Ketahui Lebih Lanjut",
+
+  "card2_title": "📦 Penyelesaian Sewa Semua Dalam Satu Dari RM60/bulan",
+  "card2_text": "Tiada deposit besar, tiada yuran tersembunyi — hanya cetak dengan yakin. Kami menyediakan pelan sewa fleksibel dengan sokongan teknikal penuh.",
+  "explore_rentals": "Terokai Sewa",
+
+  "contact_for_plans": "Hubungi Kami Untuk Pelan",
+  "view_products": "Lihat Produk",
+  "view_services": "Lihat Perkhidmatan",
+
+  "products_heading": "Produk Kami",
+  "products_intro": "Terokai pelbagai mesin fotokopi dan penyelesaian cetakan kami yang disesuaikan untuk perniagaan anda.",
+
+  "product1_title": "Fotokopi Berkelajuan Tinggi X100",
+  "product1_text": "Mesin fotokopi cekap dan boleh dipercayai untuk perniagaan kecil hingga sederhana.",
+
+  "product2_title": "Pencetak Semua Dalam Satu P200",
+  "product2_text": "Cetak, imbas, salin, dan faks dalam satu mesin.",
+
+  "product3_title": "Pencetak Format Besar L300",
+  "product3_text": "Sesuai untuk banner, poster, dan cetakan berskala besar.",
+
+  "services_heading": "Perkhidmatan Kami",
+  "services_intro": "Kami menyediakan sewa komprehensif, penyelenggaraan, dan sokongan teknikal untuk semua penyelesaian cetakan anda.",
+
+  "service1_title": "Pelan Sewa Fleksibel",
+  "service1_text": "Pelan bulanan yang berpatutan tanpa yuran tersembunyi.",
+
+  "service2_title": "Penyelenggaraan & Sokongan",
+  "service2_text": "Pastikan operasi lancar dengan sokongan teknikal kami.",
+
+  "contact_heading": "Hubungi Kami",
+  "contact_intro": "Hubungi kami hari ini untuk harga, pertanyaan, dan penyelesaian tersuai.",
+  "contact_name": "Nama Anda",
+  "contact_email": "Emel Anda",
+  "contact_message": "Mesej Anda",
+  "contact_send": "Hantar Mesej"
 }
+
