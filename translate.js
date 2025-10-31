@@ -1,37 +1,30 @@
-const langFolder = 'lang/'; // folder where your JSON files are stored
-const dropdownLinks = document.querySelectorAll('.lang-menu [data-lang]');
+const langFolder = 'lang/'; // folder containing JSON files
 
-// Load saved language from localStorage or default to English
+// Get saved language or default to 'en'
 let currentLang = localStorage.getItem('lang') || 'en';
-translatePage(currentLang);
 
-// Highlight current language in menu (optional)
-function highlightCurrentLang(lang) {
-  dropdownLinks.forEach(link => {
-    link.style.fontWeight = link.getAttribute('data-lang') === lang ? '700' : '400';
-  });
-}
-highlightCurrentLang(currentLang);
-
-// Add click events to each dropdown link
-dropdownLinks.forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    const selectedLang = link.getAttribute('data-lang');
-    localStorage.setItem('lang', selectedLang);
-    translatePage(selectedLang);
-    highlightCurrentLang(selectedLang);
+// Set language button active text
+document.addEventListener('DOMContentLoaded', () => {
+  translatePage(currentLang);
+  document.querySelectorAll('.lang-menu a').forEach(el=>{
+    el.addEventListener('click', e=>{
+      e.preventDefault();
+      const selectedLang = el.getAttribute('data-lang');
+      localStorage.setItem('lang', selectedLang);
+      currentLang = selectedLang;
+      translatePage(currentLang);
+    });
   });
 });
 
-function translatePage(lang) {
+function translatePage(lang){
   fetch(`${langFolder}${lang}.json`)
-    .then(response => response.json())
-    .then(translations => {
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[key]) el.innerHTML = translations[key];
-      });
-    })
-    .catch(err => console.error('Translation file not found:', err));
+  .then(res => res.json())
+  .then(translations => {
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const key = el.getAttribute('data-i18n');
+      if(translations[key]) el.innerHTML = translations[key];
+    });
+  })
+  .catch(err => console.error('Translation file not found:', err));
 }
