@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Meitleit — Printers & Solutions</title>
+  <title>Meitleit Printers — Professional Printing Solutions</title>
+
   <style>
     :root {
       --bg: #ffffff;
@@ -77,7 +78,6 @@
       margin-left: 24px;
       color: #fff;
       font-weight: 600;
-      text-decoration: none;
       text-shadow: 0 2px 4px rgba(0,0,0,0.4);
       transition: 0.3s;
     }
@@ -90,7 +90,6 @@
       color: var(--accent);
     }
 
-    /* --- MAIN CONTENT --- */
     main {
       padding: 60px 0;
       min-height: 100vh;
@@ -239,6 +238,69 @@
       .nav { padding: 20px; }
       .nav-links a { margin-left: 16px; font-size: 15px; }
     }
+
+    /* -----------------------
+       Language dropdown styles (updated)
+       ----------------------- */
+    .language-dropdown {
+      position: relative;
+      display: inline-block;
+      margin-left: 24px;
+      z-index: 60;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+      transition: color 0.28s ease, transform 0.18s ease;
+      padding: 0;
+      line-height: 1;
+    }
+    .lang-btn:hover, .lang-btn.active {
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .lang-menu {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(10px);
+      position: absolute;
+      top: 34px;
+      left: 0;
+      background: #000; /* black background */
+      min-width: 160px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      padding: 6px 6px;
+      max-height: 240px;
+      overflow-y: auto;
+      transition: opacity 1s ease, transform 1s ease, visibility 1s ease;
+      -webkit-overflow-scrolling: touch;
+    }
+    .language-dropdown.open .lang-menu {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .lang-menu a {
+      display: block;
+      color: #fff;
+      padding: 10px 14px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: 6px;
+      transition: background 0.18s ease, color 0.18s ease;
+    }
+    .lang-menu a:hover { background: var(--accent); color: #fff; }
+    .lang-menu::-webkit-scrollbar { width: 8px; }
+    .lang-menu::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 8px; }
+    /* end language styles */
   </style>
 </head>
 
@@ -248,8 +310,19 @@
     <div class="nav">
       <div class="logo">Meitleit</div>
       <nav class="nav-links">
-        <a href="index.html">About</a>
-        <a href="products.html" class="active">Products</a>
+        <!-- language dropdown inserted (ONLY ADDITION) -->
+        <div class="language-dropdown" aria-hidden="false">
+          <button class="lang-btn" id="langBtn">🌐 Language ▾</button>
+          <div class="lang-menu" role="menu" aria-labelledby="langBtn">
+            <a href="#" data-lang="en">English</a>
+            <a href="#" data-lang="ms">Bahasa Melayu</a>
+            <a href="#" data-lang="zh">简体中文</a>
+            <a href="#" data-lang="ta">தமிழ்</a>
+          </div>
+        </div>
+
+        <a href="index.html" class="active">About</a>
+        <a href="products.html">Products</a>
         <a href="services.html">Services</a>
         <a href="contact.html">Contact Us</a>
       </nav>
@@ -276,7 +349,6 @@
           </div>
         </article>
 
-        <!-- 🖨️ RICOH IM C3500 -->
         <article class="card">
           <div class="thumb"><img src="assets/ricoh-imc3500.jpg" alt=""></div>
           <div class="model">RICOH IM C3500</div>
@@ -380,7 +452,7 @@
     </section>
   </main>
 
-  <!-- ✅ footer.html (Fun Fact) - inserted exactly as provided -->
+  <!-- footer included inline as you had it earlier -->
   <footer style="
     background-color: #151515;
     color: #fff;
@@ -455,8 +527,6 @@
   </footer>
 
   <script>
-    // auto year (already in footer above; this is safe to keep)
-    // keep existing JS for interactions (no change requested)
     const phoneNumber = "60124406637";
     document.querySelectorAll('.btn-primary').forEach(button => {
       button.addEventListener('click', () => {
@@ -479,7 +549,32 @@
     const headerImg = document.getElementById('header-img');
     if (headerImg) observer.observe(headerImg);
   </script>
+
+  <!-- LANGUAGE DROPDOWN JS -->
+  <script>
+    (function(){
+      const dropdown = document.querySelector('.language-dropdown');
+      if (!dropdown) return;
+      let closeTimer = null;
+      function openMenu() { dropdown.classList.add('open'); }
+      function closeMenu() { dropdown.classList.remove('open'); }
+
+      dropdown.addEventListener('mouseenter', () => { if (closeTimer){ clearTimeout(closeTimer); closeTimer = null; } openMenu(); });
+      dropdown.addEventListener('mouseleave', () => { closeTimer = setTimeout(() => { closeMenu(); closeTimer = null; }, 200); });
+
+      const btn = dropdown.querySelector('.lang-btn');
+      btn.addEventListener('click', (e) => { e.preventDefault(); if (dropdown.classList.contains('open')) closeMenu(); else openMenu(); });
+
+      dropdown.querySelectorAll('[data-lang]').forEach(el => {
+        el.addEventListener('focus', () => { openMenu(); });
+        el.addEventListener('blur', () => { closeTimer = setTimeout(() => closeMenu(), 200); });
+      });
+
+      dropdown.querySelector('.lang-menu').addEventListener('click', (e) => { e.stopPropagation(); });
+    })();
+  </script>
+
+  <!-- TRANSLATION SCRIPT -->
+  <script src="translate.js" defer></script>
 </body>
 </html>
-
-
