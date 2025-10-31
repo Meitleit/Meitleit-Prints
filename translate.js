@@ -1,37 +1,27 @@
-// === Translation Loader ===
-document.addEventListener("DOMContentLoaded", () => {
-  const languageSwitcher = document.getElementById("languageSwitcher");
-  const userLang = localStorage.getItem("lang") || "en";
+const languageSwitcher = document.getElementById('languageSwitcher');
+const langFolder = 'lang/'; // folder where your JSON files are stored
 
-  // Set the dropdown to saved language
-  if (languageSwitcher) languageSwitcher.value = userLang;
+// Set initial language from localStorage
+let currentLang = localStorage.getItem('lang') || 'en';
+languageSwitcher.value = currentLang;
+translatePage(currentLang);
 
-  // Load the initial language
-  loadLanguage(userLang);
-
-  // Change language when user selects one
-  if (languageSwitcher) {
-    languageSwitcher.addEventListener("change", (e) => {
-      const selectedLang = e.target.value;
-      localStorage.setItem("lang", selectedLang);
-      loadLanguage(selectedLang);
-    });
-  }
+// When user selects a language
+languageSwitcher.addEventListener('change', (e) => {
+  const selectedLang = e.target.value;
+  localStorage.setItem('lang', selectedLang);
+  translatePage(selectedLang);
 });
 
-function loadLanguage(lang) {
-  fetch(`${lang}.json`)
-    .then((res) => {
-      if (!res.ok) throw new Error("Language file not found");
-      return res.json();
+function translatePage(lang) {
+  fetch(`${langFolder}${lang}.json`)
+    .then(response => response.json())
+    .then(translations => {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[key]) el.innerHTML = translations[key];
+      });
     })
-    .then((translations) => applyTranslations(translations))
-    .catch((err) => console.error("Error loading language:", err));
+    .catch(err => console.error('Translation file not found:', err));
 }
 
-function applyTranslations(translations) {
-  document.querySelectorAll("[data-i18n]").forEach((el) => {
-    const key = el.getAttribute("data-i18n");
-    if (translations[key]) el.textContent = translations[key];
-  });
-}
