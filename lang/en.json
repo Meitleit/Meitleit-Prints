@@ -1,14 +1,17 @@
 {
-  "title": "Meitleit Printers — Professional Printing Solutions",
+  "welcome_ad_text": "Meitleit Printers — Professional Printing Solutions",
   "nav_about": "About",
   "nav_products": "Products",
   "nav_services": "Services",
   "nav_contact": "Contact Us",
-  "about_title": "Most Affordable Copier Machine Rental in Klang Valley",
-  "about_desc": "At <strong>Meitleit</strong>, we believe printing is more than just technology — it’s the foundation of modern business communication. Through our partnerships with <strong>Ricoh</strong>, <strong>Fuji Xerox</strong>, and <strong>Fujifilm</strong>, we provide cutting-edge printing solutions that power productivity and efficiency across all industries.",
-  "card1_btn": "Learn More",
-  "card2_btn": "Explore Rentals",
-  "btn_contact": "Contact Us for Plans",
-  "btn_products": "View Products",
-  "btn_services": "View Services"
+  "about_text": "Most Affordable Copier Machine Rental in Klang Valley. At Meitleit, we believe printing is more than just technology...",
+  "partnership_title": "🤝 In Partnership With Ricoh · Fuji Xerox · Fujifilm",
+  "partnership_text": "Through strategic partnerships, Meitleit offers access to the latest copier and printing innovations...",
+  "learn_more": "Learn More",
+  "rental_title": "📦 All In One Rental Solution Starting From RM60/month",
+  "rental_text": "No large deposits, no hidden fees — just print with confidence...",
+  "explore_rentals": "Explore Rentals",
+  "contact_us": "Contact Us for Plans",
+  "view_products": "View Products",
+  "view_services": "View Services"
 }
