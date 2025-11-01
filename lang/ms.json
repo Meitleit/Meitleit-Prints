@@ -1,20 +1,62 @@
 {
-  "nav_about": "Tentang",
-  "nav_products": "Produk",
-  "nav_services": "Perkhidmatan",
-  "nav_contact": "Hubungi Kami",
-  "about_text": "Di <strong>Meitleit</strong>, kami percaya percetakan adalah lebih daripada sekadar teknologi — ia adalah asas komunikasi perniagaan moden. Melalui kerjasama kami dengan <strong>Ricoh</strong>, <strong>Fuji Xerox</strong>, dan <strong>Fujifilm</strong>, kami menyediakan penyelesaian percetakan terkini yang meningkatkan produktiviti dan kecekapan di semua industri.",
-  "partnership_title": "🤝 Bekerjasama Dengan Ricoh · Fuji Xerox · Fujifilm",
-  "partnership_text": "Melalui kerjasama strategik, Meitleit menawarkan akses kepada inovasi pencetak dan penyalin terkini dari jenama yang dipercayai di seluruh dunia. Kerjasama kami memastikan kualiti konsisten dan sokongan yang boleh anda harapkan.",
-  "learn_more": "Ketahui Lebih Lanjut",
-  "rental_title": "📦 Penyelesaian Sewa Semua Dalam Satu Bermula Dari RM60/bulan",
-  "rental_text": "Tiada deposit besar, tiada caj tersembunyi — cetak dengan keyakinan. Kami menyediakan pilihan sewa fleksibel dengan sokongan teknikal penuh dan penyelenggaraan untuk memastikan operasi anda berjalan lancar.",
-  "explore_rentals": "Teroka Sewa",
-  "contact_us": "Hubungi Kami Untuk Pelan",
-  "view_products": "Lihat Produk",
-  "view_services": "Lihat Perkhidmatan",
-  "products_title": "Produk Kami",
-  "services_title": "Perkhidmatan Kami",
-  "contact_title": "Hubungi Kami",
-  "welcome_ad_text": "Selamat Datang ke Meitleit Printers — Penyelesaian Percetakan Profesional"
+  "nav": {
+    "about": "Tentang",
+    "products": "Produk",
+    "services": "Perkhidmatan",
+    "contact": "Hubungi Kami"
+  },
+  "homepage": {
+    "about_text": "Di <strong>Meitleit</strong>, kami percaya percetakan adalah lebih daripada sekadar teknologi — ia adalah asas komunikasi perniagaan moden. Melalui kerjasama kami dengan <strong>Ricoh</strong>, <strong>Fuji Xerox</strong>, dan <strong>Fujifilm</strong>, kami menyediakan penyelesaian percetakan terkini yang meningkatkan produktiviti dan kecekapan di semua industri.",
+    "partnership_title": "🤝 Bekerjasama Dengan Ricoh · Fuji Xerox · Fujifilm",
+    "partnership_text": "Melalui kerjasama strategik, Meitleit menawarkan akses kepada inovasi pencetak dan penyalin terkini dari jenama yang dipercayai di seluruh dunia. Kerjasama kami memastikan kualiti konsisten dan sokongan yang boleh anda harapkan.",
+    "learn_more": "Ketahui Lebih Lanjut",
+    "rental_title": "📦 Penyelesaian Sewa Semua Dalam Satu Bermula Dari RM60/bulan",
+    "rental_text": "Tiada deposit besar, tiada caj tersembunyi — cetak dengan keyakinan. Kami menyediakan pilihan sewa fleksibel dengan sokongan teknikal penuh dan penyelenggaraan untuk memastikan operasi anda berjalan lancar.",
+    "explore_rentals": "Teroka Sewa",
+    "contact_us": "Hubungi Kami Untuk Pelan",
+    "view_products": "Lihat Produk",
+    "view_services": "Lihat Perkhidmatan",
+    "welcome_ad_text": "Selamat Datang ke Meitleit Printers — Penyelesaian Percetakan Profesional"
+  },
+  "products_page": {
+    "title": "Produk Kami",
+    "section_title": "Our Printers",
+    "btn_interested": "Saya Berminat",
+    "btn_learn_more": "Ketahui Lebih Lanjut",
+    "printers": {
+      "printer1": {
+        "model": "RICOH IM C3000",
+        "specs": ["30 ppm", "Full Colour MFP", "Copy / Print / Scan", "Wireless Ready"]
+      },
+      "printer2": {
+        "model": "RICOH IM C3500",
+        "specs": ["35 ppm", "Full Colour MFP", "Auto Duplex", "Network Printing"]
+      },
+      "printer3": {
+        "model": "RICOH IM C4500",
+        "specs": ["45 ppm", "Full Colour MFP", "Cloud Printing", "Touchscreen Panel"]
+      },
+      "printer4": {
+        "model": "RICOH IM C6000",
+        "specs": ["60 ppm", "Full Colour MFP", "Heavy Duty", "High Volume Printing"]
+      },
+      "printer5": {
+        "model": "Fuji Xerox ApeosPort C3373 / C4473 / C5573",
+        "specs": ["High-Quality Colour", "Multifunction Printer", "Secure Print", "Energy Efficient"]
+      },
+      "printer6": {
+        "model": "Fujifilm Apeos C3060 / C2560",
+        "specs": ["Compact Design", "Efficient Color Output", "Wireless Printing", "Auto Duplex"]
+      },
+      "printer7": {
+        "model": "Fujifilm Apeos C7070 / C6570 / C5570 / C4570 / C3570 / C3070",
+        "specs": ["High Productivity", "Advanced Color Printing", "Large Touchscreen", "Heavy Duty Usage"]
+      },
+      "printer8": {
+        "model": "Printer’s Consumables (Parts and Refills)",
+        "specs": ["Compatible Toners", "Drum Units", "Cartridges", "Maintenance Kits", "Spare Parts"]
+      }
+    }
+  }
 }
+
