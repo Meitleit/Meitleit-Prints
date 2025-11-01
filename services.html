@@ -117,6 +117,7 @@
       flex-wrap: wrap;
       gap: 40px;
       max-width: var(--maxw);
+      align-items: stretch; /* ensures all cards in a row have same height */
     }
 
     .service-card {
@@ -132,8 +133,9 @@
       transition: transform 0.3s ease;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      height: 520px;
+      justify-content: flex-start;
+      min-height: 520px;
+      height: auto; /* allows growth with text */
       animation: fadeInUp 1.2s ease-out;
     }
 
@@ -159,6 +161,8 @@
       color: var(--muted);
       font-size: 16px;
       line-height: 1.6;
+      flex: none;
+      word-wrap: break-word; /* prevents long words from overflowing */
     }
 
     @keyframes fadeInUp {
@@ -174,7 +178,7 @@
       header { height: 350px; }
     }
 
-    /* -- language dropdown styles (ADDED) -- */
+    /* LANGUAGE DROPDOWN STYLES */
     .language-dropdown {
       position: relative;
       display: inline-block;
@@ -205,15 +209,14 @@
       position: absolute;
       top: 34px;
       left: 0;
-      background: #000; /* black background */
+      background: #000;
       min-width: 160px;
       border-radius: 10px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.35);
       padding: 6px 6px;
       max-height: 240px;
       overflow-y: auto;
-      transition: opacity 1s ease, transform 1s ease, visibility 1s ease;
-      -webkit-overflow-scrolling: touch;
+      transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
     }
     .language-dropdown.open .lang-menu {
       visibility: visible;
@@ -231,37 +234,18 @@
       transition: background 0.18s ease, color 0.18s ease;
     }
     .lang-menu a:hover { background: var(--accent); color: #fff; }
-    /* end language styles */
-/* Scrollable + Smooth Animation for Language Dropdown */
-.lang-menu {
-  max-height: 90px; /* limit visible height */
-  overflow-y: auto; /* enable scroll if too long */
-  scrollbar-width: thin; /* Firefox */
-  scrollbar-color: rgba(255,255,255,0.25) rgba(0,0,0,0.2);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
 
-/* Chrome/Edge/Safari scrollbar styling */
-.lang-menu::-webkit-scrollbar {
-  width: 8px;
-}
-
-.lang-menu::-webkit-scrollbar-track {
-  background: rgba(0,0,0,0.2);
-  border-radius: 8px;
-}
-
-.lang-menu::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.25);
-  border-radius: 8px;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Red glow effect when hovering over scrollbar */
-.lang-menu::-webkit-scrollbar-thumb:hover {
-  background: var(--accent);
-  box-shadow: 0 0 8px rgba(230, 0, 18, 0.7);
-}
+    /* Scrollbar Styling */
+    .lang-menu {
+      max-height: 90px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,0.25) rgba(0,0,0,0.2);
+    }
+    .lang-menu::-webkit-scrollbar { width: 8px; }
+    .lang-menu::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); border-radius: 8px; }
+    .lang-menu::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.25); border-radius: 8px; transition: background 0.3s ease, box-shadow 0.3s ease; }
+    .lang-menu::-webkit-scrollbar-thumb:hover { background: var(--accent); box-shadow: 0 0 8px rgba(230, 0, 18, 0.7); }
 
   </style>
 </head>
@@ -272,7 +256,6 @@
     <div class="nav">
       <div class="logo">Meitleit</div>
       <nav class="nav-links">
-        <!-- language dropdown (ONLY ADDITION) -->
         <div class="language-dropdown" aria-hidden="false">
           <button class="lang-btn" id="langBtn">🌐 Language ▾</button>
           <div class="lang-menu" role="menu" aria-labelledby="langBtn">
@@ -285,7 +268,6 @@
 
         <a href="index.html" data-i18n="nav_about">About</a>
         <a href="products.html" data-i18n="nav_products">Products</a>
-        <!-- kept your original link target (service.html) exactly as provided -->
         <a href="service.html" style="color: var(--accent);" data-i18n="nav_services">Services</a>
         <a href="contact.html" data-i18n="nav_contact">Contact Us</a>
       </nav>
@@ -313,7 +295,6 @@
         <p data-i18n="service_delivery_text">We offer reliable delivery services for all equipment purchases and rentals. Our logistics team ensures your products are delivered safely, on time, and ready to use without hassle.</p>
       </div>
 
-      <!-- ✅ New Installation Card -->
       <div class="service-card">
         <h2 data-i18n="service_it_title">IT Support</h2>
         <img src="https://media.istockphoto.com/id/514583028/photo/african-man-fixing-photo-copier.jpg?s=612x612&w=0&k=20&c=U1fLCGLDUAMmnf2wV0WQgdKG4m7jstZ-Zc4srn7ZWkw=" alt="Installation Service">
@@ -322,7 +303,7 @@
     </div>
   </main>
 
-  <!-- ✅ External Footer Include -->
+  <!-- Footer Include -->
   <div id="footer"></div>
   <script>
     fetch("footer.html")
