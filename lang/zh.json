@@ -4,24 +4,20 @@
   "nav_products": "产品",
   "nav_services": "服务",
   "nav_contact": "联系我们",
-
   "about_text": "Klang Valley 最实惠的复印机租赁服务。",
   "partnership_title": "🤝 与 Ricoh · Fuji Xerox · Fujifilm 合作",
   "partnership_text": "通过战略合作，Meitleit 提供访问全球信赖品牌的最新复印机和打印创新的渠道。我们的合作确保您可以依赖的稳定质量和支持。",
   "learn_more": "了解更多",
-
   "rental_title": "📦 一站式租赁方案，月租从 RM60 起",
   "rental_text": "无需大额押金，无隐藏费用——尽情打印。我们提供灵活的租赁选项，配备全面技术支持和维护，确保您的业务顺利运行。",
   "explore_rentals": "探索租赁方案",
   "contact_us": "联系我们了解方案",
   "view_products": "查看产品",
   "view_services": "查看服务",
-
   "home_title": "欢迎来到 Meitleit Printers",
   "home_description": "为您的业务提供专业打印解决方案。",
   "products_title": "我们的产品",
   "products_description": "探索我们提供的高品质打印机和复印机。",
-
   "services_title": "服务 — Meitleit Printers",
   "services_heading": "我们的服务",
   "service_repair_title": "维修与保养",
@@ -32,10 +28,9 @@
   "service_delivery_text": "我们提供可靠的设备配送服务。物流团队确保产品安全、准时、无忧送达。",
   "service_it_title": "IT 支持",
   "service_it_text": "我们的 IT 支持团队为复印机提供全面技术协助，包括故障排除、网络设置、软件配置及持续维护，确保顺畅运行。",
-
   "contact_title": "联系我们 — Meitleit Printers",
   "contact_heading": "联系我们",
- "contact_note": "📩 您的留言将很快被处理（通常在工作时间内 5 分钟到 2 小时内）。我们的团队主要通过 WhatsApp 联系您。如果您希望使用其他方式，请在表格中说明。感谢您的耐心——我们非常感激！😀"
+  "contact_note": "📩 您的留言将很快被处理（通常在工作时间内 5 分钟到 2 小时内）。我们的团队主要通过 WhatsApp 联系您。如果您希望使用其他方式，请在表格中说明。感谢您的耐心——我们非常感激！😀"
   "contact_description": "📩 我们随时为您提供帮助。请填写下方表格，我们的团队将在短时间内与您联系。"
   "contact_address_title": "📍 地址",
   "contact_address_text": "No. 23, Jalan Putra Permai, 43300 Seri Kembangan, Selangor, Malaysia",
