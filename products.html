@@ -25,7 +25,6 @@
       overflow-x: hidden;
     }
 
-    /* --- HEADER --- */
     header {
       position: relative;
       width: 100%;
@@ -125,17 +124,16 @@
       backdrop-filter: blur(5px);
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-
-    .card:hover {
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-      transform: translateY(-5px);
     }
 
     .card.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      transform: translateY(-5px);
     }
 
     .thumb {
@@ -279,7 +277,6 @@
       max-height: 240px;
       overflow-y: auto;
       transition: opacity 1s ease, transform 1s ease, visibility 1s ease;
-      -webkit-overflow-scrolling: touch;
     }
     .language-dropdown.open .lang-menu {
       visibility: visible;
@@ -305,7 +302,7 @@
   <header>
     <img id="header-img" src="https://www.indonesia.travel/contentassets/8f4d997bcbb043028c9b12ddd741b005/indonesia-s-best-mountain-climbing-experiences.jpg" alt="Header Banner">
     <div class="nav">
-      <div class="logo">Meitleit</div>
+      <div class="logo" data-i18n="logo">Meitleit</div>
       <nav class="nav-links">
         <div class="language-dropdown" aria-hidden="false">
           <button class="lang-btn" id="langBtn">🌐 <span data-i18n="language">Language ▾</span></button>
@@ -331,10 +328,15 @@
 
         <!-- Card 1 -->
         <article class="card">
-          <div class="thumb"><img src="assets/ricoh-imc3000.jpg" alt=""></div>
-          <div class="model">RICOH IM C3000</div>
+          <div class="thumb"><img src="assets/ricoh-imc3000.jpg" alt="RICOH IM C3000"></div>
+          <div class="model" data-i18n="ricoh_imc3000">RICOH IM C3000</div>
           <div class="specs-box">
-            <div class="specs"><span>30 ppm</span><span>Full Colour MFP</span><span>Copy / Print / Scan</span><span>Wireless Ready</span></div>
+            <div class="specs">
+              <span data-i18n="30ppm">30 ppm</span>
+              <span data-i18n="full_colour_mfp">Full Colour MFP</span>
+              <span data-i18n="copy_print_scan">Copy / Print / Scan</span>
+              <span data-i18n="wireless_ready">Wireless Ready</span>
+            </div>
           </div>
           <div class="actions">
             <button class="btn btn-primary" data-i18n="im_interested">I'm Interested</button>
@@ -344,10 +346,15 @@
 
         <!-- Card 2 -->
         <article class="card">
-          <div class="thumb"><img src="assets/ricoh-imc3500.jpg" alt=""></div>
-          <div class="model">RICOH IM C3500</div>
+          <div class="thumb"><img src="assets/ricoh-imc3500.jpg" alt="RICOH IM C3500"></div>
+          <div class="model" data-i18n="ricoh_imc3500">RICOH IM C3500</div>
           <div class="specs-box">
-            <div class="specs"><span>35 ppm</span><span>Full Colour MFP</span><span>Auto Duplex</span><span>Network Printing</span></div>
+            <div class="specs">
+              <span data-i18n="35ppm">35 ppm</span>
+              <span data-i18n="full_colour_mfp">Full Colour MFP</span>
+              <span data-i18n="auto_duplex">Auto Duplex</span>
+              <span data-i18n="network_printing">Network Printing</span>
+            </div>
           </div>
           <div class="actions">
             <button class="btn btn-primary" data-i18n="im_interested">I'm Interested</button>
@@ -357,10 +364,15 @@
 
         <!-- Card 3 -->
         <article class="card">
-          <div class="thumb"><img src="assets/ricoh-imc4500.jpg" alt=""></div>
-          <div class="model">RICOH IM C4500</div>
+          <div class="thumb"><img src="assets/ricoh-imc4500.jpg" alt="RICOH IM C4500"></div>
+          <div class="model" data-i18n="ricoh_imc4500">RICOH IM C4500</div>
           <div class="specs-box">
-            <div class="specs"><span>45 ppm</span><span>Full Colour MFP</span><span>Cloud Printing</span><span>Touchscreen Panel</span></div>
+            <div class="specs">
+              <span data-i18n="45ppm">45 ppm</span>
+              <span data-i18n="full_colour_mfp">Full Colour MFP</span>
+              <span data-i18n="cloud_printing">Cloud Printing</span>
+              <span data-i18n="touchscreen_panel">Touchscreen Panel</span>
+            </div>
           </div>
           <div class="actions">
             <button class="btn btn-primary" data-i18n="im_interested">I'm Interested</button>
@@ -370,10 +382,15 @@
 
         <!-- Card 4 -->
         <article class="card">
-          <div class="thumb"><img src="assets/ricoh-imc6000.jpg" alt=""></div>
-          <div class="model">RICOH IM C6000</div>
+          <div class="thumb"><img src="assets/ricoh-imc6000.jpg" alt="RICOH IM C6000"></div>
+          <div class="model" data-i18n="ricoh_imc6000">RICOH IM C6000</div>
           <div class="specs-box">
-            <div class="specs"><span>60 ppm</span><span>Full Colour MFP</span><span>Heavy Duty</span><span>High Volume Printing</span></div>
+            <div class="specs">
+              <span data-i18n="60ppm">60 ppm</span>
+              <span data-i18n="full_colour_mfp">Full Colour MFP</span>
+              <span data-i18n="heavy_duty">Heavy Duty</span>
+              <span data-i18n="high_volume_printing">High Volume Printing</span>
+            </div>
           </div>
           <div class="actions">
             <button class="btn btn-primary" data-i18n="im_interested">I'm Interested</button>
@@ -383,10 +400,15 @@
 
         <!-- Card 5 -->
         <article class="card">
-          <div class="thumb"><img src="assets/Fuji-Xerox-ApeosPort.jpg" alt=""></div>
-          <div class="model">Fuji Xerox ApeosPort C3373 / C4473 / C5573</div>
+          <div class="thumb"><img src="assets/Fuji-Xerox-ApeosPort.jpg" alt="Fuji Xerox ApeosPort"></div>
+          <div class="model" data-i18n="fuji_xerox_apeosport">Fuji Xerox ApeosPort C3373 / C4473 / C5573</div>
           <div class="specs-box">
-            <div class="specs"><span>High-Quality Colour</span><span>Multifunction Printer</span><span>Secure Print</span><span>Energy Efficient</span></div>
+            <div class="specs">
+              <span data-i18n="high_quality_colour">High-Quality Colour</span>
+              <span data-i18n="multifunction_printer">Multifunction Printer</span>
+              <span data-i18n="secure_print">Secure Print</span>
+              <span data-i18n="energy_efficient">Energy Efficient</span>
+            </div>
           </div>
           <div class="actions">
             <button class="btn btn-primary" data-i18n="im_interested">I'm Interested</button>
@@ -396,10 +418,15 @@
 
         <!-- Card 6 -->
         <article class="card">
-          <div class="thumb"><img src="assets/Fujifilm-Apeos-C3060-C2560.jpg" alt=""></div>
-          <div class="model">Fujifilm Apeos C3060 / C2560</div>
+          <div class="thumb"><img src="assets/Fujifilm-Apeos-C3060-C2560.jpg" alt="Fujifilm Apeos C3060 / C2560"></div>
+          <div class="model" data-i18n="fujifilm_apeos_c3060_c2560">Fujifilm Apeos C3060 / C2560</div>
           <div class="specs-box">
-            <div class="specs"><span>Compact Design</span><span>Efficient Color Output</span><span>Wireless Printing</span><span>Auto Duplex</span></div>
+            <div class="specs">
+              <span data-i18n="compact_design">Compact Design</span>
+              <span data-i18n="efficient_color_output">Efficient Color Output</span>
+              <span data-i18n="wireless_printing">Wireless Printing</span>
+              <span data-i18n="auto_duplex">Auto Duplex</span>
+            </div>
           </div>
           <div class="actions">
             <button class="btn btn-primary" data-i18n="im_interested">I'm Interested</button>
@@ -409,27 +436,37 @@
 
         <!-- Card 7 -->
         <article class="card">
-          <div class="thumb"><img src="assets/FujiFilm-Apeos.jpg" alt=""></div>
-          <div class="model">Fujifilm Apeos C7070 / C6570 / C5570 / C4570 / C3570 / C3070</div>
+          <div class="thumb"><img src="assets/FujiFilm-Apeos.jpg" alt="Fujifilm Apeos Series"></div>
+          <div class="model" data-i18n="fujifilm_apeos_series">Fujifilm Apeos C7070 / C6570 / C5570</div>
           <div class="specs-box">
-            <div class="specs"><span>High Productivity</span><span>Advanced Color Printing</span><span>Large Touchscreen</span><span>Heavy Duty Usage</span></div>
+            <div class="specs">
+              <span data-i18n="high_speed_printing">High-Speed Printing</span>
+              <span data-i18n="full_colour">Full Colour</span>
+              <span data-i18n="cloud_integration">Cloud Integration</span>
+              <span data-i18n="advanced_security">Advanced Security</span>
+            </div>
           </div>
           <div class="actions">
             <button class="btn btn-primary" data-i18n="im_interested">I'm Interested</button>
-            <a class="btn btn-accent" href="assets/Fujifilm-apeos1.pdf" target="_blank" data-i18n="learn_more">Learn more</a>
+            <a class="btn btn-accent" href="assets/FujiFilm-Apeos-Brochure.pdf" target="_blank" data-i18n="learn_more">Learn more</a>
           </div>
         </article>
 
         <!-- Card 8 -->
         <article class="card">
-          <div class="thumb"><img src="assets/consumables.jpg" alt=""></div>
-          <div class="model">Printer’s Consumables (Parts and Refills)</div>
+          <div class="thumb"><img src="assets/FujiFilm-DocuCentre.jpg" alt="Fujifilm DocuCentre"></div>
+          <div class="model" data-i18n="fujifilm_docucentre">Fujifilm DocuCentre-IV C3373 / C4473 / C5573</div>
           <div class="specs-box">
-            <div class="specs"><span>Compatible Toners</span><span>Drum Units</span><span>Cartridges</span><span>Maintenance Kits</span><span>Spare Parts</span></div>
+            <div class="specs">
+              <span data-i18n="compact_office_mfp">Compact Office MFP</span>
+              <span data-i18n="high_quality_color">High-Quality Color</span>
+              <span data-i18n="network_ready">Network Ready</span>
+              <span data-i18n="eco_friendly">Eco-Friendly</span>
+            </div>
           </div>
           <div class="actions">
             <button class="btn btn-primary" data-i18n="im_interested">I'm Interested</button>
-            <a class="btn btn-accent" href="assets/consumables-brochure.pdf" target="_blank" data-i18n="learn_more">Learn more</a>
+            <a class="btn btn-accent" href="assets/FujiFilm-DocuCentre-Brochure.pdf" target="_blank" data-i18n="learn_more">Learn more</a>
           </div>
         </article>
 
@@ -437,10 +474,7 @@
     </section>
   </main>
 
-  <!-- Footer remains exactly as your original code -->
-
   <script>
-    // WhatsApp buttons
     const phoneNumber = "60124406637";
     document.querySelectorAll('.btn-primary').forEach(button => {
       button.addEventListener('click', () => {
@@ -453,15 +487,11 @@
       });
     });
 
-    // Intersection observer
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.2 });
-    document.querySelectorAll('.card').forEach(el => observer.observe(el));
-    const headerImg = document.getElementById('header-img');
-    if (headerImg) observer.observe(headerImg);
+    document.querySelectorAll('.card, #header-img').forEach(el => observer.observe(el));
 
-    // Language dropdown
     (function(){
       const dropdown = document.querySelector('.language-dropdown');
       if (!dropdown) return;
