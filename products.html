@@ -82,28 +82,14 @@
       text-decoration: none;
     }
 
-    .nav-links a:hover {
-      color: var(--accent);
-    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a.active { color: var(--accent); }
 
-    .nav-links a.active {
-      color: var(--accent);
-    }
+    main { padding: 60px 0; min-height: 100vh; }
 
-    main {
-      padding: 60px 0;
-      min-height: 100vh;
-    }
+    .container { max-width: 1200px; margin: auto; padding: 0 20px; }
 
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 0 20px;
-    }
-
-    .section {
-      padding: 48px 0;
-    }
+    .section { padding: 48px 0; }
 
     .grid {
       display: grid;
@@ -126,10 +112,7 @@
       transform: translateY(30px);
     }
 
-    .card.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .card.visible { opacity: 1; transform: translateY(0); }
 
     .card:hover {
       box-shadow: 0 8px 25px rgba(0,0,0,0.25);
@@ -155,9 +138,7 @@
       transition: transform 0.6s ease;
     }
 
-    .card:hover .thumb img {
-      transform: scale(1.05);
-    }
+    .card:hover .thumb img { transform: scale(1.05); }
 
     .model { font-weight: 700; font-size: 16px; }
 
@@ -216,7 +197,6 @@
       color: #fff;
       transition: background 0.3s ease, box-shadow 0.3s ease;
     }
-
     .btn-primary:hover {
       background: #1ebe57;
       box-shadow: 0 0 14px rgba(34, 197, 94, 0.55);
@@ -227,7 +207,6 @@
       color: #fff;
       transition: background 0.3s ease, box-shadow 0.3s ease;
     }
-
     .btn-accent:hover {
       background: #c40010;
       box-shadow: 0 0 14px rgba(230, 0, 18, 0.55);
@@ -239,64 +218,23 @@
     }
 
     /* Language dropdown */
-    .language-dropdown {
-      position: relative;
-      display: inline-block;
-      margin-left: 24px;
-      z-index: 60;
-    }
+    .language-dropdown { position: relative; display: inline-block; margin-left: 24px; z-index: 60; }
     .lang-btn {
-      background: none;
-      border: none;
-      color: #fff;
-      font-weight: 600;
-      font-size: 16px;
-      cursor: pointer;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-      transition: color 0.28s ease, transform 0.18s ease;
-      padding: 0;
-      line-height: 1;
+      background: none; border: none; color: #fff; font-weight: 600; font-size: 16px;
+      cursor: pointer; text-shadow: 0 2px 4px rgba(0,0,0,0.4); transition: color 0.28s ease, transform 0.18s ease;
     }
-    .lang-btn:hover, .lang-btn.active {
-      color: var(--accent);
-      transform: translateY(-2px);
-    }
-
+    .lang-btn:hover, .lang-btn.active { color: var(--accent); transform: translateY(-2px); }
     .lang-menu {
-      visibility: hidden;
-      opacity: 0;
-      transform: translateY(10px);
-      position: absolute;
-      top: 34px;
-      left: 0;
-      background: #000;
-      min-width: 160px;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-      padding: 6px 6px;
-      max-height: 240px;
-      overflow-y: auto;
-      transition: opacity 1s ease, transform 1s ease, visibility 1s ease;
+      visibility: hidden; opacity: 0; transform: translateY(10px);
+      position: absolute; top: 34px; left: 0; background: #000;
+      min-width: 160px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      padding: 6px; max-height: 240px; overflow-y: auto; transition: opacity 1s ease, transform 1s ease, visibility 1s ease;
     }
-    .language-dropdown.open .lang-menu {
-      visibility: visible;
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .lang-menu a {
-      display: block;
-      color: #fff;
-      padding: 10px 14px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-      border-radius: 6px;
-      transition: background 0.18s ease, color 0.18s ease;
-    }
-    .lang-menu a:hover { background: var(--accent); color: #fff; }
+    .language-dropdown.open .lang-menu { visibility: visible; opacity: 1; transform: translateY(0); }
+    .lang-menu a { display: block; color: #fff; padding: 10px 14px; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 6px; transition: background 0.18s ease; }
+    .lang-menu a:hover { background: var(--accent); }
   </style>
 </head>
-
 <body>
   <header>
     <img id="header-img" src="https://www.indonesia.travel/contentassets/8f4d997bcbb043028c9b12ddd741b005/indonesia-s-best-mountain-climbing-experiences.jpg" alt="Header Banner">
@@ -312,26 +250,29 @@
             <a href="#" data-lang="ta">தமிழ்</a>
           </div>
         </div>
-        <a href="index.html" data-i18n="about">About</a>
-        <a href="products.html" class="active" data-i18n="products">Products</a>
-        <a href="services.html" data-i18n="services">Services</a>
-        <a href="contact.html" data-i18n="contact">Contact Us</a>
+        <a href="index.html" data-i18n="nav_about">About</a>
+        <a href="products.html" class="active" data-i18n="nav_products">Products</a>
+        <a href="services.html" data-i18n="nav_services">Services</a>
+        <a href="contact.html" data-i18n="nav_contact">Contact Us</a>
       </nav>
     </div>
   </header>
-<main>
+
+  <main>
     <section id="products" class="section container">
-      <h2 data-i18n="our_printers">Our Printers</h2>
-<!-- Card 1 -->
+      <h2 data-i18n="products_title">Our Printers</h2>
+      <div class="grid">
+
+        <!-- Product 1 -->
         <article class="card">
-          <div class="thumb"><img src="assets/ricoh-imc3000.jpg" alt="RICOH IM C3000"></div>
-          <div class="model" data-i18n="ricoh_imc3000">RICOH IM C3000</div>
+          <div class="thumb"><img src="assets/ricoh-imc3000.jpg" alt="Ricoh IM C3000"></div>
+          <div class="model" data-i18n="printer1_model">RICOH IM C3000</div>
           <div class="specs-box">
             <div class="specs">
-              <span data-i18n="30ppm">30 ppm</span>
-              <span data-i18n="full_colour_mfp">Full Colour MFP</span>
-              <span data-i18n="copy_print_scan">Copy / Print / Scan</span>
-              <span data-i18n="wireless_ready">Wireless Ready</span>
+              <span data-i18n="printer1_spec1">30 ppm</span>
+              <span data-i18n="printer1_spec2">Full Colour MFP</span>
+              <span data-i18n="printer1_spec3">Copy / Print / Scan</span>
+              <span data-i18n="printer1_spec4">Wireless Ready</span>
             </div>
           </div>
           <div class="actions">
@@ -340,16 +281,16 @@
           </div>
         </article>
 
-        <!-- Card 2 -->
+        <!-- Product 2 -->
         <article class="card">
-          <div class="thumb"><img src="assets/ricoh-imc3500.jpg" alt="RICOH IM C3500"></div>
-          <div class="model" data-i18n="ricoh_imc3500">RICOH IM C3500</div>
+          <div class="thumb"><img src="assets/ricoh-imc3500.jpg" alt="Ricoh IM C3500"></div>
+          <div class="model" data-i18n="printer2_model">RICOH IM C3500</div>
           <div class="specs-box">
             <div class="specs">
-              <span data-i18n="35ppm">35 ppm</span>
-              <span data-i18n="full_colour_mfp">Full Colour MFP</span>
-              <span data-i18n="auto_duplex">Auto Duplex</span>
-              <span data-i18n="network_printing">Network Printing</span>
+              <span data-i18n="printer2_spec1">35 ppm</span>
+              <span data-i18n="printer2_spec2">Full Colour MFP</span>
+              <span data-i18n="printer2_spec3">Auto Duplex</span>
+              <span data-i18n="printer2_spec4">Network Printing</span>
             </div>
           </div>
           <div class="actions">
@@ -358,16 +299,16 @@
           </div>
         </article>
 
-        <!-- Card 3 -->
+        <!-- Product 3 -->
         <article class="card">
-          <div class="thumb"><img src="assets/ricoh-imc4500.jpg" alt="RICOH IM C4500"></div>
-          <div class="model" data-i18n="ricoh_imc4500">RICOH IM C4500</div>
+          <div class="thumb"><img src="assets/ricoh-imc4500.jpg" alt="Ricoh IM C4500"></div>
+          <div class="model" data-i18n="printer3_model">RICOH IM C4500</div>
           <div class="specs-box">
             <div class="specs">
-              <span data-i18n="45ppm">45 ppm</span>
-              <span data-i18n="full_colour_mfp">Full Colour MFP</span>
-              <span data-i18n="cloud_printing">Cloud Printing</span>
-              <span data-i18n="touchscreen_panel">Touchscreen Panel</span>
+              <span data-i18n="printer3_spec1">45 ppm</span>
+              <span data-i18n="printer3_spec2">Full Colour MFP</span>
+              <span data-i18n="printer3_spec3">Cloud Printing</span>
+              <span data-i18n="printer3_spec4">Touchscreen Panel</span>
             </div>
           </div>
           <div class="actions">
@@ -376,16 +317,16 @@
           </div>
         </article>
 
-        <!-- Card 4 -->
+        <!-- Product 4 -->
         <article class="card">
-          <div class="thumb"><img src="assets/ricoh-imc6000.jpg" alt="RICOH IM C6000"></div>
-          <div class="model" data-i18n="ricoh_imc6000">RICOH IM C6000</div>
+          <div class="thumb"><img src="assets/ricoh-imc6000.jpg" alt="Ricoh IM C6000"></div>
+          <div class="model" data-i18n="printer4_model">RICOH IM C6000</div>
           <div class="specs-box">
             <div class="specs">
-              <span data-i18n="60ppm">60 ppm</span>
-              <span data-i18n="full_colour_mfp">Full Colour MFP</span>
-              <span data-i18n="heavy_duty">Heavy Duty</span>
-              <span data-i18n="high_volume_printing">High Volume Printing</span>
+              <span data-i18n="printer4_spec1">60 ppm</span>
+              <span data-i18n="printer4_spec2">Full Colour MFP</span>
+              <span data-i18n="printer4_spec3">Heavy Duty</span>
+              <span data-i18n="printer4_spec4">High Volume Printing</span>
             </div>
           </div>
           <div class="actions">
@@ -394,16 +335,16 @@
           </div>
         </article>
 
-        <!-- Card 5 -->
+        <!-- Product 5 -->
         <article class="card">
           <div class="thumb"><img src="assets/Fuji-Xerox-ApeosPort.jpg" alt="Fuji Xerox ApeosPort"></div>
-          <div class="model" data-i18n="fuji_xerox_apeosport">Fuji Xerox ApeosPort C3373 / C4473 / C5573</div>
+          <div class="model" data-i18n="printer5_model">Fuji Xerox ApeosPort C3373 / C4473 / C5573</div>
           <div class="specs-box">
             <div class="specs">
-              <span data-i18n="high_quality_colour">High-Quality Colour</span>
-              <span data-i18n="multifunction_printer">Multifunction Printer</span>
-              <span data-i18n="secure_print">Secure Print</span>
-              <span data-i18n="energy_efficient">Energy Efficient</span>
+              <span data-i18n="printer5_spec1">High-Quality Colour</span>
+              <span data-i18n="printer5_spec2">Multifunction Printer</span>
+              <span data-i18n="printer5_spec3">Secure Print</span>
+              <span data-i18n="printer5_spec4">Energy Efficient</span>
             </div>
           </div>
           <div class="actions">
@@ -412,16 +353,16 @@
           </div>
         </article>
 
-        <!-- Card 6 -->
+        <!-- Product 6 -->
         <article class="card">
-          <div class="thumb"><img src="assets/Fujifilm-Apeos-C3060-C2560.jpg" alt="Fujifilm Apeos C3060 / C2560"></div>
-          <div class="model" data-i18n="fujifilm_apeos_c3060_c2560">Fujifilm Apeos C3060 / C2560</div>
+          <div class="thumb"><img src="assets/Fujifilm-Apeos-C3060-C2560.jpg" alt="Fujifilm Apeos C3060"></div>
+          <div class="model" data-i18n="printer6_model">Fujifilm Apeos C3060 / C2560</div>
           <div class="specs-box">
             <div class="specs">
-              <span data-i18n="compact_design">Compact Design</span>
-              <span data-i18n="efficient_color_output">Efficient Color Output</span>
-              <span data-i18n="wireless_printing">Wireless Printing</span>
-              <span data-i18n="auto_duplex">Auto Duplex</span>
+              <span data-i18n="printer6_spec1">Compact Design</span>
+              <span data-i18n="printer6_spec2">Efficient Color Output</span>
+              <span data-i18n="printer6_spec3">Wireless Printing</span>
+              <span data-i18n="printer6_spec4">Auto Duplex</span>
             </div>
           </div>
           <div class="actions">
@@ -430,92 +371,157 @@
           </div>
         </article>
 
-        <!-- Card 7 -->
+        <!-- Product 7 -->
         <article class="card">
           <div class="thumb"><img src="assets/FujiFilm-Apeos.jpg" alt="Fujifilm Apeos Series"></div>
-          <div class="model" data-i18n="fujifilm_apeos_series">Fujifilm Apeos C7070 / C6570 / C5570</div>
+          <div class="model" data-i18n="printer7_model">Fujifilm Apeos C7070 / C6570 / C5570 / C4570 / C3570 / C3070</div>
           <div class="specs-box">
             <div class="specs">
-              <span data-i18n="high_speed_printing">High-Speed Printing</span>
-              <span data-i18n="full_colour">Full Colour</span>
-              <span data-i18n="cloud_integration">Cloud Integration</span>
-              <span data-i18n="advanced_security">Advanced Security</span>
+              <span data-i18n="printer7_spec1">High Productivity</span>
+              <span data-i18n="printer7_spec2">Advanced Color Printing</span>
+              <span data-i18n="printer7_spec3">Large Touchscreen</span>
+              <span data-i18n="printer7_spec4">Heavy Duty Usage</span>
             </div>
           </div>
           <div class="actions">
             <button class="btn btn-primary" data-i18n="im_interested">I'm Interested</button>
-            <a class="btn btn-accent" href="assets/FujiFilm-Apeos-Brochure.pdf" target="_blank" data-i18n="learn_more">Learn more</a>
+            <a class="btn btn-accent" href="assets/Fujifilm-apeos1.pdf" target="_blank" data-i18n="learn_more">Learn more</a>
           </div>
         </article>
 
-        <!-- Card 8 -->
+        <!-- Product 8 -->
         <article class="card">
-          <div class="thumb"><img src="assets/consumables.jpg" alt="Fujifilm DocuCentre"></div>
-          <div class="model" data-i18n="fujifilm_docucentre">Fujifilm DocuCentre-IV C3373 / C4473 / C5573</div>
+          <div class="thumb"><img src="assets/consumables.jpg" alt="Consumables"></div>
+          <div class="model" data-i18n="printer8_model">Printer’s Consumables (Parts and Refills)</div>
           <div class="specs-box">
             <div class="specs">
-              <span data-i18n="compact_office_mfp">Compact Office MFP</span>
-              <span data-i18n="high_quality_color">High-Quality Color</span>
-              <span data-i18n="network_ready">Network Ready</span>
-              <span data-i18n="eco_friendly">Eco-Friendly</span>
+              <span data-i18n="printer8_spec1">Compatible Toners</span>
+              <span data-i18n="printer8_spec2">Drum Units</span>
+              <span data-i18n="printer8_spec3">Cartridges</span>
+              <span data-i18n="printer8_spec4">Maintenance Kits</span>
+              <span data-i18n="printer8_spec5">Spare Parts</span>
             </div>
           </div>
           <div class="actions">
             <button class="btn btn-primary" data-i18n="im_interested">I'm Interested</button>
-            <a class="btn btn-accent" href="assets/FujiFilm-DocuCentre-Brochure.pdf" target="_blank" data-i18n="learn_more">Learn more</a>
+            <a class="btn btn-accent" href="assets/consumables-brochure.pdf" target="_blank" data-i18n="learn_more">Learn more</a>
           </div>
         </article>
-</div>
+
+      </div>
     </section>
   </main>
 
-  <!-- ✅ Scripts -->
-  <script src="translate.js"></script>
-
+  <!-- Original interaction scripts (kept behavior unchanged) -->
   <script>
     const phoneNumber = "60124406637";
-    document.querySelectorAll('.btn-primary').forEach(button => {
-      button.addEventListener('click', () => {
+    // WhatsApp buttons - delegate so translations or dynamic footer don't break bindings
+    document.addEventListener('click', (e) => {
+      if (e.target && e.target.matches && e.target.matches('.btn.btn-primary')) {
+        const button = e.target;
         const card = button.closest('.card');
-        const productName = card.querySelector('.model').textContent.trim();
+        if (!card) return;
+        const productName = card.querySelector('.model') ? card.querySelector('.model').textContent.trim() : '';
         const message = `Hello, I'm interested in your ${productName}. Can I learn more about how will you handle...`;
         const encoded = encodeURIComponent(message);
-        window.open(`https://wa.me/${phoneNumber}?text=${encoded}`, '_blank');
-      });
+        const url = `https://wa.me/${phoneNumber}?text=${encoded}`;
+        window.open(url, '_blank');
+      }
     });
 
-    // Smooth visibility animation
+    // Intersection observer for animations
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.2 });
-    document.querySelectorAll('.card, #header-img').forEach(el => observer.observe(el));
+    document.querySelectorAll('.card').forEach(el => observer.observe(el));
+    const headerImg = document.getElementById('header-img');
+    if (headerImg) observer.observe(headerImg);
 
-    // ✅ Language dropdown hover effect
+    // Language dropdown interactions (kept same)
     (function(){
       const dropdown = document.querySelector('.language-dropdown');
       if (!dropdown) return;
-      let timer = null;
-      const open = () => dropdown.classList.add('open');
-      const close = () => dropdown.classList.remove('open');
-      dropdown.addEventListener('mouseenter', () => { if (timer) clearTimeout(timer); open(); });
-      dropdown.addEventListener('mouseleave', () => { timer = setTimeout(close, 200); });
-      dropdown.querySelectorAll('[data-lang]').forEach(a => {
-        a.addEventListener('click', e => e.stopPropagation());
+      let closeTimer = null;
+      function openMenu() { dropdown.classList.add('open'); }
+      function closeMenu() { dropdown.classList.remove('open'); }
+
+      dropdown.addEventListener('mouseenter', () => { if (closeTimer){ clearTimeout(closeTimer); closeTimer = null; } openMenu(); });
+      dropdown.addEventListener('mouseleave', () => { closeTimer = setTimeout(() => { closeMenu(); closeTimer = null; }, 200); });
+
+      const btn = dropdown.querySelector('.lang-btn');
+      btn.addEventListener('click', (e) => { e.preventDefault(); if (dropdown.classList.contains('open')) closeMenu(); else openMenu(); });
+
+      dropdown.querySelectorAll('[data-lang]').forEach(el => {
+        el.addEventListener('click', (ev) => {
+          ev.preventDefault();
+          const selectedLang = el.getAttribute('data-lang');
+          // Save and apply language
+          localStorage.setItem('lang', selectedLang);
+          if (typeof translatePage === 'function') translatePage(selectedLang);
+          // close menu
+          closeMenu();
+        });
+        el.addEventListener('focus', () => { openMenu(); });
+        el.addEventListener('blur', () => { closeTimer = setTimeout(() => closeMenu(), 200); });
+      });
+
+      dropdown.querySelector('.lang-menu').addEventListener('click', (e) => { e.stopPropagation(); });
+    })();
+  </script>
+
+  <!-- Inline translate.js logic (robust, applies to dynamic footer too) -->
+  <script>
+    (function(){
+      const langFolder = 'lang/'; // keep same path as your other pages use
+      // translatePage is exported to global so other scripts can call it
+      window.translatePage = function translatePage(lang) {
+        fetch(`${langFolder}${lang}.json`)
+          .then(response => {
+            if (!response.ok) throw new Error('Translation file not found');
+            return response.json();
+          })
+          .then(translations => {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+              const key = el.getAttribute('data-i18n');
+              if (!key) return;
+              // allow nested keys in JSON by dot-notation if needed; basic case: direct key
+              if (translations[key] !== undefined) {
+                // preserve inner HTML structure only when value is simple text
+                el.innerHTML = translations[key];
+              }
+            });
+          })
+          .catch(err => console.error('Translation error:', err));
+      };
+
+      // On load, apply saved language
+      document.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem('lang') || 'en';
+        translatePage(savedLang);
+
+        // Re-apply translations after footer is loaded (footer loader below)
       });
     })();
+  </script>
 
-    // ✅ Auto load footer.html at bottom
+  <!-- Load footer.html and reapply translation when footer has been appended -->
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
       fetch('footer.html')
-        .then(res => res.text())
-        .then(data => {
-          document.body.insertAdjacentHTML('beforeend', data);
+        .then(res => {
+          if (!res.ok) throw new Error('Footer not found');
+          return res.text();
+        })
+        .then(html => {
+          document.body.insertAdjacentHTML('beforeend', html);
+          // after footer added, reapply translation with saved language
           const savedLang = localStorage.getItem('lang') || 'en';
           if (typeof translatePage === 'function') translatePage(savedLang);
         })
-        .catch(err => console.error('Footer failed to load:', err));
+        .catch(err => {
+          // not fatal, but report
+          console.error('Footer failed to load:', err);
+        });
     });
   </script>
 </body>
