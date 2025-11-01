@@ -13,7 +13,7 @@
   "explore_rentals": "Explore Rentals",
   "contact_us": "Contact Us for Plans",
   "view_products": "View Products",
-  "view_services": "View Services"
+  "view_services": "View Services",
   "home_title": "Welcome to Meitleit Printers",
   "home_description": "Professional printing solutions for all your needs.",
   "products_title": "Our Products",
@@ -27,6 +27,5 @@
   "service_delivery_title": "Delivering",
   "service_delivery_text": "We offer reliable delivery services for all equipment purchases and rentals. Our logistics team ensures your products are delivered safely, on time, and ready to use without hassle.",
   "service_it_title": "IT Support",
-  "service_it_text": "Our dedicated IT Support team provides comprehensive technical assistance for photocopiers, including troubleshooting, network setup, software configuration, and ongoing maintenance to ensure smooth and reliable performance.",
+  "service_it_text": "Our dedicated IT Support team provides comprehensive technical assistance for photocopiers, including troubleshooting, network setup, software configuration, and ongoing maintenance to ensure smooth and reliable performance."
 }
-
