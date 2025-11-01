@@ -30,8 +30,8 @@
   "service_it_text": "我们的 IT 支持团队为复印机提供全面技术协助，包括故障排除、网络设置、软件配置及持续维护，确保顺畅运行。",
   "contact_title": "联系我们 — Meitleit Printers",
   "contact_heading": "联系我们",
-  "contact_note": "📩 您的留言将很快被处理（通常在工作时间内 5 分钟到 2 小时内）。我们的团队主要通过 WhatsApp 联系您。如果您希望使用其他方式，请在表格中说明。感谢您的耐心——我们非常感激！😀"
-  "contact_description": "📩 我们随时为您提供帮助。请填写下方表格，我们的团队将在短时间内与您联系。"
+  "contact_note": "📩 您的留言将很快被处理（通常在工作时间内 5 分钟到 2 小时内）。我们的团队主要通过 WhatsApp 联系您。如果您希望使用其他方式，请在表格中说明。感谢您的耐心——我们非常感激！😀",
+  "contact_description": "📩 我们随时为您提供帮助。请填写下方表格，我们的团队将在短时间内与您联系。",
   "contact_address_title": "📍 地址",
   "contact_address_text": "No. 23, Jalan Putra Permai, 43300 Seri Kembangan, Selangor, Malaysia",
   "contact_phone_title": "📞 电话",
@@ -43,6 +43,6 @@
   "contact_form_email": "电子邮件",
   "contact_form_message": "留言",
   "contact_form_submit": "发送信息",
-  "contact_map_title": "🗺️ 我们的位置"
+  "contact_map_title": "🗺️ 我们的位置",
 }
 
