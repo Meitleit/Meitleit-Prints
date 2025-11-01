@@ -294,19 +294,18 @@
       transition: background 0.18s ease, color 0.18s ease;
     }
     .lang-menu a:hover { background: var(--accent); color: #fff; }
-    .lang-menu::-webkit-scrollbar { width: 8px; }
-    .lang-menu::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 8px; }
   </style>
 </head>
+
 <body>
   <header>
     <img id="header-img" src="https://www.indonesia.travel/contentassets/8f4d997bcbb043028c9b12ddd741b005/indonesia-s-best-mountain-climbing-experiences.jpg" alt="Header Banner">
     <div class="nav">
       <div class="logo" data-i18n="logo">Meitleit</div>
       <nav class="nav-links">
-        <div class="language-dropdown" aria-hidden="false">
+        <div class="language-dropdown">
           <button class="lang-btn" id="langBtn">🌐 <span data-i18n="language">Language ▾</span></button>
-          <div class="lang-menu" role="menu" aria-labelledby="langBtn">
+          <div class="lang-menu">
             <a href="#" data-lang="en">English</a>
             <a href="#" data-lang="ms">Bahasa Melayu</a>
             <a href="#" data-lang="zh">简体中文</a>
@@ -320,13 +319,10 @@
       </nav>
     </div>
   </header>
-
-  <main>
+<main>
     <section id="products" class="section container">
       <h2 data-i18n="our_printers">Our Printers</h2>
-      <div class="grid">
-
-        <!-- Card 1 -->
+<!-- Card 1 -->
         <article class="card">
           <div class="thumb"><img src="assets/ricoh-imc3000.jpg" alt="RICOH IM C3000"></div>
           <div class="model" data-i18n="ricoh_imc3000">RICOH IM C3000</div>
@@ -469,10 +465,12 @@
             <a class="btn btn-accent" href="assets/FujiFilm-DocuCentre-Brochure.pdf" target="_blank" data-i18n="learn_more">Learn more</a>
           </div>
         </article>
-
-      </div>
+</div>
     </section>
   </main>
+
+  <!-- ✅ Scripts -->
+  <script src="translate.js"></script>
 
   <script>
     const phoneNumber = "60124406637";
@@ -482,61 +480,43 @@
         const productName = card.querySelector('.model').textContent.trim();
         const message = `Hello, I'm interested in your ${productName}. Can I learn more about how will you handle...`;
         const encoded = encodeURIComponent(message);
-        const url = `https://wa.me/${phoneNumber}?text=${encoded}`;
-        window.open(url, '_blank');
+        window.open(`https://wa.me/${phoneNumber}?text=${encoded}`, '_blank');
       });
     });
 
+    // Smooth visibility animation
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
     }, { threshold: 0.2 });
     document.querySelectorAll('.card, #header-img').forEach(el => observer.observe(el));
 
+    // ✅ Language dropdown hover effect
     (function(){
       const dropdown = document.querySelector('.language-dropdown');
       if (!dropdown) return;
-      let closeTimer = null;
-      function openMenu() { dropdown.classList.add('open'); }
-      function closeMenu() { dropdown.classList.remove('open'); }
-
-      dropdown.addEventListener('mouseenter', () => { if (closeTimer){ clearTimeout(closeTimer); closeTimer = null; } openMenu(); });
-      dropdown.addEventListener('mouseleave', () => { closeTimer = setTimeout(() => { closeMenu(); closeTimer = null; }, 200); });
-
-      const btn = dropdown.querySelector('.lang-btn');
-      btn.addEventListener('click', (e) => { e.preventDefault(); if (dropdown.classList.contains('open')) closeMenu(); else openMenu(); });
-
-      dropdown.querySelectorAll('[data-lang]').forEach(el => {
-        el.addEventListener('focus', () => { openMenu(); });
-        el.addEventListener('blur', () => { closeTimer = setTimeout(() => closeMenu(), 200); });
+      let timer = null;
+      const open = () => dropdown.classList.add('open');
+      const close = () => dropdown.classList.remove('open');
+      dropdown.addEventListener('mouseenter', () => { if (timer) clearTimeout(timer); open(); });
+      dropdown.addEventListener('mouseleave', () => { timer = setTimeout(close, 200); });
+      dropdown.querySelectorAll('[data-lang]').forEach(a => {
+        a.addEventListener('click', e => e.stopPropagation());
       });
-
-      dropdown.querySelector('.lang-menu').addEventListener('click', (e) => { e.stopPropagation(); });
     })();
+
+    // ✅ Auto load footer.html at bottom
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('footer.html')
+        .then(res => res.text())
+        .then(data => {
+          document.body.insertAdjacentHTML('beforeend', data);
+          const savedLang = localStorage.getItem('lang') || 'en';
+          if (typeof translatePage === 'function') translatePage(savedLang);
+        })
+        .catch(err => console.error('Footer failed to load:', err));
+    });
   </script>
-
- <script src="translate.js"></script>
-  <!-- ✅ Load Translation & Footer Scripts -->
-<script src="translate.js"></script>
-
-<script>
-  // ✅ Load Footer Automatically
-  document.addEventListener('DOMContentLoaded', () => {
-    fetch('footer.html')
-      .then(response => response.text())
-      .then(data => {
-        // Add the footer at the bottom of the body
-        document.body.insertAdjacentHTML('beforeend', data);
-
-        // Reapply translation once footer is loaded
-        const savedLang = localStorage.getItem('lang') || 'en';
-        if (typeof translatePage === 'function') {
-          translatePage(savedLang);
-        }
-      })
-      .catch(err => console.error('Footer failed to load:', err));
-  });
-</script>
-
-
 </body>
 </html>
