@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact Us — Meitleit Printers</title>
+  <title data-i18n="contact_title">Contact Us — Meitleit Printers</title>
 
   <style>
     :root {
@@ -82,6 +82,7 @@
       font-weight: 600;
       text-shadow: 0 2px 4px rgba(0,0,0,0.4);
       transition: 0.3s;
+      text-decoration: none;
     }
 
     .nav-links a:hover {
@@ -196,7 +197,7 @@
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      aspect-ratio: 1 / 1; /* ✅ Makes the map square */
+      aspect-ratio: 1 / 1;
     }
 
     .info-map iframe {
@@ -214,64 +215,15 @@
       iframe { height: 950px; }
     }
 
-    /* language dropdown (ADDED) */
-    .language-dropdown {
-      position: relative;
-      display: inline-block;
-      margin-left: 24px;
-      z-index: 60;
-    }
-    .lang-btn {
-      background: none;
-      border: none;
-      color: #fff;
-      font-weight: 600;
-      font-size: 16px;
-      cursor: pointer;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-      transition: color 0.28s ease, transform 0.18s ease;
-      padding: 0;
-      line-height: 1;
-    }
-    .lang-btn:hover, .lang-btn.active {
-      color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .lang-menu {
-      visibility: hidden;
-      opacity: 0;
-      transform: translateY(10px);
-      position: absolute;
-      top: 34px;
-      left: 0;
-      background: #000; /* black background */
-      min-width: 160px;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-      padding: 6px 6px;
-      max-height: 240px;
-      overflow-y: auto;
-      transition: opacity 1s ease, transform 1s ease, visibility 1s ease;
-      -webkit-overflow-scrolling: touch;
-    }
-    .language-dropdown.open .lang-menu {
-      visibility: visible;
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .lang-menu a {
-      display: block;
-      color: #fff;
-      padding: 10px 14px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-      border-radius: 6px;
-      transition: background 0.18s ease, color 0.18s ease;
-    }
+    /* language dropdown */
+    .language-dropdown { position: relative; display: inline-block; margin-left: 24px; z-index: 60; }
+    .lang-btn { background: none; border: none; color: #fff; font-weight: 600; font-size: 16px; cursor: pointer; text-shadow: 0 2px 4px rgba(0,0,0,0.4); transition: color 0.28s ease, transform 0.18s ease; padding: 0; line-height: 1; }
+    .lang-btn:hover, .lang-btn.active { color: var(--accent); transform: translateY(-2px); }
+    .lang-menu { visibility: hidden; opacity: 0; transform: translateY(10px); position: absolute; top: 34px; left: 0; background: #000; min-width: 160px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.35); padding: 6px 6px; max-height: 240px; overflow-y: auto; transition: opacity 1s ease, transform 1s ease, visibility 1s ease; }
+    .language-dropdown.open .lang-menu { visibility: visible; opacity: 1; transform: translateY(0); }
+    .lang-menu a { display: block; color: #fff; padding: 10px 14px; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 6px; transition: background 0.18s ease, color 0.18s ease; }
     .lang-menu a:hover { background: var(--accent); color: #fff; }
-    /* end language styles */
+
   </style>
 </head>
 
@@ -281,7 +233,6 @@
     <div class="nav">
       <div class="logo">Meitleit</div>
       <nav class="nav-links">
-        <!-- language dropdown added (ONLY ADDITION) -->
         <div class="language-dropdown" aria-hidden="false">
           <button class="lang-btn" id="langBtn">🌐 Language ▾</button>
           <div class="lang-menu" role="menu" aria-labelledby="langBtn">
@@ -292,18 +243,18 @@
           </div>
         </div>
 
-        <a href="index.html">About</a>
-        <a href="products.html">Products</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html" style="color: var(--accent);">Contact Us</a>
+        <a href="index.html" data-i18n="nav_about">About</a>
+        <a href="products.html" data-i18n="nav_products">Products</a>
+        <a href="services.html" data-i18n="nav_services">Services</a>
+        <a href="contact.html" style="color: var(--accent);" data-i18n="nav_contact">Contact Us</a>
       </nav>
     </div>
   </header>
 
   <main>
     <section class="form-section">
-      <h1>Contact Us</h1>
-      <p>We’re here to help. Fill out the form below and our team will reach out to you soon.</p>
+      <h1 data-i18n="contact_heading">Contact Us</h1>
+      <p data-i18n="contact_description">We’re here to help. Fill out the form below and our team will reach out to you soon.</p>
 
       <iframe 
         data-tally-src="https://tally.so/embed/wLAVpy?hideTitle=1&transparentBackground=0&theme=light"
@@ -311,7 +262,7 @@
       </iframe>
       <script async src="https://tally.so/widgets/embed.js"></script>
 
-      <div class="note">
+      <div class="note" data-i18n="contact_note">
         📩 Your reply will shortly be reviewed (Usually 5 Minutes to 2 Hour during Business Hours). Our team will mainly contact you via WhatsApp.  
         If you prefer another method, please specify it in the form.  
         Thank you for your absolute patience — it is truly appreciated! 😀
@@ -319,13 +270,12 @@
     </section>
 
     <aside class="info-panel">
-      <h2>📍 Our Office</h2>
-      <p><strong>Address:</strong><br>No.6, Jalan BS 10/6, Taman Bukit Serdang, 43300 Seri Kembangan, Selangor.</p>
-      <p><strong>Phone:</strong><br> +60 12-481-9040</p>
-      <p><strong>Email:</strong><br> meitleitimproves@gmail.com</p>
-      <p><strong>Working Hours:</strong><br> Mon–Fri: 9:00 AM – 6:00 PM<br> Sat: 9:00 AM – 1:00 PM</p>
+      <h2 data-i18n="contact_office_heading">📍 Our Office</h2>
+      <p data-i18n="contact_address"><strong>Address:</strong><br>No.6, Jalan BS 10/6, Taman Bukit Serdang, 43300 Seri Kembangan, Selangor.</p>
+      <p data-i18n="contact_phone"><strong>Phone:</strong><br> +60 12-481-9040</p>
+      <p data-i18n="contact_email"><strong>Email:</strong><br> meitleitimproves@gmail.com</p>
+      <p data-i18n="contact_hours"><strong>Working Hours:</strong><br> Mon–Fri: 9:00 AM – 6:00 PM<br> Sat: 9:00 AM – 1:00 PM</p>
 
-      <!-- ✅ Square Google Map -->
       <div class="info-map">
         <iframe 
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.2087744422947!2d101.69447307497073!3d3.0386159969372293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc4aae745f4e55%3A0xb522ef1385b417f2!2s6%2C%20Jln%20BS%2010%2F6%2C%20Taman%20Bukit%20Serdang%2C%2043300%20Seri%20Kembangan%2C%20Selangor!5e0!3m2!1sen!2smy!4v1761832719239!5m2!1sen!2smy" 
@@ -343,7 +293,6 @@
       .then(data => document.getElementById("footer").innerHTML = data);
   </script>
 
-  <!-- LANGUAGE DROPDOWN JS -->
   <script>
     (function(){
       const dropdown = document.querySelector('.language-dropdown');
@@ -360,7 +309,7 @@
     })();
   </script>
 
-  <!-- TRANSLATION SCRIPT -->
   <script src="translate.js" defer></script>
 </body>
 </html>
+
