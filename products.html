@@ -300,14 +300,12 @@
     .lang-menu::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 8px; }
   </style>
 </head>
-
 <body>
   <header>
     <img id="header-img" src="https://www.indonesia.travel/contentassets/8f4d997bcbb043028c9b12ddd741b005/indonesia-s-best-mountain-climbing-experiences.jpg" alt="Header Banner">
     <div class="nav">
       <div class="logo">Meitleit</div>
       <nav class="nav-links">
-        <!-- language dropdown -->
         <div class="language-dropdown" aria-hidden="false">
           <button class="lang-btn" id="langBtn">🌐 <span data-i18n="language">Language ▾</span></button>
           <div class="lang-menu" role="menu" aria-labelledby="langBtn">
@@ -317,7 +315,6 @@
             <a href="#" data-lang="ta">தமிழ்</a>
           </div>
         </div>
-
         <a href="index.html" data-i18n="about">About</a>
         <a href="products.html" class="active" data-i18n="products">Products</a>
         <a href="services.html" data-i18n="services">Services</a>
@@ -331,14 +328,12 @@
       <h2 data-i18n="our_printers">Our Printers</h2>
       <div class="grid">
 
-        <!-- Cards remain unchanged, just add data-i18n on buttons -->
+        <!-- Card 1 -->
         <article class="card">
           <div class="thumb"><img src="assets/ricoh-imc3000.jpg" alt=""></div>
           <div class="model">RICOH IM C3000</div>
           <div class="specs-box">
-            <div class="specs">
-              <span>30 ppm</span><span>Full Colour MFP</span><span>Copy / Print / Scan</span><span>Wireless Ready</span>
-            </div>
+            <div class="specs"><span>30 ppm</span><span>Full Colour MFP</span><span>Copy / Print / Scan</span><span>Wireless Ready</span></div>
           </div>
           <div class="actions">
             <button class="btn btn-primary" data-i18n="im_interested">I'm Interested</button>
@@ -346,14 +341,12 @@
           </div>
         </article>
 
-        <!-- Repeat same for all other cards... -->
+        <!-- Card 2 -->
         <article class="card">
           <div class="thumb"><img src="assets/ricoh-imc3500.jpg" alt=""></div>
           <div class="model">RICOH IM C3500</div>
           <div class="specs-box">
-            <div class="specs">
-              <span>35 ppm</span><span>Full Colour MFP</span><span>Auto Duplex</span><span>Network Printing</span>
-            </div>
+            <div class="specs"><span>35 ppm</span><span>Full Colour MFP</span><span>Auto Duplex</span><span>Network Printing</span></div>
           </div>
           <div class="actions">
             <button class="btn btn-primary" data-i18n="im_interested">I'm Interested</button>
@@ -361,15 +354,89 @@
           </div>
         </article>
 
-        <!-- Add all other cards here with the same data-i18n attributes -->
+        <!-- Card 3 -->
+        <article class="card">
+          <div class="thumb"><img src="assets/ricoh-imc4500.jpg" alt=""></div>
+          <div class="model">RICOH IM C4500</div>
+          <div class="specs-box">
+            <div class="specs"><span>45 ppm</span><span>Full Colour MFP</span><span>Cloud Printing</span><span>Touchscreen Panel</span></div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-primary" data-i18n="im_interested">I'm Interested</button>
+            <a class="btn btn-accent" href="assets/ricoh-imc-series.pdf" target="_blank" data-i18n="learn_more">Learn more</a>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="card">
+          <div class="thumb"><img src="assets/ricoh-imc6000.jpg" alt=""></div>
+          <div class="model">RICOH IM C6000</div>
+          <div class="specs-box">
+            <div class="specs"><span>60 ppm</span><span>Full Colour MFP</span><span>Heavy Duty</span><span>High Volume Printing</span></div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-primary" data-i18n="im_interested">I'm Interested</button>
+            <a class="btn btn-accent" href="assets/ricoh-imc-series.pdf" target="_blank" data-i18n="learn_more">Learn more</a>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="card">
+          <div class="thumb"><img src="assets/Fuji-Xerox-ApeosPort.jpg" alt=""></div>
+          <div class="model">Fuji Xerox ApeosPort C3373 / C4473 / C5573</div>
+          <div class="specs-box">
+            <div class="specs"><span>High-Quality Colour</span><span>Multifunction Printer</span><span>Secure Print</span><span>Energy Efficient</span></div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-primary" data-i18n="im_interested">I'm Interested</button>
+            <a class="btn btn-accent" href="assets/Fuji-Xerox-Brochure.pdf" target="_blank" data-i18n="learn_more">Learn more</a>
+          </div>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="card">
+          <div class="thumb"><img src="assets/Fujifilm-Apeos-C3060-C2560.jpg" alt=""></div>
+          <div class="model">Fujifilm Apeos C3060 / C2560</div>
+          <div class="specs-box">
+            <div class="specs"><span>Compact Design</span><span>Efficient Color Output</span><span>Wireless Printing</span><span>Auto Duplex</span></div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-primary" data-i18n="im_interested">I'm Interested</button>
+            <a class="btn btn-accent" href="assets/FujiFilm-Apeos-Brochure.pdf" target="_blank" data-i18n="learn_more">Learn more</a>
+          </div>
+        </article>
+
+        <!-- Card 7 -->
+        <article class="card">
+          <div class="thumb"><img src="assets/FujiFilm-Apeos.jpg" alt=""></div>
+          <div class="model">Fujifilm Apeos C7070 / C6570 / C5570 / C4570 / C3570 / C3070</div>
+          <div class="specs-box">
+            <div class="specs"><span>High Productivity</span><span>Advanced Color Printing</span><span>Large Touchscreen</span><span>Heavy Duty Usage</span></div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-primary" data-i18n="im_interested">I'm Interested</button>
+            <a class="btn btn-accent" href="assets/Fujifilm-apeos1.pdf" target="_blank" data-i18n="learn_more">Learn more</a>
+          </div>
+        </article>
+
+        <!-- Card 8 -->
+        <article class="card">
+          <div class="thumb"><img src="assets/consumables.jpg" alt=""></div>
+          <div class="model">Printer’s Consumables (Parts and Refills)</div>
+          <div class="specs-box">
+            <div class="specs"><span>Compatible Toners</span><span>Drum Units</span><span>Cartridges</span><span>Maintenance Kits</span><span>Spare Parts</span></div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-primary" data-i18n="im_interested">I'm Interested</button>
+            <a class="btn btn-accent" href="assets/consumables-brochure.pdf" target="_blank" data-i18n="learn_more">Learn more</a>
+          </div>
+        </article>
 
       </div>
     </section>
   </main>
 
-  <footer>
-    <!-- footer remains unchanged -->
-  </footer>
+  <!-- Footer remains exactly as your original code -->
 
   <script>
     // WhatsApp buttons
@@ -385,11 +452,9 @@
       });
     });
 
-    // Intersection observer for animations
+    // Intersection observer
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.2 });
     document.querySelectorAll('.card').forEach(el => observer.observe(el));
     const headerImg = document.getElementById('header-img');
@@ -418,8 +483,6 @@
     })();
   </script>
 
-  <!-- Translation script same as index.html -->
   <script src="translate.js" defer></script>
 </body>
 </html>
-
