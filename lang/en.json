@@ -27,5 +27,18 @@
   "service_delivery_title": "Delivering",
   "service_delivery_text": "We offer reliable delivery services for all equipment purchases and rentals. Our logistics team ensures your products are delivered safely, on time, and ready to use without hassle.",
   "service_it_title": "IT Support",
-  "service_it_text": "Our dedicated IT Support team provides comprehensive technical assistance for photocopiers, including troubleshooting, network setup, software configuration, and ongoing maintenance to ensure smooth and reliable performance."
+  "service_it_text": "Our dedicated IT Support team provides comprehensive technical assistance for photocopiers, including troubleshooting, network setup, software configuration, and ongoing maintenance to ensure smooth and reliable performance.",
+  "contact_title": "Contact Us — Meitleit Printers",
+  "contact_heading": "Contact Us",
+  "contact_text": "We’re here to help. Fill out the form below and our team will reach out to you soon.",
+  "contact_note": "📩 Your reply will be reviewed shortly (usually 5 minutes to 2 hours during business hours). Our team primarily contacts you via WhatsApp. If you prefer another method, please specify it in the form. Thank you for your patience — it is truly appreciated! 😀",
+  "contact_office_title": "📍 Our Office",
+  "contact_address_label": "Address",
+  "contact_address": "No.6, Jalan BS 10/6, Taman Bukit Serdang, 43300 Seri Kembangan, Selangor.",
+  "contact_phone_label": "Phone",
+  "contact_phone": "+60 12-481-9040",
+  "contact_email_label": "Email",
+  "contact_email": "meitleitimproves@gmail.com",
+  "contact_hours_label": "Working Hours",
+  "contact_hours": "Mon–Fri: 9:00 AM – 6:00 PM, Sat: 9:00 AM – 1:00 PM"
 }
