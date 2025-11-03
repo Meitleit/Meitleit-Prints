@@ -317,25 +317,59 @@
   </main>
 
   <div id="footer"></div>
+
+  <!-- ✅ Welcome Ad Overlay -->
+  <div id="welcome-ad-overlay" style="
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0s linear 0.6s;">
+    <div class="ad-container" style="position: relative; max-width: 90%; width: 100%; max-width: 800px; animation: fadeInAd 0.8s ease forwards;">
+      <button class="close-ad" style="position: absolute; top: 12px; right: 12px; background: rgba(0,0,0,0.6); color: #fff; border: none; font-size: 26px; font-weight: bold; line-height: 1; border-radius: 50%; width: 36px; height: 36px; cursor: pointer; transition: 0.3s;">&times;</button>
+      <img src="assets/Welcome_Ad_Meitleit.png" alt="Welcome Ad" style="width: 100%; height: auto; display: block; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+    </div>
+  </div>
+
   <script>
+    // ✅ Footer load
     fetch("footer.html")
       .then(response => response.text())
       .then(data => document.getElementById("footer").innerHTML = data);
-  </script>
 
-  <script>
+    // ✅ Welcome Ad Logic
+    document.addEventListener("DOMContentLoaded", () => {
+      const overlay = document.getElementById("welcome-ad-overlay");
+      const closeBtn = overlay.querySelector(".close-ad");
+
+      if (!sessionStorage.getItem("welcomeAdShown")) {
+        setTimeout(() => overlay.style.cssText += 'opacity:1;visibility:visible;transition:opacity 0.6s ease;', 800);
+      }
+
+      closeBtn.addEventListener("click", () => {
+        overlay.style.opacity = '0';
+        overlay.style.visibility = 'hidden';
+        sessionStorage.setItem("welcomeAdShown", "true");
+      });
+    });
+
+    // ✅ Language Dropdown
     (function(){
       const dropdown = document.querySelector('.language-dropdown');
       if (!dropdown) return;
       let closeTimer = null;
-      function openMenu() { dropdown.classList.add('open'); }
-      function closeMenu() { dropdown.classList.remove('open'); }
-      dropdown.addEventListener('mouseenter', () => { if (closeTimer){ clearTimeout(closeTimer); closeTimer = null; } openMenu(); });
-      dropdown.addEventListener('mouseleave', () => { closeTimer = setTimeout(() => { closeMenu(); closeTimer = null; }, 200); });
+      function openMenu(){ dropdown.classList.add('open'); }
+      function closeMenu(){ dropdown.classList.remove('open'); }
+      dropdown.addEventListener('mouseenter', () => { clearTimeout(closeTimer); openMenu(); });
+      dropdown.addEventListener('mouseleave', () => { closeTimer = setTimeout(closeMenu, 200); });
       const btn = dropdown.querySelector('.lang-btn');
-      btn.addEventListener('click', (e) => { e.preventDefault(); if (dropdown.classList.contains('open')) closeMenu(); else openMenu(); });
-      dropdown.querySelectorAll('[data-lang]').forEach(el => { el.addEventListener('focus', () => { openMenu(); }); el.addEventListener('blur', () => { closeTimer = setTimeout(() => closeMenu(), 200); }); });
-      dropdown.querySelector('.lang-menu').addEventListener('click', (e) => { e.stopPropagation(); });
+      btn.addEventListener('click', (e) => { e.preventDefault(); dropdown.classList.toggle('open'); });
     })();
   </script>
 
