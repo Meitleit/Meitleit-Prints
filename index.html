@@ -1,3 +1,5 @@
+index.html
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,7 +18,7 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--bg); color: var(--text); overflow-x: hidden; transition: all 0.4s ease; }
+    body { background: var(--bg); color: var(--text); overflow-x: hidden; }
 
     a { color: var(--accent); text-decoration: none; }
     .container { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
@@ -62,11 +64,6 @@
       text-shadow: 0 2px 6px rgba(0,0,0,0.4);
     }
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-    }
-
     .nav-links a {
       margin-left: 24px;
       color: #fff;
@@ -81,23 +78,6 @@
 
     .nav-links a.active {
       color: var(--accent);
-    }
-
-    /* Switch view button */
-    #viewToggleBtn {
-      margin-left: 24px;
-      padding: 8px 14px;
-      border-radius: 6px;
-      border: none;
-      background: rgba(255,255,255,0.15);
-      color: #fff;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-    #viewToggleBtn:hover {
-      background: var(--accent);
-      transform: translateY(-2px);
     }
 
     main { padding: 60px 0 180px 0; }
@@ -184,6 +164,10 @@
       margin-bottom: 20px;
     }
 
+    .info-content strong {
+      color: var(--accent);
+    }
+
     .info-content a {
       display: inline-block;
       background: var(--accent);
@@ -198,7 +182,7 @@
       background: #c3000f;
     }
 
-    /* Button row */
+    /* Button row stays same */
     .button-row {
       display: flex;
       justify-content: center;
@@ -234,38 +218,22 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* MOBILE VIEW MODE (manual toggle) */
-    body.mobile-view .info-card {
-      flex-direction: column;
+    @media(max-width:820px){
+      .info-card {
+        flex-direction: column;
+      }
+      .info-card img {
+        width: 100%;
+      }
+      .info-content {
+        text-align: center;
+      }
+      .nav { padding: 20px; }
+      .about-text h1{text-align:center;}
+      .about-text p{text-align:center;font-size:17px;}
     }
 
-    body.mobile-view .info-card img {
-      width: 100%;
-    }
-
-    body.mobile-view .info-content {
-      text-align: center;
-    }
-
-    body.mobile-view .about-text p {
-      text-align: center;
-      font-size: 17px;
-    }
-
-    body.mobile-view .nav {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 20px;
-    }
-
-    body.mobile-view .nav-links {
-      flex-direction: column;
-      align-items: flex-start;
-      margin-top: 10px;
-      gap: 8px;
-    }
-
-    /* Welcome Ad and language dropdown (unchanged) */
+    /* Welcome Ad */
     #welcome-ad-overlay {
       position: fixed;
       inset: 0;
@@ -328,6 +296,7 @@
       to { opacity: 1; transform: scale(1); }
     }
 
+    /* Language dropdown */
     .language-dropdown {
       position: relative;
       display: inline-block;
@@ -383,6 +352,39 @@
       transition: background 0.18s ease, color 0.18s ease;
     }
     .lang-menu a:hover { background: var(--accent); color: #fff; }
+    .lang-menu::-webkit-scrollbar { width: 8px; }
+    .lang-menu::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 8px; }
+    /* Scrollable + Smooth Animation for Language Dropdown */
+.lang-menu {
+  max-height: 90px; /* limit visible height */
+  overflow-y: auto; /* enable scroll if too long */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(255,255,255,0.25) rgba(0,0,0,0.2);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Chrome/Edge/Safari scrollbar styling */
+.lang-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+.lang-menu::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+}
+
+.lang-menu::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.25);
+  border-radius: 8px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Red glow effect when hovering over scrollbar */
+.lang-menu::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(230, 0, 18, 0.7);
+}
+
   </style>
 </head>
 <body>
@@ -405,9 +407,6 @@
       <a href="products.html" data-i18n="nav_products">Products</a>
       <a href="services.html" data-i18n="nav_services">Services</a>
       <a href="contact.html" data-i18n="nav_contact">Contact Us</a>
-
-      <!-- ✅ Switch View Button -->
-      <button id="viewToggleBtn">Switch to Mobile View</button>
     </nav>
   </div>
 </header>
@@ -457,18 +456,18 @@
 </div>
 
 <script>
-  // Load footer
   fetch('footer.html')
     .then(response => response.text())
     .then(data => document.getElementById('footer-container').innerHTML = data);
 
-  // Welcome ad
   window.addEventListener("load", () => {
     const overlay = document.getElementById("welcome-ad-overlay");
     const closeBtn = document.querySelector(".close-ad");
+
     if (!sessionStorage.getItem("welcomeAdShown")) {
       setTimeout(() => overlay.classList.add("show"), 500);
     }
+
     closeBtn.addEventListener("click", () => {
       overlay.style.opacity = "0";
       overlay.style.transition = "opacity 0.5s ease";
@@ -477,13 +476,14 @@
     });
   });
 
-  // Language dropdown
   (function(){
     const dropdown = document.querySelector('.language-dropdown');
     if (!dropdown) return;
     let closeTimer = null;
+
     function openMenu() { dropdown.classList.add('open'); }
     function closeMenu() { dropdown.classList.remove('open'); }
+
     dropdown.addEventListener('mouseenter', () => {
       if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
       openMenu();
@@ -491,29 +491,21 @@
     dropdown.addEventListener('mouseleave', () => {
       closeTimer = setTimeout(() => { closeMenu(); closeTimer = null; }, 200);
     });
+
     const btn = dropdown.querySelector('.lang-btn');
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       if (dropdown.classList.contains('open')) closeMenu();
       else openMenu();
     });
+
     dropdown.querySelectorAll('[data-lang]').forEach(el => {
       el.addEventListener('focus', () => { openMenu(); });
       el.addEventListener('blur', () => { closeTimer = setTimeout(() => closeMenu(), 200); });
     });
+
     dropdown.querySelector('.lang-menu').addEventListener('click', (e) => { e.stopPropagation(); });
   })();
-
-  // ✅ View Toggle Button
-  const toggleBtn = document.getElementById("viewToggleBtn");
-  toggleBtn.addEventListener("click", () => {
-    document.body.classList.toggle("mobile-view");
-    if (document.body.classList.contains("mobile-view")) {
-      toggleBtn.textContent = "Switch to Desktop View";
-    } else {
-      toggleBtn.textContent = "Switch to Mobile View";
-    }
-  });
 </script>
 
 <script src="translate.js" defer></script>
