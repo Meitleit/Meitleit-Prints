@@ -463,18 +463,17 @@
   </div>
 </div>
 
-<script>
+ <script defer>
   // ✅ Detect device type (mobile vs desktop)
-  const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-  document.body.classList.toggle("mobile", isMobile);
-  document.body.classList.toggle("desktop", !isMobile);
-
-<script defer>
   document.addEventListener("DOMContentLoaded", () => {
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    document.body.classList.toggle("mobile", isMobile);
+    document.body.classList.toggle("desktop", !isMobile);
+
     const overlay = document.getElementById("welcome-ad-overlay");
     const closeBtn = overlay.querySelector(".close-ad");
 
-    // Show only once per session
+    // ✅ Show ad only once per session
     if (!sessionStorage.getItem("welcomeAdShown")) {
       setTimeout(() => {
         overlay.classList.add("show");
@@ -485,47 +484,29 @@
       overlay.classList.remove("show");
       sessionStorage.setItem("welcomeAdShown", "true");
     });
-  });
 
-  // Footer load
-  fetch('footer.html')
-    .then(response => response.text())
-    .then(data => document.getElementById('footer-container').innerHTML = data);
+    // ✅ Footer load
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('footer-container').innerHTML = data);
 
-  // Language dropdown logic
-  (function(){
+    // ✅ Language dropdown
     const dropdown = document.querySelector('.language-dropdown');
-    if (!dropdown) return;
-    let closeTimer = null;
-    function openMenu() { dropdown.classList.add('open'); }
-    function closeMenu() { dropdown.classList.remove('open'); }
-    dropdown.addEventListener('mouseenter', () => { clearTimeout(closeTimer); openMenu(); });
-    dropdown.addEventListener('mouseleave', () => { closeTimer = setTimeout(closeMenu, 200); });
-    const btn = dropdown.querySelector('.lang-btn');
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      dropdown.classList.toggle('open');
+    if (dropdown) {
+      let closeTimer = null;
+      function openMenu() { dropdown.classList.add('open'); }
+      function closeMenu() { dropdown.classList.remove('open'); }
 
-    });
+      dropdown.addEventListener('mouseenter', () => { clearTimeout(closeTimer); openMenu(); });
+      dropdown.addEventListener('mouseleave', () => { closeTimer = setTimeout(closeMenu, 200); });
+
+      const btn = dropdown.querySelector('.lang-btn');
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('open');
+      });
+    }
   });
-
-  // Language dropdown
-  (function(){
-    const dropdown = document.querySelector('.language-dropdown');
-    if (!dropdown) return;
-    let closeTimer = null;
-    function openMenu() { dropdown.classList.add('open'); }
-    function closeMenu() { dropdown.classList.remove('open'); }
-
-    dropdown.addEventListener('mouseenter', () => { clearTimeout(closeTimer); openMenu(); });
-    dropdown.addEventListener('mouseleave', () => { closeTimer = setTimeout(closeMenu, 200); });
-
-    const btn = dropdown.querySelector('.lang-btn');
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      dropdown.classList.toggle('open');
-    });
-  })();
 </script>
 
 <script src="translate.js" defer></script>
