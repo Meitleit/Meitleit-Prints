@@ -228,23 +228,24 @@
     margin-bottom: 8px;
   }
 
-  /* fix: left-align nav links in mobile */
+  /* ✅ keep nav links horizontal */
   .nav-links {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 14px;
     width: 100%;
-    text-align: left;
+    flex-wrap: wrap; /* allows small wrapping only if screen is very narrow */
     margin-bottom: 10px;
   }
 
   .nav-links a {
     font-size: 15px;
+    white-space: nowrap;
   }
 
-  /* keep language button bottom-left */
+  /* ✅ language button below, left side */
   .language-dropdown {
     align-self: flex-start;
     order: 2;
@@ -253,6 +254,7 @@
 
   .nav-right {
     width: 100%;
+    display: flex;
     justify-content: flex-end;
     margin-bottom: 10px;
   }
@@ -267,6 +269,8 @@
   }
 
   header { height: 350px; }
+}
+
 }
 
   </style>
