@@ -53,6 +53,8 @@ header::after {
 }
 
 /* ✅ Desktop layout */
+
+  /* ---------- Header ---------- */
 .nav {
   position: absolute;
   top: 0;
@@ -60,7 +62,7 @@ header::after {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* logo left, buttons right */
+  justify-content: space-between;
   padding: 16px 40px;
   z-index: 10;
 }
@@ -70,6 +72,7 @@ header::after {
   color: white;
   font-size: 24px;
   text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  flex-shrink: 0;
 }
 
 .nav-links {
@@ -95,87 +98,52 @@ header::after {
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 15px;
 }
 
+/* ---------- Language Dropdown ---------- */
 .language-dropdown {
   position: relative;
   display: inline-block;
   z-index: 60;
 }
 
-.lang-btn {
-  background: none;
-  border: none;
-  color: #fff;
-  font-weight: 600;
-  font-size: 16px;
-  cursor: pointer;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-  transition: color 0.28s ease, transform 0.18s ease;
-  padding: 0;
-  line-height: 1;
-}
-
-.lang-btn:hover,
-.lang-btn.active {
-  color: var(--accent);
-  transform: translateY(-2px);
-}
-
-.lang-menu {
-  visibility: hidden;
-  opacity: 0;
-  transform: translateY(10px);
-  position: absolute;
-  top: 34px;
-  left: 0;
-  background: #000;
-  min-width: 160px;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-  padding: 6px;
-  max-height: 90px;
-  overflow-y: auto;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.language-dropdown.open .lang-menu {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ✅ Mobile layout (matches index.html) */
+/* ---------- Mobile (match index.html) ---------- */
 @media (max-width: 900px) {
-  header {
-    height: 350px;
-  }
+  header { height: 180px; }
 
   .nav {
     flex-direction: column;
     align-items: flex-start;
-    padding: 16px 20px;
+    padding: 12px 20px;
   }
 
   .logo {
     font-size: 22px;
-    margin-bottom: 10px;
-    align-self: flex-start;
+    margin-bottom: 8px;
   }
 
-  /* ✅ Navigation buttons side-by-side below the logo */
+  /* ✅ Language below logo, aligned left */
+  .language-dropdown {
+    align-self: flex-start;
+    margin-bottom: 10px;
+  }
+
+  /* ✅ Nav buttons horizontal to the right of language */
   .nav-links {
     display: flex;
-    flex-wrap: nowrap;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 12px;
-    margin-bottom: 8px;
+    gap: 10px;
+    width: 100%;
   }
 
   .nav-links a {
     font-size: 15px;
   }
+}
+
 
   /* ✅ Language button below nav links, left-aligned */
   .language-dropdown {
