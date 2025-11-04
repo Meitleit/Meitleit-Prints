@@ -57,7 +57,7 @@
       width: 100%;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: space-between; /* Logo left, nav+lang right */
       padding: 16px 40px;
       z-index: 10;
     }
@@ -70,11 +70,16 @@
       flex-shrink: 0;
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 18px; /* space between nav links and language */
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
       gap: 18px;
-      margin-left: 40px;
     }
 
     .nav-links a {
@@ -89,11 +94,6 @@
     .nav-links a:hover,
     .nav-links a.active {
       color: var(--accent);
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
     }
 
     .language-dropdown {
@@ -153,6 +153,7 @@
       border-radius: 6px;
       transition: background 0.18s ease, color 0.18s ease;
     }
+
     .lang-menu a:hover { background: var(--accent); color: #fff; }
 
     /* ---------- Main / Services ---------- */
@@ -214,8 +215,6 @@
 
     /* ---------- Mobile ---------- */
     @media (max-width: 900px) {
-      header { height: 180px; }
-
       .nav {
         flex-direction: column;
         align-items: flex-start;
@@ -224,10 +223,23 @@
 
       .logo { font-size: 22px; margin-bottom: 8px; }
 
-      .nav-links { flex-wrap: wrap; gap: 10px; width: 100%; margin-bottom: 10px; }
-      .nav-links a { font-size: 15px; }
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        margin-bottom: 10px;
+      }
 
-      .nav-right { width: 100%; display: flex; justify-content: flex-end; margin-bottom: 10px; }
+      .nav-right {
+        flex-direction: column;
+        align-items: flex-start; /* language left below nav links */
+        width: 100%;
+      }
+
+      .nav-right .language-dropdown {
+        margin-top: 8px;
+      }
+
       main { flex-direction: column; align-items: center; }
       .service-card { max-width: 400px; }
       header { height: 350px; }
@@ -244,14 +256,14 @@
 <div class="nav">
   <div class="logo">Meitleit</div>
 
-  <nav class="nav-links">
-    <a href="index.html" data-i18n="nav_about">About</a>
-    <a href="products.html" data-i18n="nav_products">Products</a>
-    <a href="service.html" class="active" data-i18n="nav_services">Services</a>
-    <a href="contact.html" data-i18n="nav_contact">Contact Us</a>
-  </nav>
-
   <div class="nav-right">
+    <nav class="nav-links">
+      <a href="index.html" data-i18n="nav_about">About</a>
+      <a href="products.html" data-i18n="nav_products">Products</a>
+      <a href="service.html" class="active" data-i18n="nav_services">Services</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact Us</a>
+    </nav>
+
     <div class="language-dropdown">
       <button class="lang-btn" id="langBtn">🌐 Language ▾</button>
       <div class="lang-menu" role="menu" aria-labelledby="langBtn">
@@ -263,36 +275,41 @@
     </div>
   </div>
 </div>
+```
+
   </header>
 
   <main>
     <h1 data-i18n="services_heading">Our Services</h1>
 
-    <div class="service-container">
-      <div class="service-card">
-        <h2 data-i18n="service_repair_title">Servicing And Repairing</h2>
-        <img src="https://www.shutterstock.com/image-photo/business-man-opening-photocopy-machine-600nw-383160520.jpg" alt="Repairing Service">
-        <p data-i18n="service_repair_text">Our expert technicians specialize in repairing all major brands of printers and copiers. We ensure your equipment is restored to top performance quickly and efficiently, minimizing downtime for your business.</p>
-      </div>
+```
+<div class="service-container">
+  <div class="service-card">
+    <h2 data-i18n="service_repair_title">Servicing And Repairing</h2>
+    <img src="https://www.shutterstock.com/image-photo/business-man-opening-photocopy-machine-600nw-383160520.jpg" alt="Repairing Service">
+    <p data-i18n="service_repair_text">Our expert technicians specialize in repairing all major brands of printers and copiers. We ensure your equipment is restored to top performance quickly and efficiently, minimizing downtime for your business.</p>
+  </div>
 
-      <div class="service-card">
-        <h2 data-i18n="service_rental_title">Rental / Short-Term Rental</h2>
-        <img src="https://www.experian.com/blogs/ask-experian/wp-content/uploads/family-of-three-trying-to-determine-difference-between-leasing-and-renting.jpg.webp" alt="Rental Service">
-        <p data-i18n="service_rental_text">Need a temporary printer solution? Our rental service provides flexible short-term and long-term options to meet your business needs with the most affortable deals starting at just RM60/Month.</p>
-      </div>
+  <div class="service-card">
+    <h2 data-i18n="service_rental_title">Rental / Short-Term Rental</h2>
+    <img src="https://www.experian.com/blogs/ask-experian/wp-content/uploads/family-of-three-trying-to-determine-difference-between-leasing-and-renting.jpg.webp" alt="Rental Service">
+    <p data-i18n="service_rental_text">Need a temporary printer solution? Our rental service provides flexible short-term and long-term options to meet your business needs with the most affortable deals starting at just RM60/Month.</p>
+  </div>
 
-      <div class="service-card">
-        <h2 data-i18n="service_delivery_title">Delivering</h2>
-        <img src="https://media.istockphoto.com/id/905865682/photo/portrait-of-courier-with-digital-tablet-delivering-package.jpg?s=612x612&w=0&k=20&c=WbZu7QdzQHVqqgKI78SA4bGLzKo7jZqp5jYaGPvQaRs=" alt="Delivery Service">
-        <p data-i18n="service_delivery_text">We offer reliable delivery services for all equipment purchases and rentals. Our logistics team ensures your products are delivered safely, on time, and ready to use without hassle.</p>
-      </div>
+  <div class="service-card">
+    <h2 data-i18n="service_delivery_title">Delivering</h2>
+    <img src="https://media.istockphoto.com/id/905865682/photo/portrait-of-courier-with-digital-tablet-delivering-package.jpg?s=612x612&w=0&k=20&c=WbZu7QdzQHVqqgKI78SA4bGLzKo7jZqp5jYaGPvQaRs=" alt="Delivery Service">
+    <p data-i18n="service_delivery_text">We offer reliable delivery services for all equipment purchases and rentals. Our logistics team ensures your products are delivered safely, on time, and ready to use without hassle.</p>
+  </div>
 
-      <div class="service-card">
-        <h2 data-i18n="service_it_title">IT Support</h2>
-        <img src="https://media.istockphoto.com/id/514583028/photo/african-man-fixing-photo-copier.jpg?s=612x612&w=0&k=20&c=U1fLCGLDUAMmnf2wV0WQgdKG4m7jstZ-Zc4srn7ZWkw=" alt="Installation Service">
-        <p data-i18n="service_it_text">Our dedicated IT Support team provides comprehensive technical assistance for photocopiers, including troubleshooting, network setup, software configuration, and ongoing maintenance to ensure smooth and reliable performance..</p>
-      </div>
-    </div>
+  <div class="service-card">
+    <h2 data-i18n="service_it_title">IT Support</h2>
+    <img src="https://media.istockphoto.com/id/514583028/photo/african-man-fixing-photo-copier.jpg?s=612x612&w=0&k=20&c=U1fLCGLDUAMmnf2wV0WQgdKG4m7jstZ-Zc4srn7ZWkw=" alt="Installation Service">
+    <p data-i18n="service_it_text">Our dedicated IT Support team provides comprehensive technical assistance for photocopiers, including troubleshooting, network setup, software configuration, and ongoing maintenance to ensure smooth and reliable performance..</p>
+  </div>
+</div>
+```
+
   </main>
 
   <div id="footer"></div>
@@ -303,7 +320,7 @@
       .then(response => response.text())
       .then(data => document.getElementById("footer").innerHTML = data);
 
-    // language dropdown (same JS as your other pages)
+    // language dropdown
     (function(){
       const dropdown = document.querySelector('.language-dropdown');
       if (!dropdown) return;
@@ -320,7 +337,6 @@
   </script>
 
   <script src="translate.js" defer></script>
+
 </body>
 </html>
-
-
