@@ -214,36 +214,61 @@
     }
 
     /* ---------- Mobile ---------- */
-    @media (max-width: 900px) {
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 12px 20px;
-      }
+@media (max-width: 900px) {
+  header { height: 180px; }
 
-      .logo { font-size: 22px; margin-bottom: 8px; }
+  .nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 20px;
+  }
 
-      .nav-links {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        margin-bottom: 10px;
-      }
+  .logo {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
 
-      .nav-right {
-        flex-direction: column;
-        align-items: flex-start; /* language left below nav links */
-        width: 100%;
-      }
+  /* fix: left-align nav links in mobile */
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 10px;
+  }
 
-      .nav-right .language-dropdown {
-        margin-top: 8px;
-      }
+  .nav-links a {
+    font-size: 15px;
+  }
 
-      main { flex-direction: column; align-items: center; }
-      .service-card { max-width: 400px; }
-      header { height: 350px; }
-    }
+  /* keep language button bottom-left */
+  .language-dropdown {
+    align-self: flex-start;
+    order: 2;
+    margin-top: 10px;
+  }
+
+  .nav-right {
+    width: 100%;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+  }
+
+  main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-card {
+    max-width: 400px;
+  }
+
+  header { height: 350px; }
+}
+
   </style>
 
 </head>
