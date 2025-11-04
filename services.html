@@ -55,7 +55,7 @@
       width: 100%;
       display: flex;
       align-items: center;
-      justify-content: space-between; /* ✅ same as index */
+      justify-content: space-between;
       padding: 16px 40px;
       z-index: 10;
     }
@@ -72,7 +72,6 @@
       display: flex;
       align-items: center;
       gap: 18px;
-      margin-left: 40px;
     }
 
     .nav-links a {
@@ -89,6 +88,7 @@
     .nav-right {
       display: flex;
       align-items: center;
+      margin-left: 20px;
     }
 
     .language-dropdown {
@@ -229,9 +229,9 @@
       100% { opacity: 1; transform: translateY(0); }
     }
 
-    /* ---------- Mobile (match index.html) ---------- */
+    /* ---------- Mobile ---------- */
     @media (max-width: 900px) {
-      header { height: 350px; }
+      header { height: 180px; }
 
       .nav {
         flex-direction: column;
@@ -241,16 +241,16 @@
 
       .logo {
         font-size: 22px;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
       }
 
-      /* ✅ Horizontal nav buttons below logo */
+      /* ✅ Nav buttons below logo, side-by-side, left-aligned */
       .nav-links {
         display: flex;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
         justify-content: flex-start;
+        gap: 10px;
         width: 100%;
-        gap: 15px;
         margin-bottom: 10px;
       }
 
@@ -258,21 +258,20 @@
         font-size: 15px;
       }
 
-      /* ✅ Language button below all links (left) */
+      /* ✅ Language button below nav buttons */
       .nav-right {
         width: 100%;
         display: flex;
         justify-content: flex-start;
-        margin-top: 8px;
+        margin-top: 5px;
       }
 
-      .language-dropdown {
-        order: 2;
-        align-self: flex-start;
-      }
+      .service-card { max-width: 400px; }
+      header { height: 350px; }
     }
   </style>
 </head>
+
 <body>
   <header>
     <img src="https://i0.wp.com/rockmedia.co/wp-content/uploads/2024/04/framework-services-hero.jpg?fit=1500%2C500&ssl=1" alt="Header Banner">
@@ -308,33 +307,25 @@
       <div class="service-card">
         <h2 data-i18n="service_repair_title">Servicing And Repairing</h2>
         <img src="https://www.shutterstock.com/image-photo/business-man-opening-photocopy-machine-600nw-383160520.jpg" alt="Repairing Service">
-        <p data-i18n="service_repair_text">
-          Our expert technicians specialize in repairing all major brands of printers and copiers. We ensure your equipment is restored to top performance quickly and efficiently, minimizing downtime for your business.
-        </p>
+        <p data-i18n="service_repair_text">Our expert technicians specialize in repairing all major brands of printers and copiers. We ensure your equipment is restored to top performance quickly and efficiently, minimizing downtime for your business.</p>
       </div>
 
       <div class="service-card">
         <h2 data-i18n="service_rental_title">Rental / Short-Term Rental</h2>
         <img src="https://www.experian.com/blogs/ask-experian/wp-content/uploads/family-of-three-trying-to-determine-difference-between-leasing-and-renting.jpg.webp" alt="Rental Service">
-        <p data-i18n="service_rental_text">
-          Need a temporary printer solution? Our rental service provides flexible short-term and long-term options to meet your business needs with the most affordable deals starting at just RM60/Month.
-        </p>
+        <p data-i18n="service_rental_text">Need a temporary printer solution? Our rental service provides flexible short-term and long-term options to meet your business needs with the most affortable deals starting at just RM60/Month.</p>
       </div>
 
       <div class="service-card">
         <h2 data-i18n="service_delivery_title">Delivering</h2>
         <img src="https://media.istockphoto.com/id/905865682/photo/portrait-of-courier-with-digital-tablet-delivering-package.jpg?s=612x612&w=0&k=20&c=WbZu7QdzQHVqqgKI78SA4bGLzKo7jZqp5jYaGPvQaRs=" alt="Delivery Service">
-        <p data-i18n="service_delivery_text">
-          We offer reliable delivery services for all equipment purchases and rentals. Our logistics team ensures your products are delivered safely, on time, and ready to use without hassle.
-        </p>
+        <p data-i18n="service_delivery_text">We offer reliable delivery services for all equipment purchases and rentals. Our logistics team ensures your products are delivered safely, on time, and ready to use without hassle.</p>
       </div>
 
       <div class="service-card">
         <h2 data-i18n="service_it_title">IT Support</h2>
         <img src="https://media.istockphoto.com/id/514583028/photo/african-man-fixing-photo-copier.jpg?s=612x612&w=0&k=20&c=U1fLCGLDUAMmnf2wV0WQgdKG4m7jstZ-Zc4srn7ZWkw=" alt="Installation Service">
-        <p data-i18n="service_it_text">
-          Our dedicated IT Support team provides comprehensive technical assistance for photocopiers, including troubleshooting, network setup, software configuration, and ongoing maintenance to ensure smooth and reliable performance.
-        </p>
+        <p data-i18n="service_it_text">Our dedicated IT Support team provides comprehensive technical assistance for photocopiers, including troubleshooting, network setup, software configuration, and ongoing maintenance to ensure smooth and reliable performance.</p>
       </div>
     </div>
   </main>
@@ -342,30 +333,27 @@
   <div id="footer"></div>
 
   <script>
-    // load footer
+    // Load footer
     fetch("footer.html")
       .then(response => response.text())
       .then(data => document.getElementById("footer").innerHTML = data);
 
-    // language dropdown (same JS as other pages)
+    // Language dropdown
     (function(){
       const dropdown = document.querySelector('.language-dropdown');
       if (!dropdown) return;
       let closeTimer = null;
       function openMenu() { dropdown.classList.add('open'); }
       function closeMenu() { dropdown.classList.remove('open'); }
-      dropdown.addEventListener('mouseenter', () => {
-        if (closeTimer){ clearTimeout(closeTimer); closeTimer = null; }
-        openMenu();
-      });
-      dropdown.addEventListener('mouseleave', () => {
-        closeTimer = setTimeout(() => { closeMenu(); closeTimer = null; }, 200);
-      });
+      dropdown.addEventListener('mouseenter', () => { if (closeTimer){ clearTimeout(closeTimer); closeTimer = null; } openMenu(); });
+      dropdown.addEventListener('mouseleave', () => { closeTimer = setTimeout(() => { closeMenu(); closeTimer = null; }, 200); });
       const btn = dropdown.querySelector('.lang-btn');
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        dropdown.classList.toggle('open');
+      btn.addEventListener('click', (e) => { e.preventDefault(); if (dropdown.classList.contains('open')) closeMenu(); else openMenu(); });
+      dropdown.querySelectorAll('[data-lang]').forEach(el => {
+        el.addEventListener('focus', () => { openMenu(); });
+        el.addEventListener('blur', () => { closeTimer = setTimeout(() => closeMenu(), 200); });
       });
+      dropdown.querySelector('.lang-menu').addEventListener('click', (e) => { e.stopPropagation(); });
     })();
   </script>
 
