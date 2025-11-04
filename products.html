@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -30,6 +29,7 @@
       min-height: 100vh;
     }
 
+    /* ---------- Header (keeps visuals / animations unchanged) ---------- */
     header {
       position: relative;
       width: 100%;
@@ -60,59 +60,59 @@
       pointer-events: none;
     }
 
- .nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* logo left, nav-links left, language right */
-  padding: 16px 40px;
-  z-index: 10;
-}
+    /* --- Header layout fix: group nav-links + language together on the right --- */
+    .nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* logo left, nav-group right */
+      padding: 16px 40px;
+      z-index: 10;
+    }
 
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
+    .logo {
+      font-weight: 700;
+      color: white;
+      font-size: 24px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      flex-shrink: 0;
+    }
 
-.language-dropdown {
-  display: inline-block;
-}
+    /* this wraps both nav-links and language dropdown on the right side */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
 
-/* Desktop alignment: nav-links left, language right */
-@media (min-width: 901px) {
-  .nav-links { order: 1; }
-  .language-dropdown { order: 2; }
-}
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
 
-/* Mobile: stack logo, nav-links, language */
-@media (max-width: 900px) {
-  .nav {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 12px 20px;
-  }
-  
-  .logo {
-    font-size: 22px;
-    margin-bottom: 8px;
-  }
+    .nav-links a {
+      color: #fff;
+      font-weight: 600;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+      font-size: 16px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
 
-  .nav-links {
-    flex-wrap: wrap;
-    width: 100%;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent);
+    }
 
-  .language-dropdown {
-    align-self: flex-end; /* top-right corner of nav */
-    margin-top: 0;
-  }
-}
+    .language-dropdown {
+      position: relative;
+      display: inline-block;
+      z-index: 60;
+    }
 
     .lang-btn {
       background: none;
@@ -169,6 +169,7 @@
       background: var(--accent);
     }
 
+    /* ---------- Main / Layout / Cards (unchanged visuals) ---------- */
     main {
       padding: 60px 0;
       min-height: 100vh;
@@ -312,46 +313,47 @@
       .nav-links a { margin-left: 16px; font-size: 15px; }
     }
 
- @media (max-width: 900px) {
-  header { height: 180px; }
+    /* ---------- Mobile behaviour (unchanged visual behavior) ---------- */
+    @media (max-width: 900px) {
+      header { height: 180px; }
 
-  .nav {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 12px 20px;
-  }
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 20px;
+      }
 
-  .logo {
-    font-size: 22px;
-    margin-bottom: 8px;
-  }
+      .logo {
+        font-size: 22px;
+        margin-bottom: 8px;
+      }
 
-  .nav-links {
-    flex-wrap: wrap;
-    gap: 10px;
-    width: 100%;
-  }
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 10px;
+        width: 100%;
+      }
 
-  .nav-links a {
-    font-size: 15px;
-  }
+      .nav-links a {
+        font-size: 15px;
+      }
 
-  /* language button top-right, outside nav links */
-  .language-dropdown {
-    order: -1;
-    align-self: flex-end;
-    margin-top: 0;
-  }
+      /* language button top-right, outside nav links (keeps your index behavior) */
+      .language-dropdown {
+        order: -1;
+        align-self: flex-end;
+        margin-top: 0;
+      }
 
-  /* nav-right only wraps nav links, no justify-content: flex-end */
-  .nav-right {
-    width: 100%;
-    justify-content: flex-start;
-  }
+      /* nav-right only wraps nav links, no justify-content: flex-end */
+      .nav-right {
+        width: 100%;
+        justify-content: flex-start;
+      }
 
-  main { flex-direction: column; align-items: center; }
-  header { height: 350px; }
-}
+      main { flex-direction: column; align-items: center; }
+      header { height: 350px; }
+    }
 
   </style>
 
@@ -359,8 +361,11 @@
 <body>
   <header>
     <img id="header-img" src="https://www.indonesia.travel/contentassets/8f4d997bcbb043028c9b12ddd741b005/indonesia-s-best-mountain-climbing-experiences.jpg" alt="Header Banner">
+
     <div class="nav">
       <div class="logo" data-i18n="logo">Meitleit</div>
+
+      <!-- IMPORTANT: nav-links and language grouped under .nav-right to keep desktop alignment -->
       <div class="nav-right">
         <nav class="nav-links" aria-label="Main navigation">
           <a href="index.html" data-i18n="nav_about">About</a>
@@ -368,6 +373,7 @@
           <a href="services.html" data-i18n="nav_services">Services</a>
           <a href="contact.html" data-i18n="nav_contact">Contact Us</a>
         </nav>
+
         <div class="language-dropdown" aria-hidden="false">
           <button class="lang-btn" id="langBtn">🌐 <span data-i18n="language">Language ▾</span></button>
           <div class="lang-menu" role="menu" aria-labelledby="langBtn">
@@ -381,7 +387,6 @@
     </div>
   </header>
 
-</body>
   <main>
     <section id="products" class="section container">
       <h2 data-i18n="products_title">Our Printers</h2>
@@ -642,3 +647,4 @@
   </script>
 </body>
 </html>
+
