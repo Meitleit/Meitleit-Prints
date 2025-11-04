@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -29,50 +30,46 @@
       min-height: 100vh;
     }
 
-    /* ---------- Header (keeps visuals / animations unchanged) ---------- */
-   header {
-  position: relative;
-  width: 100%;
-  height: 220px;
-  overflow: hidden;
-}
+    header {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+    }
 
-header img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+    header img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
 
-header::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.25) 50%, rgba(255,255,255,1) 100%);
-  pointer-events: none;
-}
+    header img.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-/* ✅ Desktop layout */
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.35) 50%, rgba(255,255,255,1) 100%);
+      pointer-events: none;
+    }
 
-  /* ---------- Header ---------- */
-.nav {
+ .nav {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* logo left, nav-links left, language right */
   padding: 16px 40px;
   z-index: 10;
-}
-
-.logo {
-  font-weight: 700;
-  color: white;
-  font-size: 24px;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
-  flex-shrink: 0;
 }
 
 .nav-links {
@@ -81,83 +78,82 @@ header::after {
   gap: 18px;
 }
 
-.nav-links a {
-  color: #fff;
-  font-weight: 600;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-  font-size: 16px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  color: var(--accent);
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-/* ---------- Language Dropdown ---------- */
 .language-dropdown {
-  position: relative;
   display: inline-block;
-  z-index: 60;
 }
 
-/* ---------- Mobile (match index.html) ---------- */
-@media (max-width: 900px) {
-  header { height: 180px; }
+/* Desktop alignment: nav-links left, language right */
+@media (min-width: 901px) {
+  .nav-links { order: 1; }
+  .language-dropdown { order: 2; }
+}
 
+/* Mobile: stack logo, nav-links, language */
+@media (max-width: 900px) {
   .nav {
     flex-direction: column;
     align-items: flex-start;
     padding: 12px 20px;
   }
-
+  
   .logo {
     font-size: 22px;
     margin-bottom: 8px;
   }
 
-  /* ✅ Language below logo, aligned left */
-  .language-dropdown {
-    align-self: flex-start;
+  .nav-links {
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10px;
     margin-bottom: 10px;
   }
 
-  /* ✅ Nav buttons horizontal to the right of language */
-  .nav-links {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 10px;
-    width: 100%;
-  }
-
-  .nav-links a {
-    font-size: 15px;
-  }
-}
-
-
-  /* ✅ Language button below nav links, left-aligned */
   .language-dropdown {
-    align-self: flex-start;
-    margin-top: 4px;
-  }
-
-  /* Keep dropdown functional */
-  .lang-menu {
-    left: 0;
-    right: auto;
+    align-self: flex-end; /* top-right corner of nav */
+    margin-top: 0;
   }
 }
 
+    .lang-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+      padding: 0;
+      line-height: 1;
+    }
+
+    .lang-btn:hover, .lang-btn.active {
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .lang-menu {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(10px);
+      position: absolute;
+      top: 34px;
+      left: 0;
+      background: #000;
+      min-width: 160px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      padding: 6px;
+      max-height: 240px;
+      overflow-y: auto;
+      transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+      z-index: 60;
+    }
+
+    .language-dropdown.open .lang-menu {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     .lang-menu a {
       display: block;
@@ -173,7 +169,6 @@ header::after {
       background: var(--accent);
     }
 
-    /* ---------- Main / Layout / Cards (unchanged visuals) ---------- */
     main {
       padding: 60px 0;
       min-height: 100vh;
@@ -317,9 +312,7 @@ header::after {
       .nav-links a { margin-left: 16px; font-size: 15px; }
     }
 
-    /* ---------- Mobile behaviour (unchanged visual behavior) ---------- */
-   /* ---------- Mobile (match index.html) ---------- */
-@media (max-width: 900px) {
+ @media (max-width: 900px) {
   header { height: 180px; }
 
   .nav {
@@ -333,46 +326,32 @@ header::after {
     margin-bottom: 8px;
   }
 
-  /* ✅ Language button below logo, aligned left */
-  .language-dropdown {
-    align-self: flex-start;
-    margin-bottom: 10px;
-  }
-
-  /* ✅ Nav buttons stay in one horizontal line */
   .nav-links {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    flex-wrap: nowrap;
-    gap: 12px;
+    flex-wrap: wrap;
+    gap: 10px;
     width: 100%;
   }
 
   .nav-links a {
     font-size: 15px;
-    white-space: nowrap;
   }
+
+  /* language button top-right, outside nav links */
+  .language-dropdown {
+    order: -1;
+    align-self: flex-end;
+    margin-top: 0;
+  }
+
+  /* nav-right only wraps nav links, no justify-content: flex-end */
+  .nav-right {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  main { flex-direction: column; align-items: center; }
+  header { height: 350px; }
 }
-
-
-      /* language button top-right, outside nav links (keeps your index behavior) */
-      .language-dropdown {
-        order: -1;
-        align-self: flex-end;
-        margin-top: 0;
-      }
-
-      /* nav-right only wraps nav links, no justify-content: flex-end */
-      .nav-right {
-        width: 100%;
-        justify-content: flex-start;
-      }
-
-      main { flex-direction: column; align-items: center; }
-      header { height: 350px; }
-    }
 
   </style>
 
@@ -380,11 +359,8 @@ header::after {
 <body>
   <header>
     <img id="header-img" src="https://www.indonesia.travel/contentassets/8f4d997bcbb043028c9b12ddd741b005/indonesia-s-best-mountain-climbing-experiences.jpg" alt="Header Banner">
-
     <div class="nav">
       <div class="logo" data-i18n="logo">Meitleit</div>
-
-      <!-- IMPORTANT: nav-links and language grouped under .nav-right to keep desktop alignment -->
       <div class="nav-right">
         <nav class="nav-links" aria-label="Main navigation">
           <a href="index.html" data-i18n="nav_about">About</a>
@@ -392,7 +368,6 @@ header::after {
           <a href="services.html" data-i18n="nav_services">Services</a>
           <a href="contact.html" data-i18n="nav_contact">Contact Us</a>
         </nav>
-
         <div class="language-dropdown" aria-hidden="false">
           <button class="lang-btn" id="langBtn">🌐 <span data-i18n="language">Language ▾</span></button>
           <div class="lang-menu" role="menu" aria-labelledby="langBtn">
@@ -406,6 +381,7 @@ header::after {
     </div>
   </header>
 
+</body>
   <main>
     <section id="products" class="section container">
       <h2 data-i18n="products_title">Our Printers</h2>
@@ -666,4 +642,3 @@ header::after {
   </script>
 </body>
 </html>
-
