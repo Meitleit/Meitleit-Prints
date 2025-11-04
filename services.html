@@ -49,16 +49,17 @@
       pointer-events: none;
     }
 
-    .nav {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 40px;
-      z-index: 10;
-    }
+  .nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* logo left, nav-links middle, lang right */
+  padding: 16px 40px;
+  z-index: 10;
+}
 
     .logo {
       font-weight: 700;
@@ -68,12 +69,14 @@
     }
 
     /* nav links */
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex: 1;
-    }
+   .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex: 1; /* takes up all space between logo and language dropdown */
+  justify-content: flex-start; /* ensures links stay left-aligned inside their flex space */
+}
+
 
     .nav-links a {
       color: #fff;
@@ -268,7 +271,7 @@
 <body>
   <header>
     <img src="https://i0.wp.com/rockmedia.co/wp-content/uploads/2024/04/framework-services-hero.jpg?fit=1500%2C500&ssl=1" alt="Header Banner">
-   <div class="nav">
+ <div class="nav">
   <div class="logo">Meitleit</div>
 
   <nav class="nav-links">
@@ -278,8 +281,7 @@
     <a href="contact.html" data-i18n="nav_contact">Contact Us</a>
   </nav>
 
-  <!-- move language dropdown here -->
-  <div class="language-dropdown" aria-hidden="false">
+  <div class="language-dropdown">
     <button class="lang-btn" id="langBtn">🌐 Language ▾</button>
     <div class="lang-menu" role="menu" aria-labelledby="langBtn">
       <a href="#" data-lang="en">English</a>
@@ -289,6 +291,7 @@
     </div>
   </div>
 </div>
+
 
   </header>
 
