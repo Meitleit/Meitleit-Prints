@@ -215,7 +215,7 @@
 
     /* ---------- Mobile ---------- */
 @media (max-width: 900px) {
-  header { height: 180px; }
+  header { height: 350px; }
 
   .nav {
     flex-direction: column;
@@ -228,16 +228,22 @@
     margin-bottom: 8px;
   }
 
-  /* ✅ keep nav links horizontal */
+  /* keep nav links horizontal and aligned right */
+  .nav-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    gap: 8px;
+  }
+
   .nav-links {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-end;
+    flex-wrap: wrap;
     gap: 14px;
     width: 100%;
-    flex-wrap: wrap; /* allows small wrapping only if screen is very narrow */
-    margin-bottom: 10px;
   }
 
   .nav-links a {
@@ -245,18 +251,10 @@
     white-space: nowrap;
   }
 
-  /* ✅ language button below, left side */
+  /* language below nav links on left side */
   .language-dropdown {
     align-self: flex-start;
-    order: 2;
-    margin-top: 10px;
-  }
-
-  .nav-right {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 10px;
+    margin-top: 6px;
   }
 
   main {
@@ -267,6 +265,8 @@
   .service-card {
     max-width: 400px;
   }
+}
+
 
   header { height: 350px; }
 }
