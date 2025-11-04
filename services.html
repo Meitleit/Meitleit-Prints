@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title data-i18n="services_title">Services — Meitleit Printers</title>
+
   <style>
     :root {
       --bg: #ffffff;
@@ -48,57 +49,50 @@
       pointer-events: none;
     }
 
-.nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* logo left, nav+lang right */
-  padding: 16px 40px;
-  z-index: 10;
-}
+    .nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 40px;
+      z-index: 10;
+    }
 
-.logo {
-  font-weight: 700;
-  color: white;
-  font-size: 24px;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
-  flex-shrink: 0;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 20px; /* space between nav links and language dropdown */
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.nav-links a {
-  color: #fff;
-  font-weight: 600;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-  font-size: 16px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  color: var(--accent);
-}
-
+    .logo {
+      font-weight: 700;
+      color: white;
+      font-size: 24px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      flex-shrink: 0;
+    }
 
     .nav-right {
       display: flex;
       align-items: center;
-      margin-left: 20px;
+      gap: 24px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      font-weight: 600;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+      font-size: 16px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent);
     }
 
     .language-dropdown {
@@ -148,23 +142,7 @@
       transform: translateY(0);
     }
 
-    .lang-menu a {
-      display: block;
-      color: #fff;
-      padding: 10px 14px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-      border-radius: 6px;
-      transition: background 0.18s ease, color 0.18s ease;
-    }
-
-    .lang-menu a:hover {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    /* ---------- Main / Services ---------- */
+    /* ---------- Main ---------- */
     main {
       flex: 1;
       padding: 80px 20px 100px;
@@ -230,7 +208,6 @@
       color: var(--muted);
       font-size: 16px;
       line-height: 1.6;
-      flex: none;
       word-wrap: break-word;
     }
 
@@ -241,43 +218,42 @@
 
     /* ---------- Mobile ---------- */
     @media (max-width: 900px) {
-      header { height: 180px; }
+      header { height: 350px; }
 
       .nav {
         flex-direction: column;
         align-items: flex-start;
-        padding: 12px 20px;
+        padding: 16px 20px;
       }
 
       .logo {
         font-size: 22px;
-        margin-bottom: 8px;
+        margin-bottom: 12px;
       }
 
-      /* ✅ Nav buttons below logo, side-by-side, left-aligned */
+      .nav-right {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 10px;
+      }
+
       .nav-links {
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        gap: 14px;
         justify-content: flex-start;
-        gap: 10px;
-        width: 100%;
-        margin-bottom: 10px;
+        flex: 1;
+      }
+
+      .language-dropdown {
+        margin-top: 6px;
+        align-self: flex-start;
       }
 
       .nav-links a {
         font-size: 15px;
       }
-
-      /* ✅ Language button below nav buttons */
-      .nav-right {
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-        margin-top: 5px;
-      }
-
-      .service-card { max-width: 400px; }
-      header { height: 350px; }
     }
   </style>
 </head>
@@ -289,14 +265,14 @@
     <div class="nav">
       <div class="logo">Meitleit</div>
 
-      <nav class="nav-links">
-        <a href="index.html" data-i18n="nav_about">About</a>
-        <a href="products.html" data-i18n="nav_products">Products</a>
-        <a href="service.html" class="active" data-i18n="nav_services">Services</a>
-        <a href="contact.html" data-i18n="nav_contact">Contact Us</a>
-      </nav>
-
       <div class="nav-right">
+        <nav class="nav-links">
+          <a href="index.html" data-i18n="nav_about">About</a>
+          <a href="products.html" data-i18n="nav_products">Products</a>
+          <a href="service.html" class="active" data-i18n="nav_services">Services</a>
+          <a href="contact.html" data-i18n="nav_contact">Contact Us</a>
+        </nav>
+
         <div class="language-dropdown">
           <button class="lang-btn" id="langBtn">🌐 Language ▾</button>
           <div class="lang-menu" role="menu" aria-labelledby="langBtn">
@@ -323,7 +299,7 @@
       <div class="service-card">
         <h2 data-i18n="service_rental_title">Rental / Short-Term Rental</h2>
         <img src="https://www.experian.com/blogs/ask-experian/wp-content/uploads/family-of-three-trying-to-determine-difference-between-leasing-and-renting.jpg.webp" alt="Rental Service">
-        <p data-i18n="service_rental_text">Need a temporary printer solution? Our rental service provides flexible short-term and long-term options to meet your business needs with the most affortable deals starting at just RM60/Month.</p>
+        <p data-i18n="service_rental_text">Need a temporary printer solution? Our rental service provides flexible short-term and long-term options to meet your business needs with the most affordable deals starting at just RM60/Month.</p>
       </div>
 
       <div class="service-card">
@@ -355,15 +331,21 @@
       let closeTimer = null;
       function openMenu() { dropdown.classList.add('open'); }
       function closeMenu() { dropdown.classList.remove('open'); }
-      dropdown.addEventListener('mouseenter', () => { if (closeTimer){ clearTimeout(closeTimer); closeTimer = null; } openMenu(); });
-      dropdown.addEventListener('mouseleave', () => { closeTimer = setTimeout(() => { closeMenu(); closeTimer = null; }, 200); });
-      const btn = dropdown.querySelector('.lang-btn');
-      btn.addEventListener('click', (e) => { e.preventDefault(); if (dropdown.classList.contains('open')) closeMenu(); else openMenu(); });
-      dropdown.querySelectorAll('[data-lang]').forEach(el => {
-        el.addEventListener('focus', () => { openMenu(); });
-        el.addEventListener('blur', () => { closeTimer = setTimeout(() => closeMenu(), 200); });
+      dropdown.addEventListener('mouseenter', () => {
+        if (closeTimer){ clearTimeout(closeTimer); closeTimer = null; }
+        openMenu();
       });
-      dropdown.querySelector('.lang-menu').addEventListener('click', (e) => { e.stopPropagation(); });
+      dropdown.addEventListener('mouseleave', () => {
+        closeTimer = setTimeout(() => {
+          closeMenu(); closeTimer = null;
+        }, 200);
+      });
+      const btn = dropdown.querySelector('.lang-btn');
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (dropdown.classList.contains('open')) closeMenu();
+        else openMenu();
+      });
     })();
   </script>
 
