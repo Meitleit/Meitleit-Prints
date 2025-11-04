@@ -1,209 +1,285 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title data-i18n="services_title">Services — Meitleit Printers</title>
-
   <style>
-  :root {
-    --bg: #ffffff;
-    --text: #0b1220;
-    --muted: #6b7280;
-    --accent: #e60012;
-    --maxw: 1200px;
-    font-family: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  }
+    :root {
+      --bg: #ffffff;
+      --text: #0b1220;
+      --muted: #6b7280;
+      --accent: #e60012;
+      --maxw: 1200px;
+      font-family: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-  /* ---------- Header ---------- */
-  header {
-    position: relative;
-    width: 100%;
-    height: 220px;
-    overflow: hidden;
-  }
+    /* ---------- Header ---------- */
+    header {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+    }
 
-  header img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
+    header img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-  header::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.25) 50%, rgba(255,255,255,1) 100%);
-    pointer-events: none;
-  }
-
-  .nav {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 40px;
-    z-index: 10;
-  }
-
-  .logo {
-    font-weight: 700;
-    color: white;
-    font-size: 24px;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.4);
-    flex-shrink: 0;
-  }
-
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-  }
-
-  .nav-links a {
-    color: #fff;
-    font-weight: 600;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-    font-size: 16px;
-    text-decoration: none;
-    transition: 0.3s;
-  }
-
-  .nav-links a:hover,
-  .nav-links a.active {
-    color: var(--accent);
-  }
-
-  .language-dropdown {
-    position: relative;
-    display: inline-block;
-    z-index: 60;
-  }
-
-  .lang-btn {
-    background: none;
-    border: none;
-    color: #fff;
-    font-weight: 600;
-    font-size: 16px;
-    cursor: pointer;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-    transition: color 0.28s ease, transform 0.18s ease;
-    padding: 0;
-    line-height: 1;
-  }
-
-  .lang-btn:hover, .lang-btn.active {
-    color: var(--accent);
-    transform: translateY(-2px);
-  }
-
-  .lang-menu {
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(10px);
-    position: absolute;
-    top: 34px;
-    left: 0;
-    background: #000;
-    min-width: 160px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-    padding: 6px;
-    max-height: 90px;
-    overflow-y: auto;
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
-
-  .language-dropdown.open .lang-menu {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .lang-menu a {
-    display: block;
-    color: #fff;
-    padding: 10px 14px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 15px;
-    border-radius: 6px;
-    transition: background 0.18s ease, color 0.18s ease;
-  }
-
-  .lang-menu a:hover { background: var(--accent); color: #fff; }
-
-  /* ---------- Mobile ---------- */
-  @media (max-width: 900px) {
-    header { height: 350px; }
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.25) 50%, rgba(255,255,255,1) 100%);
+      pointer-events: none;
+    }
 
     .nav {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 16px 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* ✅ same as index */
+      padding: 16px 40px;
+      z-index: 10;
     }
 
     .logo {
-      font-size: 22px;
-      margin-bottom: 12px;
-    }
-
-    .nav-right {
-      flex-direction: column;
-      align-items: flex-start;
-      width: 100%;
-      gap: 10px;
+      font-weight: 700;
+      color: white;
+      font-size: 24px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+      flex-shrink: 0;
     }
 
     .nav-links {
       display: flex;
-      flex-wrap: nowrap;
-      gap: 14px;
-      justify-content: flex-start;
-      flex: 1;
-    }
-
-    .language-dropdown {
-      margin-top: 6px;
-      align-self: flex-start;
+      align-items: center;
+      gap: 18px;
+      margin-left: 40px;
     }
 
     .nav-links a {
-      font-size: 15px;
+      color: #fff;
+      font-weight: 600;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+      font-size: 16px;
+      text-decoration: none;
+      transition: 0.3s;
     }
-  }
-</style>
 
-<header>
-  <img src="https://i0.wp.com/rockmedia.co/wp-content/uploads/2024/04/framework-services-hero.jpg?fit=1500%2C500&ssl=1" alt="Header Banner">
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
 
-  <div class="nav">
-    <div class="logo">Meitleit</div>
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
 
-    <div class="nav-right">
+    .language-dropdown {
+      position: relative;
+      display: inline-block;
+      z-index: 60;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+      transition: color 0.28s ease, transform 0.18s ease;
+      padding: 0;
+      line-height: 1;
+    }
+
+    .lang-btn:hover, .lang-btn.active {
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .lang-menu {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(10px);
+      position: absolute;
+      top: 34px;
+      left: 0;
+      background: #000;
+      min-width: 160px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      padding: 6px;
+      max-height: 90px;
+      overflow-y: auto;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .language-dropdown.open .lang-menu {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .lang-menu a {
+      display: block;
+      color: #fff;
+      padding: 10px 14px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: 6px;
+      transition: background 0.18s ease, color 0.18s ease;
+    }
+
+    .lang-menu a:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* ---------- Main / Services ---------- */
+    main {
+      flex: 1;
+      padding: 80px 20px 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: var(--bg);
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    h1 {
+      color: var(--accent);
+      font-size: 42px;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .service-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      max-width: var(--maxw);
+      align-items: stretch;
+    }
+
+    .service-card {
+      background: #fff;
+      border: 1px solid rgba(230,0,18,0.1);
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      padding: 30px;
+      text-align: center;
+      flex: 1;
+      min-width: 300px;
+      max-width: 350px;
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-height: 520px;
+      height: auto;
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    .service-card:hover { transform: translateY(-5px); }
+
+    .service-card h2 {
+      color: var(--accent);
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+      flex: none;
+      word-wrap: break-word;
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---------- Mobile (match index.html) ---------- */
+    @media (max-width: 900px) {
+      header { height: 350px; }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px 20px;
+      }
+
+      .logo {
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+
+      /* ✅ Horizontal nav buttons below logo */
+      .nav-links {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        width: 100%;
+        gap: 15px;
+        margin-bottom: 10px;
+      }
+
+      .nav-links a {
+        font-size: 15px;
+      }
+
+      /* ✅ Language button below all links (left) */
+      .nav-right {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 8px;
+      }
+
+      .language-dropdown {
+        order: 2;
+        align-self: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://i0.wp.com/rockmedia.co/wp-content/uploads/2024/04/framework-services-hero.jpg?fit=1500%2C500&ssl=1" alt="Header Banner">
+
+    <div class="nav">
+      <div class="logo">Meitleit</div>
+
       <nav class="nav-links">
         <a href="index.html" data-i18n="nav_about">About</a>
         <a href="products.html" data-i18n="nav_products">Products</a>
@@ -211,50 +287,56 @@
         <a href="contact.html" data-i18n="nav_contact">Contact Us</a>
       </nav>
 
-      <div class="language-dropdown">
-        <button class="lang-btn" id="langBtn">🌐 Language ▾</button>
-        <div class="lang-menu" role="menu" aria-labelledby="langBtn">
-          <a href="#" data-lang="en">English</a>
-          <a href="#" data-lang="ms">Bahasa Melayu</a>
-          <a href="#" data-lang="zh">简体中文</a>
-          <a href="#" data-lang="ta">தமிழ்</a>
+      <div class="nav-right">
+        <div class="language-dropdown">
+          <button class="lang-btn" id="langBtn">🌐 Language ▾</button>
+          <div class="lang-menu" role="menu" aria-labelledby="langBtn">
+            <a href="#" data-lang="en">English</a>
+            <a href="#" data-lang="ms">Bahasa Melayu</a>
+            <a href="#" data-lang="zh">简体中文</a>
+            <a href="#" data-lang="ta">தமிழ்</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 
   <main>
     <h1 data-i18n="services_heading">Our Services</h1>
 
-```
-<div class="service-container">
-  <div class="service-card">
-    <h2 data-i18n="service_repair_title">Servicing And Repairing</h2>
-    <img src="https://www.shutterstock.com/image-photo/business-man-opening-photocopy-machine-600nw-383160520.jpg" alt="Repairing Service">
-    <p data-i18n="service_repair_text">Our expert technicians specialize in repairing all major brands of printers and copiers. We ensure your equipment is restored to top performance quickly and efficiently, minimizing downtime for your business.</p>
-  </div>
+    <div class="service-container">
+      <div class="service-card">
+        <h2 data-i18n="service_repair_title">Servicing And Repairing</h2>
+        <img src="https://www.shutterstock.com/image-photo/business-man-opening-photocopy-machine-600nw-383160520.jpg" alt="Repairing Service">
+        <p data-i18n="service_repair_text">
+          Our expert technicians specialize in repairing all major brands of printers and copiers. We ensure your equipment is restored to top performance quickly and efficiently, minimizing downtime for your business.
+        </p>
+      </div>
 
-  <div class="service-card">
-    <h2 data-i18n="service_rental_title">Rental / Short-Term Rental</h2>
-    <img src="https://www.experian.com/blogs/ask-experian/wp-content/uploads/family-of-three-trying-to-determine-difference-between-leasing-and-renting.jpg.webp" alt="Rental Service">
-    <p data-i18n="service_rental_text">Need a temporary printer solution? Our rental service provides flexible short-term and long-term options to meet your business needs with the most affortable deals starting at just RM60/Month.</p>
-  </div>
+      <div class="service-card">
+        <h2 data-i18n="service_rental_title">Rental / Short-Term Rental</h2>
+        <img src="https://www.experian.com/blogs/ask-experian/wp-content/uploads/family-of-three-trying-to-determine-difference-between-leasing-and-renting.jpg.webp" alt="Rental Service">
+        <p data-i18n="service_rental_text">
+          Need a temporary printer solution? Our rental service provides flexible short-term and long-term options to meet your business needs with the most affordable deals starting at just RM60/Month.
+        </p>
+      </div>
 
-  <div class="service-card">
-    <h2 data-i18n="service_delivery_title">Delivering</h2>
-    <img src="https://media.istockphoto.com/id/905865682/photo/portrait-of-courier-with-digital-tablet-delivering-package.jpg?s=612x612&w=0&k=20&c=WbZu7QdzQHVqqgKI78SA4bGLzKo7jZqp5jYaGPvQaRs=" alt="Delivery Service">
-    <p data-i18n="service_delivery_text">We offer reliable delivery services for all equipment purchases and rentals. Our logistics team ensures your products are delivered safely, on time, and ready to use without hassle.</p>
-  </div>
+      <div class="service-card">
+        <h2 data-i18n="service_delivery_title">Delivering</h2>
+        <img src="https://media.istockphoto.com/id/905865682/photo/portrait-of-courier-with-digital-tablet-delivering-package.jpg?s=612x612&w=0&k=20&c=WbZu7QdzQHVqqgKI78SA4bGLzKo7jZqp5jYaGPvQaRs=" alt="Delivery Service">
+        <p data-i18n="service_delivery_text">
+          We offer reliable delivery services for all equipment purchases and rentals. Our logistics team ensures your products are delivered safely, on time, and ready to use without hassle.
+        </p>
+      </div>
 
-  <div class="service-card">
-    <h2 data-i18n="service_it_title">IT Support</h2>
-    <img src="https://media.istockphoto.com/id/514583028/photo/african-man-fixing-photo-copier.jpg?s=612x612&w=0&k=20&c=U1fLCGLDUAMmnf2wV0WQgdKG4m7jstZ-Zc4srn7ZWkw=" alt="Installation Service">
-    <p data-i18n="service_it_text">Our dedicated IT Support team provides comprehensive technical assistance for photocopiers, including troubleshooting, network setup, software configuration, and ongoing maintenance to ensure smooth and reliable performance..</p>
-  </div>
-</div>
-```
-
+      <div class="service-card">
+        <h2 data-i18n="service_it_title">IT Support</h2>
+        <img src="https://media.istockphoto.com/id/514583028/photo/african-man-fixing-photo-copier.jpg?s=612x612&w=0&k=20&c=U1fLCGLDUAMmnf2wV0WQgdKG4m7jstZ-Zc4srn7ZWkw=" alt="Installation Service">
+        <p data-i18n="service_it_text">
+          Our dedicated IT Support team provides comprehensive technical assistance for photocopiers, including troubleshooting, network setup, software configuration, and ongoing maintenance to ensure smooth and reliable performance.
+        </p>
+      </div>
+    </div>
   </main>
 
   <div id="footer"></div>
@@ -265,23 +347,28 @@
       .then(response => response.text())
       .then(data => document.getElementById("footer").innerHTML = data);
 
-    // language dropdown
+    // language dropdown (same JS as other pages)
     (function(){
       const dropdown = document.querySelector('.language-dropdown');
       if (!dropdown) return;
       let closeTimer = null;
       function openMenu() { dropdown.classList.add('open'); }
       function closeMenu() { dropdown.classList.remove('open'); }
-      dropdown.addEventListener('mouseenter', () => { if (closeTimer){ clearTimeout(closeTimer); closeTimer = null; } openMenu(); });
-      dropdown.addEventListener('mouseleave', () => { closeTimer = setTimeout(() => { closeMenu(); closeTimer = null; }, 200); });
+      dropdown.addEventListener('mouseenter', () => {
+        if (closeTimer){ clearTimeout(closeTimer); closeTimer = null; }
+        openMenu();
+      });
+      dropdown.addEventListener('mouseleave', () => {
+        closeTimer = setTimeout(() => { closeMenu(); closeTimer = null; }, 200);
+      });
       const btn = dropdown.querySelector('.lang-btn');
-      btn.addEventListener('click', (e) => { e.preventDefault(); if (dropdown.classList.contains('open')) closeMenu(); else openMenu(); });
-      dropdown.querySelectorAll('[data-lang]').forEach(el => { el.addEventListener('focus', () => { openMenu(); }); el.addEventListener('blur', () => { closeTimer = setTimeout(() => closeMenu(), 200); }); });
-      dropdown.querySelector('.lang-menu').addEventListener('click', (e) => { e.stopPropagation(); });
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('open');
+      });
     })();
   </script>
 
   <script src="translate.js" defer></script>
-
 </body>
 </html>
