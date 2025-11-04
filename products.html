@@ -148,25 +148,28 @@ header::after {
 
 /* ✅ Mobile layout (matches index.html) */
 @media (max-width: 900px) {
-  header { height: 350px; }
+  header {
+    height: 350px;
+  }
 
   .nav {
     flex-direction: column;
     align-items: flex-start;
-    padding: 12px 20px;
+    padding: 16px 20px;
   }
 
   .logo {
     font-size: 22px;
     margin-bottom: 10px;
+    align-self: flex-start;
   }
 
+  /* ✅ Navigation buttons side-by-side below the logo */
   .nav-links {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 12px;
+    flex-wrap: nowrap;
     justify-content: flex-start;
+    gap: 12px;
     margin-bottom: 8px;
   }
 
@@ -174,53 +177,19 @@ header::after {
     font-size: 15px;
   }
 
+  /* ✅ Language button below nav links, left-aligned */
   .language-dropdown {
     align-self: flex-start;
-    margin-top: 5px;
+    margin-top: 4px;
+  }
+
+  /* Keep dropdown functional */
+  .lang-menu {
+    left: 0;
+    right: auto;
   }
 }
 
-
-    .lang-btn {
-      background: none;
-      border: none;
-      color: #fff;
-      font-weight: 600;
-      font-size: 16px;
-      cursor: pointer;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-      padding: 0;
-      line-height: 1;
-    }
-
-    .lang-btn:hover, .lang-btn.active {
-      color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .lang-menu {
-      visibility: hidden;
-      opacity: 0;
-      transform: translateY(10px);
-      position: absolute;
-      top: 34px;
-      left: 0;
-      background: #000;
-      min-width: 160px;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-      padding: 6px;
-      max-height: 240px;
-      overflow-y: auto;
-      transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
-      z-index: 60;
-    }
-
-    .language-dropdown.open .lang-menu {
-      visibility: visible;
-      opacity: 1;
-      transform: translateY(0);
-    }
 
     .lang-menu a {
       display: block;
