@@ -61,41 +61,42 @@
   z-index: 10;
 }
 
-    .logo {
-      font-weight: 700;
-      color: white;
-      font-size: 24px;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.4);
-    }
+.logo {
+  font-weight: 700;
+  color: white;
+  font-size: 24px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  flex-shrink: 0; /* prevents logo from shrinking */
+}
 
-    /* nav links */
-   .nav-links {
+/* nav links */
+.nav-links {
   display: flex;
   align-items: center;
   gap: 18px;
-  flex: 1; /* takes up all space between logo and language dropdown */
-  justify-content: flex-start; /* ensures links stay left-aligned inside their flex space */
+  flex-grow: 1;          /* grows to fill space between logo and language */
+  justify-content: flex-start; 
 }
 
+.nav-links a {
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  transition: 0.3s;
+  font-size: 16px;
+  text-decoration: none;
+}
 
-    .nav-links a {
-      color: #fff;
-      font-weight: 600;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-      transition: 0.3s;
-      font-size: 16px;
-      text-decoration: none;
-    }
+.nav-links a:hover { color: var(--accent); }
+.nav-links a.active { color: var(--accent); }
 
-    .nav-links a:hover { color: var(--accent); }
-    .nav-links a.active { color: var(--accent); }
-
-    /* language dropdown (same structure & behavior) */
-    .language-dropdown {
-      position: relative;
-      display: inline-block;
-      z-index: 60;
-    }
+/* language dropdown */
+.language-dropdown {
+  position: relative;
+  display: inline-block;
+  z-index: 60;
+  flex-shrink: 0; /* keeps dropdown from shrinking */
+}
 
     .lang-btn {
       background: none;
