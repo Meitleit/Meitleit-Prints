@@ -119,28 +119,40 @@
       transform: translateY(-2px);
     }
 
-    .lang-menu {
+  .lang-menu {
       visibility: hidden;
       opacity: 0;
       transform: translateY(10px);
       position: absolute;
       top: 34px;
-      left: 0;
+      right: 0;
       background: #000;
       min-width: 160px;
       border-radius: 10px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.35);
       padding: 6px;
-      max-height: 90px;
+      max-height: 240px;
       overflow-y: auto;
-      transition: opacity 0.4s ease, transform 0.4s ease;
+      transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+      z-index: 60;
     }
-
     .language-dropdown.open .lang-menu {
       visibility: visible;
       opacity: 1;
       transform: translateY(0);
     }
+    .lang-menu a {
+      display: block;
+      color: #fff;
+      padding: 10px 14px;
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+    .lang-menu a:hover { background: var(--accent); }
+    main { padding: 60px 0 180px 0; }
+
 
     /* ---------- Main ---------- */
     main {
